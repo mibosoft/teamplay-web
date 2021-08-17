@@ -8,8 +8,6 @@ class Arenas {
 		$content = getContent($restCmd,$url);
 		
 		return json_decode($content, false);
-		
-//		return simplexml_load_file ( $baseUrl . $folder . '/spelplatser.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
 	}
 }
 ?>
