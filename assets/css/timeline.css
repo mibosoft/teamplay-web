@@ -1,0 +1,123 @@
+/*===== Vertical Timeline =====*/
+#conference-timeline {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+#conference-timeline:before,
+#conference-timeline:after {
+  position: absolute;
+  left: 50%;
+  display: table;
+  font-size: 13px;
+  font-family: "FontAwesome";
+  background: #ccc;
+  padding: 5px 15px;
+  transform: translateX(-50%);
+  max-width: 5%;
+  width: 100%;
+  border-radius: 15%;
+  text-align: center;
+}
+#conference-timeline:before {
+  content: "\f00c";
+  top: 0;
+}
+#conference-timeline:after {
+  content: "\f062";
+  bottom: 0;
+}
+#conference-timeline .conference-center-line {
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  margin-left: -2px;
+  background: #777;
+  z-index: -1;
+}
+#conference-timeline .conference-timeline-content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.timeline-event {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.timeline-event .content-left,
+.timeline-event .content-right {
+  position: relative;
+  width: 40%;
+  background-color: #e6e6e6;
+  box-shadow: 0 1px 3px rgba(0,0,0,.03);
+  padding: 10px 10px;
+}
+.timeline-event p {
+  margin: 0 0 0 60px;
+  padding: 0;
+  line-height: 20px;
+  min-height: 20px;
+  position: relative;
+}
+.timeline-event p span.event-number {
+  top: 4px;
+  position: absolute;
+  font-weight: 700;
+  left: -60px;
+}
+.timeline-event .content-left {
+  top: 1px;
+  float: left;
+  border-radius: 10%;
+}
+.timeline-event .content-right {
+  top: 1px;
+  float: right;
+  border-radius: 10%;
+}
+.timeline-event .content-left:before,
+.timeline-event .content-right:before{
+  position: absolute;
+  top: 5px;
+  font-size: 23px;
+  font-family: "FontAwesome";
+  color: #e6e6e6;
+}
+.timeline-event .content-left:before {
+  content: "\f0da";
+  top: 5px;
+  right: -8px;
+}
+.timeline-event .content-right:before {
+  content: "\f0d9";
+  top: 5px;
+  left: -8px;
+}
+.timeline-event .meta-time {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: -21px;
+  border-radius: 100%;
+  background: #ccc;
+}
+.timeline-event .meta-time .time,
+.timeline-event .meta-time .month {
+  display: block;
+  text-align: center;
+  font-weight: 450;
+}
+.timeline-event .meta-time .time {
+  line-height: 40px;
+}
+.timeline-event .meta-time .month {
+  font-size: 16px;
+  line-height: 0px;
+}
+/*===== // Vertical Timeline =====*/

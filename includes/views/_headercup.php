@@ -1,0 +1,1 @@
+<?php $GLOBALS['layout'] == 1 ? include "_headercupfull.php" : include "_headercupsimple.php" ?>
