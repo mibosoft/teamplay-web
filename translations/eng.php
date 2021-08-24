@@ -89,6 +89,7 @@ define ("S_PIM","PIM");
 define ("S_G","G");
 define ("S_A","A");
 define ("S_PTS","PTS");
+define ("S_PTS_GP","PTS/GP");
 define ("S_PIM_GP","PIM/GP");
 define ("S_GF","GF");
 define ("S_GA","GA");
