@@ -131,7 +131,11 @@
         
         <p><?php echo $baseInfo->bas->sidokol?></p>
         <div class="col-md-12" align="center">
-          <p><h4><span class="label label-danger"><?php echo (date("Y-m-d")<=$baseInfo->bas->start_dat) ? howManyDays(date("Y-m-d"),$baseInfo->bas->start_dat) . "</span> " . S_DAGARKVAR : "" ?></h4></p>
+          <p>
+		        <h4>
+			        <?php echo (date("Y-m-d")<=$baseInfo->bas->start_dat) ? '<span class="label label-danger">' . howManyDays(date("Y-m-d"),$baseInfo->bas->start_dat) . "</span> " . S_DAGARKVAR : "" ?>
+		        </h4>
+		      </p>
         </div>
 
         </div>
