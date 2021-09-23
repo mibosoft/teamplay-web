@@ -21,7 +21,7 @@ include "common.php";
 require_once "includes/main.php";
 
 try {
-    
+
     if (isset($_GET['help'])) {
         render('help_start', array(
             'title' => $defaultTitle
@@ -84,7 +84,7 @@ try {
         $c = new CupdirController("");
     }
     // else throw new Exception('Wrong page!');
-    
+
     $c->handleRequest();
 } catch (Exception $e) {
     // Display the error page using the "render()" helper function:
@@ -92,5 +92,3 @@ try {
         'message' => $e->getMessage()
     ));
 }
-
-?>

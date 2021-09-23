@@ -1,15 +1,17 @@
 <?php
-class Places {
-    public static function getPlaces($folder,$type) {
-        global $baseUrl;
+class Places
+{
+	public static function getPlaces($folder, $type)
+	{
+		global $baseUrl;
 
-        $restCmd = "rest/places/$folder/$type";
-        $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
-        return json_decode($content, false);
-    }
-/*
+		$restCmd = "rest/places/$folder/$type";
+		$url = $baseUrl . rawurlencode($restCmd);
+		$content = getContent($restCmd, $url);
+
+		return json_decode($content, false);
+	}
+	/*
     public static function getAllPlaces($folder) {
 		global $baseUrl;
 		return simplexml_load_file ( $baseUrl . $folder . '/platser.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
@@ -37,4 +39,3 @@ class Places {
 	}
 */
 }
-?>

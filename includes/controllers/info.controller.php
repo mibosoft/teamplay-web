@@ -1,34 +1,33 @@
 <?php
 
 /* This controller renders the home page */
-class InfoController {
+class InfoController
+{
 	public $msgtxt = "";
-	public function handleRequest() {
+	public function handleRequest()
+	{
 		try {
-			switch ($_SERVER ['REQUEST_METHOD']) {
-				case 'GET' :
-					$folder = $_GET ['home'];
-					$baseInfo = CupInfo::getBaseInfo ( $folder );
-					$settings = Settings::getSettings ( $folder );
-					$menuItems = UserPages::getMenuItems ( $folder );
-					render ( 'info', array (
-							'msgtxt' => $this->msgtxt,
-							'settings' => $settings,
-							'menuItems' => $menuItems,
-							'baseInfo' => $baseInfo 
-					) );
-					
+			switch ($_SERVER['REQUEST_METHOD']) {
+				case 'GET':
+					$folder = $_GET['home'];
+					$baseInfo = CupInfo::getBaseInfo($folder);
+					$settings = Settings::getSettings($folder);
+					$menuItems = UserPages::getMenuItems($folder);
+					render('info', array(
+						'msgtxt' => $this->msgtxt,
+						'settings' => $settings,
+						'menuItems' => $menuItems,
+						'baseInfo' => $baseInfo
+					));
+
 					break;
-				default :
+				default:
 			}
-		} catch ( Exception $e ) {
+		} catch (Exception $e) {
 			// Display the error page using the "render()" helper function:
-			render ( 'error', array (
-					'message' => $e->getMessage () 
-			) );
+			render('error', array(
+				'message' => $e->getMessage()
+			));
 		}
 	}
 }
-
-?>
-	

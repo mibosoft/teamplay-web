@@ -6,13 +6,13 @@ class Teams
     public static function getTeams($folder, $scope, $team)
     {
         global $baseUrl;
-        
-        $restCmd = "rest/teams/$folder/$scope/" . str_replace('/','|',$team);  // Need to encode forward slashes due to the REST API. Decoded in tpserver_api.php.
+
+        $restCmd = "rest/teams/$folder/$scope/" . str_replace('/', '|', $team);  // Need to encode forward slashes due to the REST API. Decoded in tpserver_api.php.
         $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
+        $content = getContent($restCmd, $url);
+
         return json_decode($content, false);
-        
+
         /*
          * $allTeams = simplexml_load_file ( $baseUrl . $folder . '/lag.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -37,4 +37,3 @@ class Teams
          */
     }
 }
-?>

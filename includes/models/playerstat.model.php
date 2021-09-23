@@ -1,14 +1,16 @@
 <?php
-class PlayerStat {
-	public static function getStat($folder, $scope) {
+class PlayerStat
+{
+	public static function getStat($folder, $scope)
+	{
 		global $baseUrl;
-		
+
 		$restCmd = "rest/playerstats/$folder/$scope";
 		$url = $baseUrl . rawurlencode($restCmd);
-		$content = getContent($restCmd,$url);
-		
+		$content = getContent($restCmd, $url);
+
 		return json_decode($content, false);
-/*		
+		/*		
 		$allStat = simplexml_load_file ( $baseUrl . $folder . '/spelarstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
 		
 		if (empty ( $allStat )) {
@@ -24,4 +26,3 @@ class PlayerStat {
 */
 	}
 }
-?>

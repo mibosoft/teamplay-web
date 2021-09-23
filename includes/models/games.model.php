@@ -6,13 +6,13 @@ class Games
     public static function getGames($folder, $scope)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/games/$folder/$scope";
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
-        
+
         // Variant där alla matcher läses in och sedan filter på arrayen
         /*
          *
@@ -32,15 +32,15 @@ class Games
          * });
          * }
          */
-        
+
         // return $games;
-        
+
         /*
          * return array_filter($json_output, function ($obj) use ($scope) {
          * return $obj->grp_nr == $scope;
          * });
          */
-        
+
         /*
          * $json_output = json_decode($content, false);
          *
@@ -50,14 +50,14 @@ class Games
          *
          */
         // return json_decode($content, false);
-        
+
         // Exempel filtrera json
         /*
          * $houseSparrow = array_filter($json_output, function ($obj) {
          * return $obj->comName == "House Sparrow";
          * });
          */
-        
+
         /*
          * $allGames = simplexml_load_file ( $baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -75,13 +75,13 @@ class Games
     public static function getGamesArena($folder, $arena, $field)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/gamesarena/$folder/$arena/$field";
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
-        
+
         /*
          * $allGames = simplexml_load_file ( $baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -92,11 +92,11 @@ class Games
     public static function getGamesTeam($folder, $scope, $team)
     {
         global $baseUrl;
-        
-        $restCmd = "rest/gamesteam/$folder/$scope/" . str_replace('/','|',$team);  // Need to encode forward slashes due to the REST API. Decoded in tpserver_api.php. 
+
+        $restCmd = "rest/gamesteam/$folder/$scope/" . str_replace('/', '|', $team);  // Need to encode forward slashes due to the REST API. Decoded in tpserver_api.php. 
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
         /*
          * $allGames = simplexml_load_file ( $baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
@@ -108,13 +108,13 @@ class Games
     public static function getGamesClass($folder, $scope)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/gamesclass/$folder/$scope";
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
-        
+
         /*
          * // Strip group number
          * if (strpos($scope, '-')) {
@@ -139,13 +139,13 @@ class Games
     public static function getGamesLatest($folder)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/gameslatest/$folder";
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
-        
+
         /*
          * $allGames = simplexml_load_file($baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
          *
@@ -166,11 +166,11 @@ class Games
     public static function getGamesUnplayed($folder)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/gamesunplayed/$folder";
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
-        
+
         return json_decode($content, false);
         /*
          * $allGames = simplexml_load_file($baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
@@ -180,4 +180,3 @@ class Games
          */
     }
 }
-?>

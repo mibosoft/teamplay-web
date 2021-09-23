@@ -6,13 +6,13 @@ class Fairplay
     public static function getFairplay($folder, $scope)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/fairplay/$folder/$scope";
         $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
+        $content = getContent($restCmd, $url);
+
         return json_decode($content, false);
-        
+
         /*
          * $allData = simplexml_load_file ( $baseUrl . $folder . '/fairplay.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -29,4 +29,3 @@ class Fairplay
          */
     }
 }
-?>

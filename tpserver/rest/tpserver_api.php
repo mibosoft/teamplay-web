@@ -20,10 +20,10 @@ class MyAPI extends API
         // 0: folder, 1: year, 2: scope
         $this->folder = $this->args[0] . "/" . $this->args[1];
         $this->scope = $this->args[2];
-// Forward slash does not work with this REST API so rewrite in case the sender encoded them with '|'        
-        $this->param4 = str_replace('|','/',$this->args[3]);
-        $this->param5 = str_replace('|','/',$this->args[4]);
-        
+        // Forward slash does not work with this REST API so rewrite in case the sender encoded them with '|'        
+        $this->param4 = str_replace('|', '/', $this->args[3]);
+        $this->param5 = str_replace('|', '/', $this->args[4]);
+
         // Add authentication, model initialization, etc here
     }
 
@@ -34,15 +34,16 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . 'cuper.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             $selectedCups = $xml->xpath('cuper[active="true"]');
-            
+
             foreach ($selectedCups as $cup) {
                 $xml = simplexml_load_file($this->baseUrl . $cup->folder . '/info.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-                if (false === $xml) {} else {
+                if (false === $xml) {
+                } else {
                     $cup->addchild('cupnamn');
                     $cup->cupnamn = $xml->bas->namn;
                     $cup->addchild('arr');
@@ -68,7 +69,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/info.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml;
@@ -85,10 +86,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/grupp.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if (empty($this->scope)) {
                 $classes = $xml->xpath('tpdb_grupp[grp_typ="T"]');
             } else {
@@ -105,20 +106,20 @@ class MyAPI extends API
                  * </lag>
                  * </grupp>
                  */
-                
+
                 // Strip group number
                 if (strpos($this->scope, '-')) {
                     $this->scope = substr($this->scope, 0, strcspn($this->scope, '-'));
                 }
-                
+
                 if ($this->scope == "all" or empty($this->scope)) {
                     $classes = $xml->xpath('tpdb_grupp[grp_typ="T"]');
                 } else {
                     $classes = $xml->xpath('tpdb_grupp[grp_typ="T" and grp_nr="' . $this->scope . '"]');
                 }
-                
-                for ($i = 0; $i < count($classes); $i ++) {
-                    for ($j = 1; $j <= 32; $j ++) {
+
+                for ($i = 0; $i < count($classes); $i++) {
+                    for ($j = 1; $j <= 32; $j++) {
                         $groupNo = $classes[$i]->grp_nr . '-' . strval($j);
                         $serie = $xml->xpath('tpdb_grupp[grp_nr="' . $groupNo . '"]');
                         if (count($serie) == 0) {
@@ -131,7 +132,7 @@ class MyAPI extends API
                         $group->grp_nr = $classes[$i]->grp_nr . '-' . $j;
                         $group->addchild("grp_namn");
                         $group->grp_namn = $serie[0]->grp_namn;
-                        for ($k = 1; $k <= 16; $k ++) {
+                        for ($k = 1; $k <= 16; $k++) {
                             $teamNamePointer = 'obj_' . strval($k);
                             $lkodPointer = 'memo_' . strval($k);
                             if ($serie[0]->{$teamNamePointer} == "") {
@@ -161,10 +162,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 $games = $xml->xpath('tpdb_schema[grp_nr != ""]');
             } elseif ($this->scope == "booked") {
@@ -186,7 +187,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('tpdb_schema[spelplats="' . $this->scope . '" and plan="' . $this->param4 . '"]');
@@ -199,7 +200,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('tpdb_schema[(grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")) and (hemma="' . $this->param4 . '" or borta="' . $this->param4 . '")]');
@@ -216,10 +217,10 @@ class MyAPI extends API
                 $this->scope = substr($this->scope, 0, strcspn($this->scope, '-'));
             }
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             return $xml->xpath('tpdb_schema[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")]');
             // return $xml->xpath('tpdb_schema[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-") and datum != ""]');
         } else {
@@ -230,14 +231,14 @@ class MyAPI extends API
     protected function gameslatest()
     {
         if ($this->method == 'GET') {
-            
+
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             $games = $xml->xpath('tpdb_schema[datum != "" and status != "0"]');
-            
+
             // Sort
             $sort = array();
             foreach ($games as $k => $v) {
@@ -245,7 +246,7 @@ class MyAPI extends API
                 $sort['tid'][$k] = (array) $v->tid;
             }
             array_multisort($sort['datum'], SORT_DESC, $sort['tid'], SORT_DESC, $games);
-            
+
             return $games;
         } else {
             return "Only accepts GET requests";
@@ -255,15 +256,15 @@ class MyAPI extends API
     protected function gamesunplayed()
     {
         if ($this->method == 'GET') {
-            
+
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             // $games = $xml->xpath('tpdb_schema[status = "0" and dolj != "true"]');
             $games = $xml->xpath('tpdb_schema[status = "0"]'); // Slevik vill se alla. 180601
-            
+
             return $games;
         } else {
             return "Only accepts GET requests";
@@ -277,10 +278,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if (empty($xml)) {
                 return array();
             } else {
@@ -298,7 +299,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/spelplatser.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('tpdb_plats[namn != ""]');
@@ -314,10 +315,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/lag.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 $teams = $xml->xpath('tpdb_klubb[id != ""]');
             } else {
@@ -344,14 +345,14 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/fairplay.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             // if (empty($xml)) {
             // return array();
             // }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 $selectedData = $xml->xpath('statf[klass !=""]');
             } else {
@@ -370,7 +371,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/nyheter.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('nyheter[datumtid !=""]');
@@ -386,7 +387,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchhandelser.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('tpdb_prot[matchnr="' . $this->scope . '"]');
@@ -403,10 +404,10 @@ class MyAPI extends API
         // public static function getPlayers($folder, $scope, $team) {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/personer.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 $people = $xml->xpath('tpdb_medlem[medlem!="" and spe="true"]');
             } elseif (empty($this->param4)) {
@@ -428,10 +429,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/personer.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 $people = $xml->xpath('tpdb_medlem[medlem!="" and led="true"]');
             } elseif (empty($this->param4)) {
@@ -453,7 +454,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/personer.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('tpdb_medlem[dom="true"]');
@@ -469,10 +470,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/platser.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('tpdb_plats[typ!=""]');
             } else {
@@ -490,13 +491,13 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/spelarstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('stats[grp_nr!="" and position()<=200]');  // Begränsa eftersom kan bli extremt många
-//                return $xml->xpath('stats[grp_nr!=""]');
+                //                return $xml->xpath('stats[grp_nr!=""]');
             } else {
                 return $xml->xpath('stats[grp_nr="' . $this->scope . '"]');
             }
@@ -512,10 +513,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/lagstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('statk[grp_nr!=""]');
             } else {
@@ -533,10 +534,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/domarschema.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('statr[domare!=""]');
             } else {
@@ -554,10 +555,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/tabell.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('statt[grp_nr!=""]');
             } else {
@@ -575,11 +576,11 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/grupp.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             $group = $xml->xpath('tpdb_grupp[grp_typ="S" and grp_nr="' . $this->scope . '"]');
-            
+
             if ($group[0]->dolj == 'true') {
                 return true;
             } else {
@@ -597,10 +598,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/sidor.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('sidor[id!=""]');
             } else {
@@ -618,10 +619,10 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/sidor.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
-            
+
             $menuitems = array();
             foreach ($xml->sidor as $item) {
                 $menuitems[] = array(
@@ -643,7 +644,7 @@ class MyAPI extends API
     {
         if ($this->method == 'GET') {
             $xml = simplexml_load_file($this->baseUrl . $this->folder . '/installn.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
-            if (! $xml) {
+            if (!$xml) {
                 exit();
             }
             return $xml->xpath('par[bool1!=""]');
@@ -654,5 +655,3 @@ class MyAPI extends API
 }
 // For debug
 // return array("status" => "success", "endpoint" => $this->endpoint, "verb" => $this->verb, "args" => $this->args, "request" => $this->request);
-
-?>

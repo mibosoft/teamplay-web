@@ -1,15 +1,17 @@
 <?php
-class Lineups {
-	public static function getLineups($folder, $gameno, $team) {
+class Lineups
+{
+	public static function getLineups($folder, $gameno, $team)
+	{
 		global $baseUrl;
-		
+
 		$restCmd = "rest/lineups/$folder/$gameno/$team";
 		$url = $baseUrl . rawurlencode($restCmd);
-		$content = getContent($restCmd,$url);
-		
+		$content = getContent($restCmd, $url);
+
 		return json_decode($content, false);
-		
-/*		
+
+		/*		
 		$allItems = simplexml_load_file ( $baseUrl . $folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
 		
 		if (empty ( $allItems )) {
@@ -20,4 +22,3 @@ class Lineups {
 */
 	}
 }
-?>

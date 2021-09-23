@@ -6,13 +6,13 @@ class People
     public static function getPlayers($folder, $scope, $team)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/players/$folder/$scope/$team";
         $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
+        $content = getContent($restCmd, $url);
+
         return json_decode($content, false);
-        
+
         /*
          * // Strip group number
          * if (strpos ( $scope, '-' )) {
@@ -32,13 +32,13 @@ class People
     public static function getLeaders($folder, $scope, $team)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/leaders/$folder/$scope/$team";
         $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
+        $content = getContent($restCmd, $url);
+
         return json_decode($content, false);
-        
+
         /*
          * // Strip group number
          * if (strpos ( $scope, '-' )) {
@@ -58,13 +58,13 @@ class People
     public static function getReferees($folder)
     {
         global $baseUrl;
-        
+
         $restCmd = "rest/referees/$folder";
         $url = $baseUrl . rawurlencode($restCmd);
-        $content = getContent($restCmd,$url);
-        
+        $content = getContent($restCmd, $url);
+
         return json_decode($content, false);
-        
+
         /*
          * $allPeople = simplexml_load_file ( $baseUrl . $folder . '/personer.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -76,4 +76,3 @@ class People
          */
     }
 }
-?>

@@ -3,7 +3,6 @@
 /* This controller renders the home page */
 class RegistrationController
 {
-
     public $msgtxt = "";
 
     public function handleRequest()
@@ -46,6 +45,3 @@ class RegistrationController
         }
     }
 }
-
-?>
-	

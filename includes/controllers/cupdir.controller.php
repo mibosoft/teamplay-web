@@ -1,48 +1,47 @@
 <?php
 
 /* This controller renders the init page */
-class CupdirController {
+class CupdirController
+{
 	public $msgtxt = "";
-	public function handleRequest() {
+	public function handleRequest()
+	{
 		try {
-			switch ($_SERVER ['REQUEST_METHOD']) {
-				case 'GET' :
-					
-					$completedcups = isset($_GET ['completedcups']);
-					
-					if ($completedcups){
-						$cups = Cupdir::findAll ("");
+			switch ($_SERVER['REQUEST_METHOD']) {
+				case 'GET':
+
+					$completedcups = isset($_GET['completedcups']);
+
+					if ($completedcups) {
+						$cups = Cupdir::findAll("");
 						$title = S_GEMOFORDATURN;
-						
-					}else{
-						$cups = Cupdir::findAll ("active");
+					} else {
+						$cups = Cupdir::findAll("active");
 						$title = S_AKTUELLATURN;
 					}
-					
-					render ( 'cupdir', array (
-							'title' => $title,
-							'msgtxt' => $this->msgtxt,
-							'cups' => $cups 
-					) );
-					
+
+					render('cupdir', array(
+						'title' => $title,
+						'msgtxt' => $this->msgtxt,
+						'cups' => $cups
+					));
+
 					/*
 					 * render ( 'home', array (
 					 * 'title' => 'Hem',
 					 * 'msgtxt' => $this->msgtxt) );
 					 */
 					break;
-				case 'POST' :
-					exit ();
+				case 'POST':
+					exit();
 					break;
-				default :
+				default:
 			}
-		} catch ( Exception $e ) {
+		} catch (Exception $e) {
 			// Display the error page using the "render()" helper function:
-			render ( 'error', array (
-					'message' => $e->getMessage () 
-			) );
+			render('error', array(
+				'message' => $e->getMessage()
+			));
 		}
 	}
 }
-
-?>

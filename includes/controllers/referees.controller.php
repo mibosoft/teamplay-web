@@ -1,36 +1,35 @@
 <?php
 
 /* This controller renders a single team */
-class RefereesController {
+class RefereesController
+{
 	public $msgtxt = "";
-	public function handleRequest() {
+	public function handleRequest()
+	{
 		try {
-			switch ($_SERVER ['REQUEST_METHOD']) {
-				case 'GET' :
-					$folder = $_GET ['home'];
-					$baseInfo = CupInfo::getBaseInfo ( $folder );
-					$settings = Settings::getSettings ( $folder );
-					$menuItems = UserPages::getMenuItems ( $folder );
-					$referees = people::getReferees ( $folder);
-					render ( 'referees', array (
-							'msgtxt' => $this->msgtxt,
-							'baseInfo' => $baseInfo,
-							'settings' => $settings,
-							'menuItems' => $menuItems,
-							'referees' => $referees 
-					) );
-					
+			switch ($_SERVER['REQUEST_METHOD']) {
+				case 'GET':
+					$folder = $_GET['home'];
+					$baseInfo = CupInfo::getBaseInfo($folder);
+					$settings = Settings::getSettings($folder);
+					$menuItems = UserPages::getMenuItems($folder);
+					$referees = people::getReferees($folder);
+					render('referees', array(
+						'msgtxt' => $this->msgtxt,
+						'baseInfo' => $baseInfo,
+						'settings' => $settings,
+						'menuItems' => $menuItems,
+						'referees' => $referees
+					));
+
 					break;
-				default :
+				default:
 			}
-		} catch ( Exception $e ) {
+		} catch (Exception $e) {
 			// Display the error page using the "render()" helper function:
-			render ( 'error', array (
-					'message' => $e->getMessage () 
-			) );
+			render('error', array(
+				'message' => $e->getMessage()
+			));
 		}
 	}
 }
-
-?>
-	

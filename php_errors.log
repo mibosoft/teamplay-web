@@ -8,3 +8,9 @@
 [03-Sep-2021 09:07:24 UTC] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
 [03-Sep-2021 09:07:24 UTC] PHP   2. include() C:\wwwroot\tpweb\serverside\cup\index.php:18
 [03-Sep-2021 09:07:24 UTC] PHP   3. session_start() C:\wwwroot\tpweb\serverside\cup\common.php:2
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\homewide.php on line 124
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP Stack trace:
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:88
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[23-Sep-2021 15:57:16 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:122

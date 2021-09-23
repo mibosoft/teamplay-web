@@ -66,4 +66,3 @@ header('Pragma: cache');
 header("Last-Modified: ".gmdate("D, d M Y H:i:s",time())." GMT");
 header("Expires: ".gmdate("D, d M Y H:i:s",time()+3600)." GMT");
 */
-?>
