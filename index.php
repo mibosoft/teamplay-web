@@ -11,6 +11,10 @@ if (version_compare(PHP_VERSION, '5.6.0', '<')) {
     // require_once ('libraries/password_compatibility_library.php');
 }
 
+// Sanitize gets/posts for security
+$_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
+$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
 // Base config param
 require_once "includes/config.php";
 
