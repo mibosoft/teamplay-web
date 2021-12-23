@@ -27,7 +27,7 @@
 	<hr>
 
 	<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
-	<h3><?php echo S_SPELARE ?></h3>
+	<h3><?php echo S_SPELARE ?> (<a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $team[0]->klass ?>&team=<?php echo urlencode($team[0]->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo strtolower(S_STATISTIK) ?></a>)</h3>
 	<div class="table-responsive">
 		<table class="table table-condensed table-striped">
 			<thead>

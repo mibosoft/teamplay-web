@@ -1,6 +1,6 @@
   <tr>
       <td><?php echo $k->spelare ?></td>
-      <td><a href="?team&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->grp_nr ?>&name=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klubb ?></a></td>
+      <td><a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->grp_nr ?>&team=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klubb ?></a></td>
       <td><?php echo $k->grp_nr ?></td>
       <td><?php echo $k->ant_mtch ?></td>
       <td><?php echo (($baseInfo->bas->st_ass == 'true') ? $k->mal : "<b>" . $k->mal . "</b>") ?></td>

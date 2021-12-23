@@ -498,6 +498,8 @@ class MyAPI extends API
             if ($this->scope == "all" or empty($this->scope)) {
                 return $xml->xpath('stats[grp_nr!="" and position()<=200]');  // Begränsa eftersom kan bli extremt många
                 //                return $xml->xpath('stats[grp_nr!=""]');
+            } elseif (!empty($this->param4)) {
+                return $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
             } else {
                 return $xml->xpath('stats[grp_nr="' . $this->scope . '"]');
             }

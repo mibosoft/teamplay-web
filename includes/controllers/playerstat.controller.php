@@ -11,11 +11,12 @@ class PlayerStatController
 				case 'GET':
 					$folder = $_GET['home'];
 					$scope = $_GET['scope'];
+					$team = $_GET['team'];
 					$baseInfo = CupInfo::getBaseInfo($folder);
 					$settings = Settings::getSettings($folder);
 					$menuItems = UserPages::getMenuItems($folder);
 					$classes = Classes::getClasses($folder, "");
-					$playerstat = PlayerStat::getStat($folder, $scope);
+					$playerstat = PlayerStat::getStat($folder, $scope, $team);
 					render('playerstatistics', array(
 						'msgtxt' => $this->msgtxt,
 						'settings' => $settings,

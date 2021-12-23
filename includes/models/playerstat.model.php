@@ -1,11 +1,11 @@
 <?php
 class PlayerStat
 {
-	public static function getStat($folder, $scope)
+	public static function getStat($folder, $scope, $team)
 	{
 		global $baseUrl;
 
-		$restCmd = "rest/playerstats/$folder/$scope";
+		$restCmd = "rest/playerstats/$folder/$scope/$team";
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 
