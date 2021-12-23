@@ -5,7 +5,7 @@ class PlayerStat
 	{
 		global $baseUrl;
 
-		$restCmd = "rest/playerstats/$folder/$scope/$team";
+		$restCmd = "rest/playerstats/$folder/$scope/" . str_replace('/', '|', $team);
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 

@@ -5,7 +5,7 @@ class Lineups
 	{
 		global $baseUrl;
 
-		$restCmd = "rest/lineups/$folder/$gameno/$team";
+		$restCmd = "rest/lineups/$folder/$gameno/" . str_replace('/', '|', $team);
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 

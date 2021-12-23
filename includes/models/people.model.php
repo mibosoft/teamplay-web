@@ -7,7 +7,7 @@ class People
     {
         global $baseUrl;
 
-        $restCmd = "rest/players/$folder/$scope/$team";
+        $restCmd = "rest/players/$folder/$scope/" . str_replace('/', '|', $team);
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
 
@@ -33,7 +33,7 @@ class People
     {
         global $baseUrl;
 
-        $restCmd = "rest/leaders/$folder/$scope/$team";
+        $restCmd = "rest/leaders/$folder/$scope/" . str_replace('/', '|', $team);
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
 
