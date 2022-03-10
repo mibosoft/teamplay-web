@@ -28,9 +28,11 @@
 
 	<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
 	<h3><?php echo S_SPELARE ?> 
+	<?php echo (empty($players) or $settings[0]->value4 == "0") ? "-->" : "" ?>
 	<?php echo $settings[0]->value6 == "1" ? "" : "<!--"; ?>
 	(<a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $team[0]->klass ?>&team=<?php echo urlencode($team[0]->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo strtolower(S_STATISTIK) ?></a>)
 	<?php echo $settings[0]->value6 == "1" ? "" : "-->"; ?>
+	<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
 	</h3>
 	<div class="table-responsive">
 		<table class="table table-condensed table-striped">
