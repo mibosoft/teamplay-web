@@ -5,5 +5,5 @@
     <?php echo ($settings[0]->bool15 == "true") ? "<!--" : "" ?>
     <td style="vertical-align:middle"><?php echo $k->drakt ?></td>
     <?php echo ($settings[0]->bool15) == "true" ? "-->" : "" ?>
-    <td style="vertical-align:middle; text-align:right"><?php echo $k->url == "" ? "" : '<a href="http://' . $k->url . '" target="_blank"><span class="glyphicon glyphicon-home"></span></a>' ?></td>
+    <td style="vertical-align:middle; text-align:right"><?php echo $k->url == "" ? "" : '<a href="' . $k->url . '" target="_blank"><span class="glyphicon glyphicon-home"></span></a>' ?></td>
   </tr>
