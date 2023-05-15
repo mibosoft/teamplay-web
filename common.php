@@ -38,6 +38,10 @@ switch ($lang) {
 		//	    header('Content-type: text/html; charset=windows-1252');
 		break;
 
+	case 'pol':
+		$lang_file = 'pol.php';
+		break;
+
 	default:
 		$lang_file = 'swe.php';
 }

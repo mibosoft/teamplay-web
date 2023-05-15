@@ -72,6 +72,7 @@
             <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images//flags_iso/24/fi.png" border="0" align="middle"></a>
             <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images//flags_iso/24/no.png" border="0" align="middle"></a>
             <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images//flags_iso/24/cz.png" border="0" align="middle"></a>
+            <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images//flags_iso/24/pl.png" border="0" align="middle"></a>
           </td>
         </tr>
       </table>
