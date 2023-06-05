@@ -1,0 +1,36 @@
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP Stack trace:
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[18-Jan-2023 18:33:58 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP Stack trace:
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[18-Jan-2023 18:37:41 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP Stack trace:
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[18-Jan-2023 18:38:36 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
+[19-Jan-2023 10:40:41 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[19-Jan-2023 10:40:42 Europe/Stockholm] PHP Stack trace:
+[19-Jan-2023 10:40:42 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[19-Jan-2023 10:40:42 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[19-Jan-2023 10:40:42 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[19-Jan-2023 10:40:42 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP Stack trace:
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[19-Jan-2023 10:41:36 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\wwwroot\tpweb\serverside\cup\includes\views\home.php on line 114
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP Stack trace:
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP   1. {main}() C:\wwwroot\tpweb\serverside\cup\index.php:0
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP   2. HomeController->handleRequest() C:\wwwroot\tpweb\serverside\cup\index.php:92
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP   3. render() C:\wwwroot\tpweb\serverside\cup\includes\controllers\home.controller.php:31
+[19-Jan-2023 10:44:12 Europe/Stockholm] PHP   4. include() C:\wwwroot\tpweb\serverside\cup\includes\helpers.php:124
