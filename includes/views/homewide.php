@@ -1,5 +1,6 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
-<div class="row row-offcanvas row-offcanvas-right">
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v18.0" nonce="TPA5iVBw"></script><div class="row row-offcanvas row-offcanvas-right">
   <div class="col-xs-12 col-sm-9">
 
     <?php echo empty($settings[0]->pic_name_1) ? "<!--" : "" ?>
@@ -129,9 +130,8 @@
     <?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "-->" : "" ?>
 
     <?php echo empty($settings[0]->string23) ? "<!--" : "" ?>
-    <div class="fb-page" data-href="<?php echo $settings[0]->string23 ?>" data-tabs="timeline" data-height="<?php echo $settings[0]->value23 ?>" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+    <div class="fb-page" data-href="<?php echo $settings[0]->string23 ?>" data-tabs="timeline" data-width="" data-height="<?php echo $settings[0]->value23 ?>" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite=<?php echo $settings[0]->string23 ?>" class="fb-xfbml-parse-ignore"><a href="<?php echo $settings[0]->string23 ?>">Facebook</a></blockquote></div>
     <?php echo empty($settings[0]->string23) ? "-->" : "" ?>
-
     <p><?php echo $baseInfo->bas->sidokol ?></p>
     <div class="col-md-12" align="center">
       <p>
