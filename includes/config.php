@@ -3,7 +3,7 @@
 /*=========== Database Configuration ==========*/
 
 //$baseUrl = 'http://localhost/tpweb/serverside/';
-$baseUrl = 'http://teamplaycup.se/';
+$baseUrl = 'https://teamplaycup.se/';
 //$baseUrl = 'http://89.221.249.123/';
 //$baseUrl = '../';
 $layout = '1';
