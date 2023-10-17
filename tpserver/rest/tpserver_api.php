@@ -509,6 +509,130 @@ class MyAPI extends API
     }
 
     // ***************************
+    // Player game highlights - Most points
+    // ***************************
+    protected function playerhighpoints()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('tpdb_lag[grp_nr != ""]');
+            } else {
+                $players = $xml->xpath('tpdb_lag[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = $a->mal + $a->ass;
+                $total2 = $b->mal + $b->ass;
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return array_slice($players, 0, 10);  // Return top games
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player game highlights - Most goals
+    // ***************************
+    protected function playerhighgoals()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('tpdb_lag[grp_nr != ""]');
+            } else {
+                $players = $xml->xpath('tpdb_lag[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = (int)$a->mal;
+                $total2 = (int)$b->mal;
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return array_slice($players, 0, 10);  // Return top games
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player game highlights - Most assists
+    // ***************************
+    protected function playerhighassists()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('tpdb_lag[grp_nr != ""]');
+            } else {
+                $players = $xml->xpath('tpdb_lag[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = (int)$a->ass;
+                $total2 = (int)$b->ass;
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return array_slice($players, 0, 10);  // Return top games
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player game highlights - Most penalties
+    // ***************************
+    protected function playerhighpenalties()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/matchspelare.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('tpdb_lag[grp_nr != ""]');
+            } else {
+                $players = $xml->xpath('tpdb_lag[grp_nr="' . $this->scope . '" or contains(grp_nr,"' . $this->scope . '-")]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = (int)$a->utv;
+                $total2 = (int)$b->utv;
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return array_slice($players, 0, 10);  // Return top games
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
     // Team stats
     // ***************************
     protected function teamstats()

@@ -1,5 +1,5 @@
 <?php
-
+// PHP Intelephense used as formatter
 /*=========== Database Configuration ==========*/
 
 //$baseUrl = 'http://localhost/tpweb/serverside/';
@@ -15,6 +15,6 @@ $lang = 'swe';
 /*=========== Website Configuration ==========*/
 
 $defaultTitle = 'Teamplay Web';
-$version = "v0.9";
-$introText = "Tool for tournaments";
+$version = "v2.1";
+$introText = "Tool for team sport tournaments";
 $defaultFooter = $defaultTitle . " " . ' &copy; Mibosoft';
