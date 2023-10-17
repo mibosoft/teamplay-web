@@ -44,6 +44,7 @@ require_once "includes/controllers/teams.controller.php";
 require_once "includes/controllers/fairplay.controller.php";
 require_once "includes/controllers/teamstat.controller.php";
 require_once "includes/controllers/playerstat.controller.php";
+require_once "includes/controllers/playerhighlights.controller.php";
 require_once "includes/controllers/news.controller.php";
 require_once "includes/controllers/rules.controller.php";
 require_once "includes/controllers/info.controller.php";

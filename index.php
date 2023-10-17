@@ -46,6 +46,8 @@ try {
         $c = new TeamStatController("");
     } else if (isset($_GET['playerstat'])) {
         $c = new PlayerStatController("");
+    } else if (isset($_GET['playerhighlights'])) {
+        $c = new PlayerHighlightsController("");
     } else if (isset($_GET['team'])) {
         $c = new TeamController("");
     } else if (isset($_GET['arenas'])) {
