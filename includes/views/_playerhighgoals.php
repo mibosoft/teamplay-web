@@ -3,5 +3,5 @@
     <td><?php echo $k->spelare ?></td>
     <td><?php echo $k->klubb ?></td>
     <td><?php echo $k->grp_nr ?></td>
-    <td><b><?php echo $k->mal + $k->ass ?></b></td>
+    <td><b><?php echo $k->mal ?></b></td>
   </tr>

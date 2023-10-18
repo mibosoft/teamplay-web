@@ -526,8 +526,8 @@ class MyAPI extends API
             }
 
             usort($players, function ($a, $b) {
-                $total1 = $a->mal + $a->ass;
-                $total2 = $b->mal + $b->ass;
+                $total1 = ($a->mal + $a->ass) + $a->mal * 0.01;
+                $total2 = ($b->mal + $b->ass) + $b->mal * 0.01;
                 if ($total1 == $total2)
                     return 0;
                 return ($total1 > $total2) ? -1 : 1;

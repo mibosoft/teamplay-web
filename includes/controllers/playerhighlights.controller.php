@@ -16,14 +16,18 @@ class PlayerHighlightsController
 					$settings = Settings::getSettings($folder);
 					$menuItems = UserPages::getMenuItems($folder);
 					$classes = Classes::getClasses($folder, "");
-					$playerstat = PlayerStat::getPlayerHighPoints($folder, $scope);
+					$playerpoints = PlayerStat::getPlayerHighPoints($folder, $scope);
+					$playergoals = PlayerStat::getPlayerHighGoals($folder, $scope);
+					$playerassists = PlayerStat::getPlayerHighAssists($folder, $scope);
 					render('playerhighlights', array(
 						'msgtxt' => $this->msgtxt,
 						'settings' => $settings,
 						'menuItems' => $menuItems,
 						'baseInfo' => $baseInfo,
 						'classes' => $classes,
-						'playerstat' => $playerstat
+						'playerpoints' => $playerpoints,
+						'playergoals' => $playergoals,
+						'playerassists' => $playerassists
 					));
 
 					break;
