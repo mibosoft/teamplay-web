@@ -53,7 +53,7 @@
     </h3>
     <br>
     <p>
-      <a class="btn btn-default btn-lg" href="#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp
+      <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp
       <?php echo $settings[0]->value27 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&registration" role="button">' . S_ANMALAN . '</a>' : ""; ?>
     </p>
   </div>
