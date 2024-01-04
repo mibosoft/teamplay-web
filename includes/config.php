@@ -19,6 +19,6 @@ $lang = 'swe';
 /*=========== Website Configuration ==========*/
 
 $defaultTitle = 'Teamplay Web';
-$version = "v0.9";
+$version = "v2.2";
 $introText = "Tool for tournaments";
 $defaultFooter = $defaultTitle . " " . ' &copy; Mibosoft';
