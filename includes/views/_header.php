@@ -20,5 +20,4 @@
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
   </nav><!-- /.navbar -->
-
-  <div class="container">
+  

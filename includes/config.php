@@ -1,11 +1,15 @@
 <?php
-// PHP Intelephense used as formatter
+
+// Needed for curl to verify the authenticity of the peer's certificate, etc.
+define('DEBUG', false);
+
 /*=========== Database Configuration ==========*/
 
-//$baseUrl = 'http://localhost/tpweb/serverside/';
+//$baseUrl = 'localhost/tpweb/serverside/';
 $baseUrl = 'https://teamplaycup.se/';
-//$baseUrl = 'http://89.221.249.123/';
+//$baseUrl = 'https://89.221.249.123/';
 //$baseUrl = '../';
+
 $layout = '1';
 $lang = 'swe';
 
@@ -15,6 +19,6 @@ $lang = 'swe';
 /*=========== Website Configuration ==========*/
 
 $defaultTitle = 'Teamplay Web';
-$version = "v2.1";
-$introText = "Tool for team sport tournaments";
+$version = "v0.9";
+$introText = "Tool for tournaments";
 $defaultFooter = $defaultTitle . " " . ' &copy; Mibosoft';

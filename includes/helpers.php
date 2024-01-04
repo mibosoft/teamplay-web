@@ -8,6 +8,13 @@ function getContent($cachefile, $remotepath)
     }
     curl_setopt($ch, CURLOPT_URL, $remotepath);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+    // This option controls checking the server's certificate's claimed identity. Default valöue is 2. Required for debugging.
+    if (DEBUG) {
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    }
+
     $contents = curl_exec($ch);
     curl_close($ch);
     return $contents;

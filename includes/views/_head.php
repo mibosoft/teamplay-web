@@ -4,7 +4,7 @@
 <head>
     <title><?php echo formatTitle($title) ?></title>
 
-    <base href="https://teamplay.nu/cup/" />
+    <base href="<?php echo DEBUG ? '' : 'https://teamplay.nu/cup/' ?>"/>
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,5 +27,3 @@
     <?php echo $settings[0]->memo3 ?>
 
     <link href="assets/css/<?php echo $GLOBALS['layout'] >= 2 ? "simplecup" : "fullcup" ?>.css" rel="stylesheet">
-
-</head>

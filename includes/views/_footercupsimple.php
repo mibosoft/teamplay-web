@@ -6,9 +6,6 @@
   <?php echo $settings[0]->value15 == "1" ? "" : "-->"; ?>
 </footer>
 
-</div>
-</div>
-
 <!-- Core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
