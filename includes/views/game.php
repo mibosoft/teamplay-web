@@ -47,6 +47,14 @@
                 <td><strong><?php echo S_FAIRPLAY ?>:</strong></td>
                 <td><?php echo (empty($games[0]->fplay_h) and empty($games[0]->fplay_b)) ? '-' : $games[0]->fplay_h . "-" . $games[0]->fplay_b ?></td>
             </tr>
+            <?php echo ($baseInfo->bas->ack_frisp == 'true') ? "" : "<!--" ?>
+            <tr>
+                <td><strong><?php echo $settings[0]->bool2 == "true" ? "" : S_ACK_FRISP . ":" ?></strong></td>
+                <td><?php echo (empty($games[0]->frisp_h) and empty($games[0]->frisp_b)) ? '-' : $games[0]->frisp_h . "-" . $games[0]->frisp_b ?></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <?php echo ($baseInfo->bas->ack_frisp == 'true') ? "" : "-->" ?>
         </table>
 
         <?php echo empty($games[0]->rapport) ? '<!--' : '' ?>
