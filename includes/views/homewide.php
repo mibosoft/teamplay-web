@@ -103,11 +103,11 @@
 </div> <!-- /basinfo-container -->
 
 <?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "<!--" : "" ?>
-<hr>
 <div class="container">
   <div class="row">
     <?php $i = 0;
     if (is_array($news)) {
+      echo '<hr>';
       foreach ($news as $x) {
         if ($i >= $settings[0]->value24) {
           continue;
@@ -122,7 +122,6 @@
         echo '</div>';
       }
     }
-    echo '<hr>';
     if (count($news) > $i) {
       echo '<p><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
     }
