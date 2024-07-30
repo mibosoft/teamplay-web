@@ -43,7 +43,6 @@
 						<th><?php echo S_TROJNR ?></th>
 						<?php echo $settings[0]->bool2 == "true" ? "-->" : "" ?>
 						<th><?php echo S_NAMN ?></th>
-<!--						<th><?php echo S_FODD ?></th>  -->
 						<?php echo $settings[0]->bool2 == "true" ? "<!--" : "" ?>
 						<th><?php echo S_POSITION ?></th>
 						<?php echo $settings[0]->bool2 == "true" ? "-->" : "" ?>
