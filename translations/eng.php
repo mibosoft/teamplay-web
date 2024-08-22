@@ -1,5 +1,7 @@
 
 <?php
+define ("S_BORJASKRIVA","Start typing and suggestions will be shown!");
+define ("S_SOKLAG","Search for your team");
 define ("S_NR","No");
 define ("S_NAMN","Name");
 define ("S_INFORMATION","Information");

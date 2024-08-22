@@ -1,5 +1,7 @@
 
 <?php
+define ("S_BORJASKRIVA","Zacznij pisać, a sugestie zostaną wyświetlone!");
+define ("S_SOKLAG","Wyszukaj swój zespół");
 define ("S_NR","Nr");
 define ("S_NAMN","Imi&#281;");
 define ("S_INFORMATION","Informacja");

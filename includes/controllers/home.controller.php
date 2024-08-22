@@ -13,6 +13,7 @@ class HomeController
 					$baseInfo = CupInfo::getBaseInfo($folder);
 					$settings = Settings::getSettings($folder);
 					$menuItems = UserPages::getMenuItems($folder);
+					$teams = Teams::getTeams($folder, "all", "");
 
 					if ($GLOBALS['layout'] == 1) {
 						if ($settings[0]->value3 == 0) {
@@ -26,6 +27,7 @@ class HomeController
 							'msgtxt' => $this->msgtxt,
 							'baseInfo' => $baseInfo,
 							'classes' => $classes,
+							'teams' => $teams,
 							'settings' => $settings,
 							'menuItems' => $menuItems,
 							'news' => $news
@@ -37,7 +39,8 @@ class HomeController
 							'msgtxt' => $this->msgtxt,
 							'baseInfo' => $baseInfo,
 							'settings' => $settings,
-							'classes' => $classes
+							'classes' => $classes,
+							'teams' => $teams,
 						));
 					}
 

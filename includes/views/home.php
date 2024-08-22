@@ -65,12 +65,92 @@
 			</div>
 			<?php echo empty($settings[0]->pic_name_1) ? "-->" : "" ?>
 
-			<div class="col-md-12" align="right">
-				<table>
-					<tr>
-						<td align="right"><a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=swe" class="menu_link"><img src="assets/images//flags_iso/24/se.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=eng" class="menu_link"><img src="assets/images/flags_iso/24/gb.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images//flags_iso/24/fi.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images//flags_iso/24/no.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images//flags_iso/24/cz.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images//flags_iso/24/pl.png" border="0" align="middle"></a></td>
-					</tr>
-				</table>
+			<div class="row">
+				<br>
+			<!-- Team finder -->
+			<script>
+				$(document).on("click", '#go', function() {
+					btnGoClick();
+				});
+
+				$(document).on("keypress", '#searchField', function(event) {
+					if (event.which == 13) {
+						event.preventDefault();
+						btnGoClick();
+					}
+				});
+
+				var defaultNoMatchUrl = "";
+				var currentUrl = "";
+
+				$(function() {
+
+					var stateList = [{
+						<?php
+						if (is_array($teams)) {
+							foreach ($teams as $x) {
+								echo 'value: "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
+							}
+						}
+						?> "value": "",
+						"teamClass": ""
+					}];
+
+					$("#searchField").autocomplete({
+						source: stateList,
+						autoFocus: true,
+						minLength: 1,
+						select: function(event, ui) {
+							currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.value;
+							go(currentUrl);
+						},
+						response: function(event, ui) {
+							if (!ui.content.length) {
+								$("#no-result").show();
+								currentUrl = defaultNoMatchUrl;
+							} else {
+								$("#no-result").hide();
+							}
+						},
+					});
+				});
+
+				function go(url) {
+					window.location.href = url;
+				}
+
+				function btnGoClick() {
+					if (currentUrl !== "") go(currentUrl);
+				}
+			</script>
+				<div class="col-md-4">
+					<div style="margin: 0 auto;width: 100%;">
+						<div class="input-group">
+							<input id="searchField" type="text" class="form-control" placeholder="<?php echo S_SOKLAG ?>" title="<?php echo S_BORJASKRIVA ?>">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="go" type="button">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
+							</div>
+						</div>
+						<div class="row">
+							<div style="margin: 0 auto;width: 30%;">
+								<div id="no-result" style="display: none;">Not found</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- End of Team finder -->
+
+				<!-- Language sel -->
+				<div class="col-md-8" align="right">
+					<table>
+						<tr>
+							<td align="right"><a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=swe" class="menu_link"><img src="assets/images//flags_iso/24/se.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=eng" class="menu_link"><img src="assets/images/flags_iso/24/gb.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images//flags_iso/24/fi.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images//flags_iso/24/no.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images//flags_iso/24/cz.png" border="0" align="middle"></a> <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images//flags_iso/24/pl.png" border="0" align="middle"></a></td>
+						</tr>
+					</table>
+				</div>
+				<!-- End of Language sel -->
+
 			</div>
 
 			<div class="row">

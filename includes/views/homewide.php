@@ -52,12 +52,90 @@
       <?php echo (date("Y-m-d") <= $baseInfo->bas->start_dat) ? '<span class="label label-default">' . howManyDays(date("Y-m-d"), $baseInfo->bas->start_dat) . "</span> " . S_DAGARKVAR : "" ?>
     </h3>
     <br>
-    <p>
-      <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp
+    <div class="row">
+      <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp;
       <?php echo $settings[0]->value27 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&registration" role="button">' . S_ANMALAN . '</a>' : ""; ?>
-    </p>
+    </div>
+    <br><br>
+
+    <!-- Team finder -->
+    <script>
+      $(document).on("click", '#go', function() {
+        btnGoClick();
+      });
+
+      $(document).on("keypress", '#searchField', function(event) {
+        if (event.which == 13) {
+          event.preventDefault();
+          btnGoClick();
+        }
+      });
+
+      var defaultNoMatchUrl = "";
+      var currentUrl = "";
+
+      $(function() {
+
+        var stateList = [{
+          <?php
+          if (is_array($teams)) {
+            foreach ($teams as $x) {
+              echo 'value: "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
+            }
+          }
+          ?> "value": "",
+          "teamClass": ""
+        }];
+
+        $("#searchField").autocomplete({
+          source: stateList,
+          autoFocus: true,
+          minLength: 1,
+          select: function(event, ui) {
+            currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.value;
+            go(currentUrl);
+          },
+          response: function(event, ui) {
+            if (!ui.content.length) {
+              $("#no-result").show();
+              currentUrl = defaultNoMatchUrl;
+            } else {
+              $("#no-result").hide();
+            }
+          },
+        });
+      });
+
+      function go(url) {
+        window.location.href = url;
+      }
+
+      function btnGoClick() {
+        if (currentUrl !== "") go(currentUrl);
+      }
+    </script>
+
+    <div class="row">
+      <div style="margin: 0 auto;width: 70%;">
+        <div class="input-group">
+          <input id="searchField" type="text" class="form-control" placeholder="<?php echo S_SOKLAG ?>" title="<?php echo S_BORJASKRIVA ?>">
+          <div class="input-group-btn">
+            <button class="btn btn-default" id="go" type="button">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div style="margin: 0 auto;width: 30%;">
+        <div id="no-result" style="display: none;">Not found</div>
+      </div>
+    </div>
+    <!-- End of Team finder -->
+
   </div>
+  <!-- End of Jumbotron container -->
 </div>
+
 <?php echo empty($settings[0]->pic_name_1) ? "-->" : "" ?>
 
 <div class="container">

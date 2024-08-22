@@ -1,5 +1,7 @@
 
 <?php
+define ("S_BORJASKRIVA","Začněte psát a zobrazí se návrhy!");
+define ("S_SOKLAG","Vyhledejte svůj tým");
 define ("S_NR","Cislo");
 define ("S_NAMN","Jméno");
 define ("S_INFORMATION","Informace");

@@ -14,6 +14,7 @@
 						<th><?php echo S_KLUBB ?></th>
 						<th>&nbsp;</th>
 						<th><?php echo S_KLASS ?></th>
+						<th><?php echo S_GRUPP ?></th>
 						<?php echo $settings[0]->bool15 == "true" ? "<!--" : "" ?>
 						<th><?php echo S_DRAKTFARG ?></th>
 						<?php echo $settings[0]->bool15 == "true" ? "-->" : "" ?>

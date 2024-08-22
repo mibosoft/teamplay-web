@@ -1,5 +1,7 @@
 
 <?php
+define ("S_BORJASKRIVA","Aloita kirjoittaminen, niin ehdotukset näytetään!");
+define ("S_SOKLAG","Etsi joukkuettasi");
 define ("S_NR","Nro");
 define ("S_NAMN","Nimi");
 define ("S_INFORMATION","Tieto");
