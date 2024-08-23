@@ -1,5 +1,6 @@
 
 <?php
+define ("S_HITTASEJ","Nie znaleziono");
 define ("S_BORJASKRIVA","Zacznij pisać, a sugestie zostaną wyświetlone!");
 define ("S_SOKLAG","Wyszukaj swój zespół");
 define ("S_NR","Nr");

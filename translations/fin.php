@@ -1,5 +1,6 @@
 
 <?php
+define ("S_HITTASEJ","Ei löytynyt");
 define ("S_BORJASKRIVA","Aloita kirjoittaminen, niin ehdotukset näytetään!");
 define ("S_SOKLAG","Etsi joukkuettasi");
 define ("S_NR","Nro");

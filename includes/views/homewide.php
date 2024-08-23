@@ -127,7 +127,7 @@
     </div>
     <div class="row">
       <div style="margin: 0 auto;width: 30%;">
-        <div id="no-result" style="display: none;">Not found</div>
+        <div id="no-result" style="display: none;"><?php echo S_HITTASEJ ?></div>
       </div>
     </div>
     <!-- End of Team finder -->

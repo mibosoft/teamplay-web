@@ -1,5 +1,6 @@
 
 <?php
+define ("S_HITTASEJ","Ikke funnet");
 define ("S_BORJASKRIVA","Begynn å skrive og forslag vil bli vist!");
 define ("S_SOKLAG","Søk etter teamet ditt");
 define ("S_NR","Nr");

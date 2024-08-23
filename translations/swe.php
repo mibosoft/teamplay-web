@@ -1,5 +1,6 @@
 
 <?php
+define ("S_HITTASEJ","Hittas ej");
 define ("S_BORJASKRIVA","Börja skriva och förslag kommer att visas!");
 define ("S_SOKLAG","Sök lag");
 define ("S_NR","Nr");
