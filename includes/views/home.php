@@ -67,62 +67,62 @@
 
 			<div class="row">
 				<br>
-			<!-- Team finder -->
-			<script>
-				$(document).on("click", '#go', function() {
-					btnGoClick();
-				});
-
-				$(document).on("keypress", '#searchField', function(event) {
-					if (event.which == 13) {
-						event.preventDefault();
+				<!-- Team finder -->
+				<script>
+					$(document).on("click", '#go', function() {
 						btnGoClick();
-					}
-				});
-
-				var defaultNoMatchUrl = "";
-				var currentUrl = "";
-
-				$(function() {
-
-					var stateList = [{
-						<?php
-						if (is_array($teams)) {
-							foreach ($teams as $x) {
-								echo 'value: "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
-							}
-						}
-						?> "value": "",
-						"teamClass": ""
-					}];
-
-					$("#searchField").autocomplete({
-						source: stateList,
-						autoFocus: true,
-						minLength: 1,
-						select: function(event, ui) {
-							currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.value;
-							go(currentUrl);
-						},
-						response: function(event, ui) {
-							if (!ui.content.length) {
-								$("#no-result").show();
-								currentUrl = defaultNoMatchUrl;
-							} else {
-								$("#no-result").hide();
-							}
-						},
 					});
-				});
 
-				function go(url) {
-					window.location.href = url;
-				}
+					$(document).on("keypress", '#searchField', function(event) {
+						if (event.which == 13) {
+							event.preventDefault();
+							btnGoClick();
+						}
+					});
 
-				function btnGoClick() {
-					if (currentUrl !== "") go(currentUrl);
-				}
-			</script>
+					var defaultNoMatchUrl = "";
+					var currentUrl = "";
+
+					$(function() {
+
+						var teamList = [{
+							<?php
+							if (is_array($teams)) {
+								foreach ($teams as $x) {
+									echo 'value: "' . $x->klubb . ' (' . $x->klass . ')' . '","teamName": "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
+								}
+							}
+							?> "value": "",
+							"teamClass": ""
+						}];
+
+						$("#searchField").autocomplete({
+							source: teamList,
+							autoFocus: true,
+							minLength: 1,
+							select: function(event, ui) {
+								currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.teamName;
+								go(currentUrl);
+							},
+							response: function(event, ui) {
+								if (!ui.content.length) {
+									$("#no-result").show();
+									currentUrl = defaultNoMatchUrl;
+								} else {
+									$("#no-result").hide();
+								}
+							},
+						});
+					});
+
+					function go(url) {
+						window.location.href = url;
+					}
+
+					function btnGoClick() {
+						if (currentUrl !== "") go(currentUrl);
+					}
+				</script>
 				<div class="col-md-4">
 					<div style="margin: 0 auto;width: 100%;">
 						<div class="input-group">
@@ -133,7 +133,7 @@
 						</div>
 						<div class="row">
 							<div style="margin: 0 auto;width: 30%;">
-							<div id="no-result" style="display: none;"><?php echo S_HITTASEJ ?></div>
+								<div id="no-result" style="display: none;"><?php echo S_HITTASEJ ?></div>
 							</div>
 						</div>
 

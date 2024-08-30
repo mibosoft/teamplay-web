@@ -76,11 +76,11 @@
 
       $(function() {
 
-        var stateList = [{
+        var teamList = [{
           <?php
           if (is_array($teams)) {
             foreach ($teams as $x) {
-              echo 'value: "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
+              echo 'value: "' . $x->klubb . ' (' . $x->klass . ')' . '","teamName": "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
             }
           }
           ?> "value": "",
@@ -88,11 +88,11 @@
         }];
 
         $("#searchField").autocomplete({
-          source: stateList,
+          source: teamList,
           autoFocus: true,
           minLength: 1,
           select: function(event, ui) {
-            currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.value;
+            currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.teamName;
             go(currentUrl);
           },
           response: function(event, ui) {
