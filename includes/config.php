@@ -1,7 +1,7 @@
 <?php
 
 // Needed for curl to verify the authenticity of the peer's certificate, etc.
-//define('DEBUG', false);
+define('DEBUG', false);
 
 // Example URL for debug: http://localhost/tpweb/serverside/cup/?home=sil/23ht&layout=1&playerstat&scope=all
 
