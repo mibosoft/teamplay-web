@@ -44,6 +44,63 @@
   }
 </style>
 
+<script>
+  // Team finder
+  $(document).on("click", '#go', function() {
+    btnGoClick();
+  });
+
+  $(document).on("keypress", '#searchField', function(event) {
+    if (event.which == 13) {
+      event.preventDefault();
+      btnGoClick();
+    }
+  });
+
+  var defaultNoMatchUrl = "";
+  var currentUrl = "";
+
+  $(function() {
+
+    var teamList = [{
+      <?php
+      if (is_array($teams)) {
+        foreach ($teams as $x) {
+          echo 'value: "' . $x->klubb . ' (' . $x->klass . ')' . '","teamName": "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
+        }
+      }
+      ?> "value": "",
+      "teamClass": ""
+    }];
+
+    $("#searchField").autocomplete({
+      source: teamList,
+      autoFocus: true,
+      minLength: 1,
+      select: function(event, ui) {
+        currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.teamName;
+        go(currentUrl);
+      },
+      response: function(event, ui) {
+        if (!ui.content.length) {
+          $("#no-result").show();
+          currentUrl = defaultNoMatchUrl;
+        } else {
+          $("#no-result").hide();
+        }
+      },
+    });
+  });
+
+  function go(url) {
+    window.location.href = url;
+  }
+
+  function btnGoClick() {
+    if (currentUrl !== "") go(currentUrl);
+  }
+</script>
+
 <?php echo empty($settings[0]->pic_name_1) ? "<!--" : "" ?>
 <div class="jumbotron d-flex justify-content-center">
   <div class="container">
@@ -57,63 +114,6 @@
       <?php echo $settings[0]->value27 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&registration" role="button">' . S_ANMALAN . '</a>' : ""; ?>
     </div>
     <br><br>
-
-    <!-- Team finder -->
-    <script>
-      $(document).on("click", '#go', function() {
-        btnGoClick();
-      });
-
-      $(document).on("keypress", '#searchField', function(event) {
-        if (event.which == 13) {
-          event.preventDefault();
-          btnGoClick();
-        }
-      });
-
-      var defaultNoMatchUrl = "";
-      var currentUrl = "";
-
-      $(function() {
-
-        var teamList = [{
-          <?php
-          if (is_array($teams)) {
-            foreach ($teams as $x) {
-              echo 'value: "' . $x->klubb . ' (' . $x->klass . ')' . '","teamName": "' . $x->klubb . '","teamClass": "' . $x->klass . '"}, {';
-            }
-          }
-          ?> "value": "",
-          "teamClass": ""
-        }];
-
-        $("#searchField").autocomplete({
-          source: teamList,
-          autoFocus: true,
-          minLength: 1,
-          select: function(event, ui) {
-            currentUrl = "<?php echo '?team&home=' . $_GET['home'] . '&layout=1&lang=' . $GLOBALS['lang'] . '&scope=' ?>" + ui.item.teamClass + "<?php echo '&name=' ?>" + ui.item.teamName;
-            go(currentUrl);
-          },
-          response: function(event, ui) {
-            if (!ui.content.length) {
-              $("#no-result").show();
-              currentUrl = defaultNoMatchUrl;
-            } else {
-              $("#no-result").hide();
-            }
-          },
-        });
-      });
-
-      function go(url) {
-        window.location.href = url;
-      }
-
-      function btnGoClick() {
-        if (currentUrl !== "") go(currentUrl);
-      }
-    </script>
 
     <div class="row">
       <div style="margin: 0 auto;width: 70%;">
@@ -130,13 +130,11 @@
         <div id="no-result" style="display: none;"><?php echo S_HITTASEJ ?></div>
       </div>
     </div>
-    <!-- End of Team finder -->
 
   </div>
-  <!-- End of Jumbotron container -->
 </div>
-
 <?php echo empty($settings[0]->pic_name_1) ? "-->" : "" ?>
+
 
 <div class="container">
   <div class="col-md-12" align="center">

@@ -13,6 +13,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <!--      <a class="navbar-brand" href="?home=<?php echo $_GET['home']; ?>&layout=1"><img alt="<?php echo $title ?>" src="assets/images/home.png"  class="img-responsive"></a> -->
         <a class="navbar-brand tpfont" href="?home=<?php echo $_GET['home']; ?>&layout=1"><b><?php echo $title ?></b> <span class="glyphicon glyphicon-home"></span></a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
