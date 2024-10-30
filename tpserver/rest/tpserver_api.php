@@ -1,5 +1,5 @@
 <?php
-// Test with http://teamplaycup.se/rest/games/axa/16/HM-1
+// Test with https://teamplaycup.se/rest/games/praguefbcup/22/B05
 require_once 'abstract_api.php';
 
 class MyAPI extends API
@@ -485,7 +485,106 @@ class MyAPI extends API
     }
 
     // ***************************
-    // Player stats
+    // Player stats - sorted on goals
+    // ***************************
+    protected function playerstatsgoals()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/spelarstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+            } elseif (!empty($this->param4)) {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
+            } else {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '"]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = ($a->mal) + ($a->ass * 0.01);
+                $total2 = ($b->mal) + ($b->ass * 0.01);
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return $players;
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player stats - sorted on assists
+    // ***************************
+    protected function playerstatsassists()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/spelarstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+            } elseif (!empty($this->param4)) {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
+            } else {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '"]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = ($a->ass) + ($a->mal * 0.01);
+                $total2 = ($b->ass) + ($b->mal * 0.01);
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return $players;
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player stats - sorted on +/- goals
+    // ***************************
+    protected function playerstatsgoaldiff()
+    {
+        if ($this->method == 'GET') {
+            $xml = simplexml_load_file($this->baseUrl . $this->folder . '/spelarstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
+            if (!$xml) {
+                exit();
+            }
+
+            if ($this->scope == "all" or empty($this->scope)) {
+                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+            } elseif (!empty($this->param4)) {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
+            } else {
+                $players = $xml->xpath('stats[grp_nr="' . $this->scope . '"]');
+            }
+
+            usort($players, function ($a, $b) {
+                $total1 = $a->plusmal + (($a->plusmal - $a->minusmal) * 0.01);
+                $total2 = $b->plusmal + (($b->plusmal - $b->minusmal) * 0.01);
+                if ($total1 == $total2)
+                    return 0;
+                return ($total1 > $total2) ? -1 : 1;
+            });
+
+            return $players;
+        } else {
+            return "Only accepts GET requests";
+        }
+    }
+
+    // ***************************
+    // Player stats - as is (pre-sorted xml)
     // ***************************
     protected function playerstats()
     {

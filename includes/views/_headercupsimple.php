@@ -25,7 +25,7 @@
               <?php echo ($settings[0]->value11 == "1" or $GLOBALS['layout'] == 3) ? "" : "-->"; ?>
               <?php echo $settings[0]->value8 == "1" ? '<li role="presentation" ' . (isset($_GET['arenas']) ? 'class="active"' : '') . '><a href="?home=' . $_GET['home'] . '&layout=2&arenas&lang=' . $GLOBALS['lang'] . '">' . S_SPELPLATSER . '</a></li>' : ""; ?>
               <li role="presentation" <?php echo (isset($_GET['teamstat']) ? 'class="active"' : '') ?>><a href="?home=<?php echo $_GET['home']; ?>&layout=2&teamstat&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_LAGSTATISTIK ?></a></li>
-              <?php echo $settings[0]->value6 == "1" ? '<li role="presentation" ' . (isset($_GET['playerstat']) ? 'class="active"' : '') . '><a href="?home=' . $_GET['home'] . '&layout=2&playerstat&scope=all&lang=' . $GLOBALS['lang'] . '">' . S_SPELARSTATISTIK . '</a></li>' : ""; ?>
+              <?php echo $settings[0]->value6 == "1" ? '<li role="presentation" ' . (isset($_GET['playerstat']) ? 'class="active"' : '') . '><a href="?home=' . $_GET['home'] . '&layout=2&playerstat&scope=all&sort=points&lang=' . $GLOBALS['lang'] . '">' . S_SPELARSTATISTIK . '</a></li>' : ""; ?>
               <li role="presentation"><a title="<?php echo S_OPPNAEGETFONSTER ?>" href="?home=<?php echo $_GET['home']; ?>&layout=2&overview&lang=<?php echo $GLOBALS['lang']; ?>" target=_blank"><span class="glyphicon glyphicon-new-window"></span></a></li>
             </ul>
           </div>

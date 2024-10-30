@@ -260,4 +260,6 @@ define ("S_HIGHLIGHTS","Highlights");
 define ("S_ALLTIMEHIGH","All-time high");
 define ("S_POANGLIGA","V&#367;dci bodování");
 define ("S_ACK_FRISP","Nashromážd&#283;né volné kopy");
+define ("S_DISCGOLF","Disc Golf");
+define ("S_HALPOANG","Hole-points");
 ?>

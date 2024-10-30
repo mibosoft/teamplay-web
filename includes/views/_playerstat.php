@@ -1,12 +1,12 @@
   <tr>
       <td><?php echo $k->spelare ?></td>
-      <td><a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->grp_nr ?>&team=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klubb ?></a></td>
+      <td><a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->grp_nr ?>&sort=<?php echo $_GET['sort']; ?>&team=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klubb ?></a></td>
       <td><?php echo $k->grp_nr ?></td>
       <td><?php echo $k->ant_mtch ?></td>
-      <td><?php echo (($baseInfo->bas->st_ass == 'true') ? $k->mal : "<b>" . $k->mal . "</b>") ?></td>
+      <td><?php echo (($_GET['sort'] == "goals" or  $baseInfo->bas->st_ass == 'false') ? "<b>" . $k->mal . "</b>" : $k->mal) ?></td>
       <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "<!--" ?>
-      <td><?php echo $k->ass ?></td>
-      <td><b><?php echo $k->mal + $k->ass ?></b></td>
+      <td><?php echo (($_GET['sort'] == "assists") ? "<b>" . $k->ass . "</b>" : $k->ass) ?></td>
+      <td><?php echo (($_GET['sort'] == "points") ? "<b>" .  ($k->mal + $k->ass) . "</b>" :  $k->mal + $k->ass) ?></td>
       <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "-->" ?>
       <td><i><?php echo number_format((intval($k->mal) + intval($k->ass)) / intval($k->ant_mtch), 2) ?></i></td>
       <?php echo ($baseInfo->bas->st_utv == 'true') ? "" : "<!--" ?>

@@ -260,4 +260,6 @@ define ("S_HIGHLIGHTS","Highlights");
 define ("S_ALLTIMEHIGH","All-time high");
 define ("S_POANGLIGA","Liderzy punktacji");
 define ("S_ACK_FRISP","Kumulacja rzutów wolnych");
+define ("S_DISCGOLF","Disc Golf");
+define ("S_HALPOANG","Hole-points");
 ?>

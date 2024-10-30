@@ -5,14 +5,16 @@
                 <h2><?php echo S_SPELARSTATISTIK ?></h2>
 
                 <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation" class="active"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANGLIGA ?></a></li>
+                        <li role="presentation" <?php echo ($_GET['sort'] == "points" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
+                        <li role="presentation" <?php echo ($_GET['sort'] == "goals" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=goals&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_MAL ?></a></li>
+                        <li role="presentation" <?php echo ($_GET['sort'] == "assists" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=assists&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_ASSIST ?></a></li>
                         <li role="presentation"><a href="?playerhighlights&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_HIGHLIGHTS ?></a></li>
                 </ul>
                 <br>
                 <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation" <?php echo ($_GET['scope'] == "all" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=all&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGA ?></a></li>
+                        <li role="presentation" <?php echo ($_GET['scope'] == "all" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=all&sort=<?php echo $_GET['sort']; ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGA ?></a></li>
                         <?php foreach ($classes as $x) {
-                                echo '<li role="presentation" ' . ($x->grp_nr == $_GET['scope'] ? 'class="active"' : '') . '><a href="?playerstat&home=' . $_GET['home'] . '&scope=' . $x->grp_nr . '&layout=' . $GLOBALS['layout'] . '&lang=' . $GLOBALS['lang'] . '">' . $x->grp_nr . '</a></li>';
+                                echo '<li role="presentation" ' . ($x->grp_nr == $_GET['scope'] ? 'class="active"' : '') . '><a href="?playerstat&home=' . $_GET['home'] . '&scope=' . $x->grp_nr . '&sort=' . $_GET['sort'] . '&layout=' . $GLOBALS['layout'] . '&lang=' . $GLOBALS['lang'] . '">' . $x->grp_nr . '</a></li>';
                         } ?>
                 </ul>
                 <br>
@@ -59,6 +61,7 @@
                         </table>
                 </div>
                 <small><i>
+                                <?php echo S_GP ?>=<?php echo S_ANTALSPELADEMATCHERGAMESPLAYED ?>,
                                 <?php echo S_G ?>=<?php echo S_MALGOALS ?>,
                                 <?php echo S_A ?>=<?php echo S_ASSIST ?>,
                                 <?php echo S_PTS ?>=<?php echo S_POANGPOINTS ?>,

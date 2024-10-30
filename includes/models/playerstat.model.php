@@ -1,11 +1,20 @@
 <?php
 class PlayerStat
 {
-	public static function getStat($folder, $scope, $team)
+	public static function getStat($folder, $scope, $team, $sort)
 	{
 		global $baseUrl;
 
-		$restCmd = "rest/playerstats/$folder/$scope/" . str_replace('/', '|', $team);
+		if ($sort == "goals") {
+			$restCmd = "rest/playerstatsgoals/$folder/$scope/" . str_replace('/', '|', $team);
+		}elseif ($sort == "assists"){
+			$restCmd = "rest/playerstatsassists/$folder/$scope/" . str_replace('/', '|', $team);
+		}elseif ($sort == "goaldiff"){
+			$restCmd = "rest/playerstatsgoaldiff/$folder/$scope/" . str_replace('/', '|', $team);
+		}else{
+			$restCmd = "rest/playerstats/$folder/$scope/" . str_replace('/', '|', $team);
+		}
+
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 

@@ -105,7 +105,7 @@ define ("S_ORT","Kaup");
 define ("S_FUNKTIONARER","Toimihenkilöt");
 define ("S_BRYTNINGAR","Syötön katkot");
 define ("S_BRYTN","Syötön katkot");
-define ("S_ASSIST","Syötöt (Assists)");
+define ("S_ASSIST","Syötöt");
 define ("S_KLASS","Luokka");
 define ("S_PPG","PPG");
 define ("S_GWG","GWG");
@@ -260,4 +260,6 @@ define ("S_HIGHLIGHTS","Highlights");
 define ("S_ALLTIMEHIGH","All-time high");
 define ("S_POANGLIGA","Pistetilastot");
 define ("S_ACK_FRISP","Kertyneet vapaapotkut");
+define ("S_DISCGOLF","DiscGolf");
+define ("S_HALPOANG","Syöttöpörssi");
 ?>

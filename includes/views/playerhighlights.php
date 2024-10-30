@@ -5,7 +5,9 @@
                 <h2><?php echo S_SPELARSTATISTIK ?></h2>
 
                 <ul class="nav nav-pills" role="tablist">
-                        <li role="presentation"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANGLIGA ?></a></li>
+                        <li role="presentation"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
+                        <li role="presentation"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&sort=goals&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_MAL ?></a></li>
+                        <li role="presentation"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&sort=assists&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_ASSIST ?></a></li>
                         <li role="presentation" class="active"><a href="?playerhighlights&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_HIGHLIGHTS ?></a></li>
                 </ul>
                 <br>
