@@ -63,7 +63,7 @@
             <ul class="dropdown-menu">
               <li><a href="?home=<?php echo $_GET['home']; ?>&layout=1&teamstat&scope=all"><?php echo S_LAGSTATISTIK ?></a></li>
               <?php echo $settings[0]->value6 == "1" ? "" : "<!--"; ?>
-              <li><a href="?home=<?php echo $_GET['home']; ?>&layout=1&playerstat&scope=all&sort=points"><?php echo S_SPELARSTATISTIK ?></a></li>
+              <li><a href="?home=<?php echo $_GET['home']; ?>&layout=1&playerstat&scope=all&sort=<?php echo ($settings[0]->bool25 == 'true') ? "goaldiff" : "points"; ?>"><?php echo S_SPELARSTATISTIK ?></a></li>
               <?php echo $settings[0]->value6 == "1" ? "" : "-->"; ?>
             </ul>
           </li>

@@ -496,7 +496,7 @@ class MyAPI extends API
             }
 
             if ($this->scope == "all" or empty($this->scope)) {
-                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+                $players = $xml->xpath('stats[grp_nr!=""]');
             } elseif (!empty($this->param4)) {
                 $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
             } else {
@@ -511,7 +511,7 @@ class MyAPI extends API
                 return ($total1 > $total2) ? -1 : 1;
             });
 
-            return $players;
+            return array_slice($players, 0, 200);  // Return max
         } else {
             return "Only accepts GET requests";
         }
@@ -529,7 +529,7 @@ class MyAPI extends API
             }
 
             if ($this->scope == "all" or empty($this->scope)) {
-                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+                $players = $xml->xpath('stats[grp_nr!=""]');
             } elseif (!empty($this->param4)) {
                 $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
             } else {
@@ -544,7 +544,7 @@ class MyAPI extends API
                 return ($total1 > $total2) ? -1 : 1;
             });
 
-            return $players;
+            return array_slice($players, 0, 200);  // Return max
         } else {
             return "Only accepts GET requests";
         }
@@ -562,7 +562,7 @@ class MyAPI extends API
             }
 
             if ($this->scope == "all" or empty($this->scope)) {
-                $players = $xml->xpath('stats[grp_nr!="" and position()<=200]');
+                $players = $xml->xpath('stats[grp_nr!=""]');
             } elseif (!empty($this->param4)) {
                 $players = $xml->xpath('stats[grp_nr="' . $this->scope . '" and klubb="' . $this->param4 . '"]');
             } else {
@@ -577,7 +577,7 @@ class MyAPI extends API
                 return ($total1 > $total2) ? -1 : 1;
             });
 
-            return $players;
+            return array_slice($players, 0, 200);  // Return max
         } else {
             return "Only accepts GET requests";
         }

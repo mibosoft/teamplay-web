@@ -30,7 +30,14 @@ class GameController
 					$awayLineup = Lineups::getLineups($folder, $_GET['gameno'], $games[0]->borta);
 					$title = S_MATCHPROTOKOLL;
 
-					render('game', array(
+					// Select view depending on sport
+					if ($settings[0]->bool25 == "true") {
+						$gameView = "gamegolf";
+					} else {
+						$gameView = "game";
+					}
+
+					render($gameView, array(
 						'msgtxt' => $this->msgtxt,
 						'baseInfo' => $baseInfo,
 						'settings' => $settings,

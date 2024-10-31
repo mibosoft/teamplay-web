@@ -17,8 +17,16 @@ class PlayerStatController
 					$settings = Settings::getSettings($folder);
 					$menuItems = UserPages::getMenuItems($folder);
 					$classes = Classes::getClasses($folder, "");
+
+					// Select view depending on sport
+					if ($settings[0]->bool25 == "true") {
+						$playerstatView = "playerstatisticsgolf";
+					} else {
+						$playerstatView = "playerstatistics";
+					}
+
 					$playerstat = PlayerStat::getStat($folder, $scope, $team, $sort);
-					render('playerstatistics', array(
+					render($playerstatView, array(
 						'msgtxt' => $this->msgtxt,
 						'settings' => $settings,
 						'menuItems' => $menuItems,

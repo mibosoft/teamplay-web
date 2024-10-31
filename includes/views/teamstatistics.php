@@ -102,7 +102,7 @@
 						<th><?php echo S_VI ?></th>
 						<th><?php echo S_OA ?></th>
 						<th><?php echo S_FO ?></th>
-						<th><?php echo S_MAL ?></th>
+						<th><?php echo ($settings[0]->bool25 == 'true') ? S_HALPOANG : S_MAL ?></th>
 						<?php echo ($baseInfo->bas->st_utv == 'true' and $baseInfo->bas->prot_typ == '1' or $settings[0]->value7 == "0") ? "" : "<!--" ?>
 						<th style="text-align: center"><?php echo S_POWERPLAY ?></th>
 						<th style="text-align: center"><?php echo S_BOXPLAY ?></th>

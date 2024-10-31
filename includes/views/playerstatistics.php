@@ -6,8 +6,10 @@
 
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" <?php echo ($_GET['sort'] == "points" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
+                        <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "<!--" ?>
                         <li role="presentation" <?php echo ($_GET['sort'] == "goals" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=goals&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_MAL ?></a></li>
                         <li role="presentation" <?php echo ($_GET['sort'] == "assists" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=assists&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_ASSIST ?></a></li>
+                        <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "-->" ?>
                         <li role="presentation"><a href="?playerhighlights&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_HIGHLIGHTS ?></a></li>
                 </ul>
                 <br>
