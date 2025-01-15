@@ -112,6 +112,7 @@
     <div class="row">
       <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp;
       <?php echo $settings[0]->value27 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&registration" role="button">' . S_ANMALAN . '</a>' : ""; ?>
+      <?php echo $settings[0]->value5 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&overview" role="button">' . S_SCHEMARESULTAT . '</a>' : ""; ?>
     </div>
     <br><br>
 

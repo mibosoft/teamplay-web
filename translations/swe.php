@@ -9,6 +9,7 @@ define ("S_INFORMATION","Information");
 define ("S_LAG","Lag");
 define ("S_FEL","Fel");
 define ("S_BEKRAFTA","Bekräfta");
+define ("S_SCHEMARESULTAT","Spelschema/Resultat");
 define ("S_HANDELSER","Händelser");
 define ("S_STATISTIK","Statistik");
 define ("S_RESULTAT","Resultat");

@@ -9,6 +9,7 @@ define ("S_INFORMATION","Informacja");
 define ("S_LAG","Dru&#380;yna");
 define ("S_FEL","Faul");
 define ("S_BEKRAFTA","Potwierd&#378;");
+define ("S_SCHEMARESULTAT","Harmonogram/Rezultaty");
 define ("S_HANDELSER","Okazje");
 define ("S_STATISTIK","Statystyki");
 define ("S_RESULTAT","Rezultaty");

@@ -9,6 +9,7 @@ define ("S_INFORMATION","Informace");
 define ("S_LAG","Tým");
 define ("S_FEL","Chyba");
 define ("S_BEKRAFTA","Potvrdit");
+define ("S_SCHEMARESULTAT","Rozpis/Výsledky");
 define ("S_HANDELSER","Události");
 define ("S_STATISTIK","Statistiky");
 define ("S_RESULTAT","Výsledky");

@@ -9,6 +9,7 @@ define ("S_INFORMATION","Informasjon");
 define ("S_LAG","Lag");
 define ("S_FEL","Feil");
 define ("S_BEKRAFTA","Bekrefte");
+define ("S_SCHEMARESULTAT","Kampoppsett/Resultat");
 define ("S_HANDELSER","Hendelser");
 define ("S_STATISTIK","Statistikk");
 define ("S_RESULTAT","Resultat");

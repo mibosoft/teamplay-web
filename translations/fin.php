@@ -9,6 +9,7 @@ define ("S_INFORMATION","Tieto");
 define ("S_LAG","Joukkue");
 define ("S_FEL","Virhe");
 define ("S_BEKRAFTA","Vahvistus");
+define ("S_SCHEMARESULTAT","Aikataulu/Tulokset");
 define ("S_HANDELSER","Tapahtumat");
 define ("S_STATISTIK","Tilastot");
 define ("S_RESULTAT","Tulos");
