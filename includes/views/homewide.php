@@ -198,17 +198,15 @@
         echo '<hr>';
         echo '</div>';
       }
-    }
-    if (count($news) > $i) {
-      echo '<p><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
+      if (count($news) > $i) {
+        echo '<p><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
+      }
     }
     ?>
   </div>
 </div>
 
 <?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "-->" : "" ?>
-
-<!--/row-->
 
 <br>
 <script type='text/javascript' src='assets/js/randompicture.js'></script>
