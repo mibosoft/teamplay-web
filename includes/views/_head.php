@@ -9,9 +9,12 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.sil.se https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maxcdn.bootstrapcdn.com/ https://apis.google.com https://www.googletagmanager.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com ">
+    
+  
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
   <!-- Custom styles for this template -->
   <link href="assets/css/sticky-footer.css" rel="stylesheet">
