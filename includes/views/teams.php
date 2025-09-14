@@ -132,7 +132,12 @@
           </tr>
         </thead>
         <tbody>
-          <?php render($teams, array('view' => '_teams', 'settings' => $settings)) ?>
+          <?php 
+          if (is_array($teams)) {
+            render($teams, array('view' => '_teams', 'settings' => $settings));
+          }
+          ?>
+
         </tbody>
       </table>
     </div>
