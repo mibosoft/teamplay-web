@@ -52,7 +52,7 @@
 
       var infowindow;
 
-      function initMap() {
+      async function initMap() {
         map = new google.maps.Map(document.getElementById('map-container'), {
           zoom: 6,
           maxZoom: 16,
@@ -255,7 +255,7 @@
       }).resize();
     </script>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkTnb5G_YoNkyUnTAMPL69n8SrjaxlA8g&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkTnb5G_YoNkyUnTAMPL69n8SrjaxlA8g&loading=async&callback=initMap">
     </script>
     <br>
 
