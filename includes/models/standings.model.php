@@ -9,7 +9,7 @@ class Standings
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 
-		return json_decode($content, false);
+		return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
 
 		/*		
 		$allStandings = simplexml_load_file ( $baseUrl . $folder . '/tabell.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
@@ -32,7 +32,7 @@ class Standings
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 
-		return json_decode($content, false);
+		return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
 		/*		
 		$allGroups = simplexml_load_file ( $baseUrl . $folder . '/grupp.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
 		$group = $allGroups->xpath ( 'tpdb_grupp[grp_typ="S" and grp_nr="' . $scope . '"]' );

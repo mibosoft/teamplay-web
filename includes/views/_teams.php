@@ -5,6 +5,7 @@
     <?php echo ($settings[0]->value14 == "0") ? "<!--" : "" ?>
     <td style="vertical-align:middle"><a href="?overviewgroup&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass . '-' . $k->grp_nr?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo (empty($k->grp_nr) ? '' : $k->klass . '-' . $k->grp_nr ) ?></a></td>
     <?php echo ($settings[0]->value14 == "0") ? "-->" : "" ?>
+    <?php echo ($settings[0]->bool15) == "true" ? "<!--" : "" ?>
     <td style="vertical-align:middle"><?php echo $k->drakt ?></td>
     <?php echo ($settings[0]->bool15) == "true" ? "-->" : "" ?>
     <td style="vertical-align:middle; text-align:right"><?php echo $k->url == "" ? "" : '<a href="' . $k->url . '" target="_blank"><span class="glyphicon glyphicon-home"></span></a>' ?></td>

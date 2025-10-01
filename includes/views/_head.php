@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.sil.se https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maxcdn.bootstrapcdn.com/ https://apis.google.com https://www.googletagmanager.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com ">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maxcdn.bootstrapcdn.com/ https://apis.google.com https://www.googletagmanager.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com ">
     
   
   <!-- Bootstrap -->

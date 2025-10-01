@@ -97,7 +97,7 @@ class Games
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
 
-        return json_decode($content, false);
+        return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
         /*
          * $allGames = simplexml_load_file ( $baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
          *
@@ -113,7 +113,7 @@ class Games
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
 
-        return json_decode($content, false);
+        return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
 
         /*
          * // Strip group number
@@ -171,7 +171,7 @@ class Games
         $url = $baseUrl . rawurlencode($restCmd);
         $content = getContent($restCmd, $url);
 
-        return json_decode($content, false);
+        return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
         /*
          * $allGames = simplexml_load_file($baseUrl . $folder . '/resultat.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR);
          * $games = $allGames->xpath('tpdb_schema[status = "0" and dolj != "true"]');

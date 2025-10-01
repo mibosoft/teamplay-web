@@ -9,7 +9,7 @@ class TeamStat
 		$url = $baseUrl . rawurlencode($restCmd);
 		$content = getContent($restCmd, $url);
 
-		return json_decode($content, false);
+		return json_decode($content, false) ?? [];  // null coalescing operator (??) to handle empty arrays (PHP 7.0+)
 		/*		
 		$allStat = simplexml_load_file ( $baseUrl . $folder . '/lagstatistik.xml', "SimpleXMLElement", LIBXML_NOWARNING | LIBXML_NOERROR );
 		
