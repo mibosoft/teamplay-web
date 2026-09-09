@@ -31,5 +31,27 @@
 
   <link href="assets/css/<?php echo $GLOBALS['layout'] >= 2 ? "simplecup" : "fullcup" ?>.css" rel="stylesheet">
 
+  <?php if (empty($isHome) && !empty($settings[0]->pic_name_16)) : ?>
+  <style>
+    body.cup-with-wallpaper {
+      isolation: isolate;
+      position: relative;
+    }
+
+    body.cup-with-wallpaper::before {
+      background: url("<?php echo htmlspecialchars($GLOBALS['baseUrl'] . $_GET['home'] . '/' . $settings[0]->pic_name_16, ENT_QUOTES, 'UTF-8') ?>") no-repeat center center;
+      background-size: cover;
+      content: "";
+      filter: blur(2px);
+      inset: -6px;
+      opacity: 0.18;
+      pointer-events: none;
+      position: fixed;
+      transform: scale(1.02);
+      z-index: -1;
+    }
+  </style>
+  <?php endif; ?>
+
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>

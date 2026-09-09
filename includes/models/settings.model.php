@@ -70,7 +70,8 @@ class Settings
 // Image File Names & Asset Mapping ('pic_name' / 'pic_url' fields in PAR)
 // -----------------------------------------------------------------------------
 // $pic_name_1               -> Header image 1 filename
-// $pic_name_2 .. 16         -> Advertisement image filenames (2 through 16)
+// $pic_name_2 .. 15         -> Advertisement image filenames (2 through 16)
+// $pic_name_16              -> Wallpaper image optionally shown in all views except the landing page.
 // $pic_name_17 .. 19        -> Header image filenames (2 through 4)
 // $pic_url_2 .. 16          -> Target URLs for advertisements (2 through 16)
 
