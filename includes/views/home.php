@@ -1,4 +1,4 @@
-<?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
+<?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems, 'isHome' => true)) ?>
 
 <div class="container">
 	<div class="row row-offcanvas row-offcanvas-right">

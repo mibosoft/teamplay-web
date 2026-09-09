@@ -1,6 +1,6 @@
 <?php include "_head.php"; ?>
 
-<body>
+<body class="<?php echo empty($isHome) ? 'cup-with-wallpaper' : '' ?>">
   <?php include_once("includes/analyticstracking.php") ?>
 
   <div id="fb-root"></div>

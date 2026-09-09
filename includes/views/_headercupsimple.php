@@ -1,6 +1,6 @@
 <?php include "_head.php"; ?>
 
-<body>
+<body class="cup-with-wallpaper">
   <?php include_once("includes/analyticstracking.php") ?>
 
   <div class="container">

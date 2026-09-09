@@ -1,43 +1,5 @@
 <?php
 
-function getContent(string $remotepath): string|bool
-{
-    $ch = curl_init($remotepath);
-
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_CONNECTTIMEOUT => 5,
-        CURLOPT_TIMEOUT        => 20,
-        CURLOPT_USERAGENT      => 'Modern PHP Web App',
-        // Following redirects is usually helpful for REST APIs
-        CURLOPT_FOLLOWLOCATION => true, 
-    ]);
-
-    // Debug security bypass (Keep this strictly for local dev!)
-    if (defined('DEBUG') && DEBUG === true) {
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    }
-
-    $contents = curl_exec($ch);
-
-    // Check for cURL transport errors
-    if (curl_errno($ch)) {
-        // You might want to log curl_error($ch)
-        return false; 
-    }
-
-    // Check for HTTP errors (4xx or 5xx)
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    if ($httpCode >= 400) {
-        return false;
-    }
-
-    // No curl_close($ch) needed anymore in PHP 8.0+
-    return $contents;
-}
-
-/*
 function getContent($cachefile, $remotepath)
 {
     $ch = curl_init();
@@ -45,12 +7,9 @@ function getContent($cachefile, $remotepath)
         die("Couldn't initialize a cURL handle");
     }
     curl_setopt($ch, CURLOPT_URL, $remotepath);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-
-    // This option controls checking the server's certificate's claimed identity. Default value is 2. Required for debugging.
+    // This option controls checking the server's certificate's claimed identity. Default valöue is 2. Required for debugging.
     if (DEBUG) {
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
@@ -60,8 +19,6 @@ function getContent($cachefile, $remotepath)
     curl_close($ch);
     return $contents;
 }
-*/
-
 
 /*
  * NOT USED SINCE CURL SOLVED THE PERFORMANCE PROBLEM

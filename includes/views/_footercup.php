@@ -1,1 +1,2 @@
+<br>
 <?php $GLOBALS['layout'] >= 2 ? include "_footercupsimple.php" : include "_footercupfull.php" ?>
