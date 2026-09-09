@@ -1,3 +1,4 @@
+<br>
 <footer>
   <?php echo $baseInfo->bas->sidfot ?>
   <?php echo $settings[0]->value15 == "1" ? "" : "<!--"; ?>
