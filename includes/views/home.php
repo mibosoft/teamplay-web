@@ -239,7 +239,7 @@
 $i = 2;
 $noPics = true;
 $firstPic = true;
-for ($i == 2; $i <= 16; $i++) {
+for ($i == 2; $i <= 15; $i++) {
 	$adNamePointer = 'pic_name_' . strval($i);
 	$adUrlPointer = 'pic_url_' . strval($i);
 	if (!empty($settings[0]->{$adNamePointer})) {
