@@ -6,24 +6,24 @@
 
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-default btn-sm active" data-toggle="button" aria-pressed="true" id="btn-show-arenas" type="button">
+        <button class="btn btn-default btn-sm active" data-ui="button" aria-pressed="true" id="btn-show-arenas" type="button">
           <img width="16" height="19" src="assets/images/arena.png"> <?php echo S_SPELPLATSER ?>
         </button>
 
         <?php echo empty($foodplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-food" type="button">
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-food" type="button">
           <img width="16" height="19" src="assets/images/food.png"> <?php echo S_MATSTALLEN ?>
         </button>
         <?php echo empty($foodplaces) ? "-->" : "" ?>
 
         <?php echo empty($lodgingplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-lodging" type="button">
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-lodging" type="button">
           <img width="16" height="19" src="assets/images/lodging.png"> <?php echo S_BOENDE ?>
         </button>
         <?php echo empty($lodgingplaces) ? "-->" : "" ?>
 
         <?php echo empty($otherplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-other" type="button">
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-other" type="button">
           <img width="16" height="19" src="assets/images/other.png"> <?php echo S_OVRIGT ?>
         </button>
         <?php echo empty($otherplaces) ? "-->" : "" ?>

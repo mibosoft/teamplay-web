@@ -165,13 +165,13 @@ function getGameStatus($status)
 {
     switch ($status) {
         case 1:
-            return "label label-warning";
+            return "tp-status tp-status-pending";
             break;
         case 2:
-            return "label label-lightgreen";
+            return "tp-status tp-status-completed";
             break;
         default:
-            return "label label-gray";
+            return "tp-status tp-status-not-started";
             break;
     }
 }

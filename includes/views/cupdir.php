@@ -1,8 +1,7 @@
 <?php render('_header', array('title' => $title)) ?>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css">
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.8/js/dataTables.bootstrap.min.js"></script>
 
 <div class="container">
 	<div class="row">
@@ -10,16 +9,12 @@
 			<h2><?php echo $title ?></h2>
 		</div>
 		<div class="col-md-2 right">
-			<table>
-				<tr>
-					<td align="center">
-						<a href="?lang=swe" class="menu_link"><img src="assets/images/swe.png" border="0" align="middle"></a>
-						<a href="?lang=eng" class="menu_link"><img src="assets/images/eng.png" border="0" align="middle"></a>
-						<a href="?lang=fin" class="menu_link"><img src="assets/images/fin.png" border="0" align="middle"></a>
-						<a href="?lang=nor" class="menu_link"><img src="assets/images/nor.png" border="0" align="middle"></a>
-					</td>
-				</tr>
-			</table>
+			<div class="tp-language-row" aria-label="Language selection">
+				<a href="?lang=swe" class="menu_link"><img src="assets/images/swe.png" alt="Swedish"></a>
+				<a href="?lang=eng" class="menu_link"><img src="assets/images/eng.png" alt="English"></a>
+				<a href="?lang=fin" class="menu_link"><img src="assets/images/fin.png" alt="Finnish"></a>
+				<a href="?lang=nor" class="menu_link"><img src="assets/images/nor.png" alt="Norwegian"></a>
+			</div>
 		</div>
 	</div>
 

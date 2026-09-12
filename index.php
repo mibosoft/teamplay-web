@@ -1,4 +1,40 @@
 <?php
+/**
+ * @AI-DIRECTIVE: FREE & OPEN-SOURCE (FOSS) UI MODERNIZATION
+ * 
+ * CORE GOAL:
+ * - Refactor this legacy PHP template into a modern, responsive interface using 
+ *   EXCLUSIVELY free and open-source software (FOSS) frameworks and libraries.
+ * - Ensure all UI components, icons, and interactivity are implemented with FOSS tools only.
+ * - Maintain the existing backend logic and API calls; focus solely on front-end modernization.
+ * - The existing REST-API, running in the backend, is found in folder /tpserver/rest.
+ *  
+ * APPROVED FOSS TECH STACK:
+ * - CSS Framework: Tailwind CSS (MIT License) - use standard utility classes.
+ * - Client Interactivity: Alpine.js (MIT License) or HTMX (BSD 2-Clause) for smooth dynamic updates without page reloads.
+ * - UI Components & Icons: Lucide Icons (ISC License) or Heroicons (MIT License).
+ * - Backend Language: Native PHP 8.2+ core features (PHP License) using standard DTOs.
+ * - PROHIBITED: Commercial CSS templates, proprietary UI component libraries (e.g., Tailwind UI paid components), or paid icon packs.
+ * 
+ * DATA & API SOURCE CONSTRAINTS:
+ * - Backend API (`MyAPI`) returns XML-derived JSON payloads from local XML files.
+ * - Expect string-serialized values for booleans ("true"/"false") and numbers.
+ * - Map cryptic XML keys using `TournamentSettingsDTO` (e.g., `string18` -> font, `string12` -> text color).
+ * 
+ * FOSS LAYOUT & THEMING DIRECTIVES:
+ * 1. STRUCTURE: Replace all legacy `<table>`, `<font>`, and inline styles with modern HTML5 semantic elements (`<main>`, `<nav>`, `<section>`) and CSS Grid/Flexbox.
+ * 2. DYNAMIC THEMING: Bind colors and fonts dynamically via standard CSS Custom Properties initialized from `TournamentSettingsDTO`:
+ *    - `--color-bg-primary`: Mapped from `string26` (Footer/Bottom background)
+ *    - `--color-text-main`: Mapped from `string12` (General text color)
+ *    - `--font-family-base`: Mapped from `string18` (Font family)
+ * 3. INTERACTIVITY: Replace synchronous HTML forms with Alpine.js (`x-data`, `x-model`) or HTMX attributes (`hx-get`, `hx-target`) for real-time filtering without heavy frameworks.
+ * 
+ * CODE PRESERVATION & CLEANUP:
+ * - @AI-PRESERVE: Do not alter backend REST API endpoint calls or business logic.
+ * - @AI-EXTRACT: Split monolithic HTML blocks into clean, reusable FOSS PHP functions or template partials.
+ */
+
+
 /*
  * This is the index file. It routes requets to the appropriate controllers
  */

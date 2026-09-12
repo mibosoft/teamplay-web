@@ -4,10 +4,15 @@
  */
 html,
 body {
-  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  overflow-x: clip;
 }
 body {
-  padding-top: 70px; 
+  padding-top: 0;
+}
+
+#map-container {
+  width: 100%;
+  min-height: 24rem;
 }
 footer {
  /* padding: 30px 0; */
@@ -39,6 +44,297 @@ background:#fff
 
 #pic-group img{
 padding:20px
+}
+
+#pic-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#pic-group .tp-picture-tile {
+  display: inline-flex;
+  width: 12rem;
+  height: 8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+#pic-group .tp-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.container {
+  width: min(100% - 2rem, 96rem);
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tp-language-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin: 1.5rem auto;
+}
+
+.tp-language-row a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .45rem;
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: 9999px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 4px 12px rgba(15,23,42,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.tp-language-row a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15,23,42,.12);
+}
+
+.tp-language-row img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.tp-search-control {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: .25rem .35rem .25rem .85rem;
+  border: 1px solid rgba(148,163,184,.35);
+  border-radius: 9999px;
+  background: rgba(248,250,252,.9);
+  box-shadow: 0 4px 12px rgba(15,23,42,.06);
+}
+
+.tp-search-input {
+  min-width: 0;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 2.5rem;
+  padding: .65rem .5rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #334155;
+  box-shadow: none;
+}
+
+.tp-search-input:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.tp-search-button {
+  display: inline-flex;
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: #0f172a;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.tp-search-button:hover {
+  background: #334155;
+  transform: translateY(-1px);
+}
+
+.tp-search-button svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.tp-mobile-nav .space-y-1 > div {
+  position: relative;
+}
+
+.tp-mobile-nav .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 1rem;
+  right: 1rem;
+  z-index: 70;
+  min-width: 0;
+  margin: 0;
+  padding: .4rem;
+  border: 1px solid rgba(148,163,184,.25);
+  border-radius: .85rem;
+  background: #fff !important;
+  background-color: #fff !important;
+  background-image: none !important;
+  opacity: 1 !important;
+  box-shadow: 0 16px 32px rgba(15,23,42,.18);
+}
+
+.tp-mobile-nav .dropdown-menu > li > a {
+  display: block;
+  padding: .55rem .75rem;
+  border-radius: .5rem;
+  color: #475569;
+  text-decoration: none;
+}
+
+.tp-mobile-nav .dropdown-menu > li > a:hover {
+  background: rgba(241,245,249,.9);
+}
+
+.content {
+  width: 100%;
+  max-width: 96rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(148,163,184,0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.content > h2,
+.content > h3 {
+  margin-top: 0;
+  color: #0f172a;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.content .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.25rem 0 1.5rem;
+  padding: .35rem;
+  border: 1px solid rgba(148,163,184,0.2);
+  border-radius: 9999px;
+  background: rgba(248,250,252,0.9);
+}
+
+.content .nav > li > a {
+  border: 0;
+  border-radius: 9999px;
+  color: #475569;
+}
+
+.content .nav > li > a:hover,
+.content .nav > li.active > a,
+.content .nav > li.active > a:hover {
+  color: #0f172a;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(15,23,42,.1);
+}
+
+.table-responsive {
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border: 1px solid rgba(148,163,184,0.2);
+  border-radius: 1rem;
+  background: rgba(255,255,255,0.72);
+}
+
+.table {
+  width: 100%;
+  min-width: 44rem;
+  margin-bottom: 0;
+  color: #334155;
+}
+
+.table > thead > tr > th {
+  padding: .9rem .75rem;
+  border-bottom: 1px solid rgba(148,163,184,0.3);
+  background: #f8fafc;
+  color: #475569;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.table > tbody > tr > td {
+  padding: .85rem .75rem;
+  border-top: 1px solid rgba(226,232,240,.8);
+  vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background: rgba(248,250,252,.72);
+}
+
+.table-hover > tbody > tr:hover,
+.table-striped > tbody > tr:hover {
+  background: #eff6ff;
+}
+
+.alert {
+  border: 1px solid rgba(14,165,233,.18);
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(15,23,42,.05);
+}
+
+.form-control,
+select.form-control,
+textarea.form-control {
+  min-height: 2.75rem;
+  border: 1px solid rgba(148,163,184,.4);
+  border-radius: .75rem;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,.16);
+}
+
+.btn {
+  border-radius: 9999px;
+  border: 0;
+  font-weight: 600;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15,23,42,.12);
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 1rem, 96rem);
+  }
+
+  .content {
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+
+  .content .table {
+    min-width: 38rem;
+  }
 }
 
 /* Borders, for example "<div row borders>" for result tables */

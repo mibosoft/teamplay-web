@@ -28,6 +28,30 @@
     padding: 5px
   }
 
+  .jumbotron h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    text-shadow: 0 3px 18px rgba(0,0,0,.35);
+  }
+
+  .jumbotron h2 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.35rem, 3vw, 2.25rem);
+    font-weight: 600;
+    text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+
+  .jumbotron .tp-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .75rem;
+    margin: 0 auto;
+  }
+
   .jumbotron:after {
     content: "";
     position: absolute;
@@ -109,8 +133,8 @@
       <?php echo (date("Y-m-d") <= $baseInfo->bas->start_dat) ? '<span class="label label-default">' . howManyDays(date("Y-m-d"), $baseInfo->bas->start_dat) . "</span> " . S_DAGARKVAR : "" ?>
     </h3>
     <br>
-    <div class="row">
-      <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>&nbsp;
+    <div class="tp-hero-actions">
+      <a class="btn btn-default btn-lg" href="?home=<?php echo $_GET['home']; ?>&layout=1#moreinfo" role="button"><?php echo S_MERAINFORMATION ?></a>
       <?php echo $settings[0]->value27 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&registration" role="button">' . S_ANMALAN . '</a>' : ""; ?>
       <?php echo $settings[0]->value5 == "1" ? '<a class="btn btn-default btn-lg" href="?home=' . $_GET['home'] . '&layout=1&overview" role="button">' . S_SCHEMARESULTAT . '</a>' : ""; ?>
     </div>
@@ -118,11 +142,11 @@
 
     <div class="row">
       <div style="margin: 0 auto;width: 70%;">
-        <div class="input-group">
-          <input id="searchField" type="text" class="form-control" placeholder="<?php echo S_SOKLAG ?>" title="<?php echo S_BORJASKRIVA ?>">
-          <div class="input-group-btn">
-            <button class="btn btn-default" id="go" type="button">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
-          </div>
+        <div class="tp-search-control">
+          <input id="searchField" type="text" class="tp-search-input" placeholder="<?php echo S_SOKLAG ?>" title="<?php echo S_BORJASKRIVA ?>">
+          <button class="tp-search-button" id="go" type="button" aria-label="Search teams">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -138,19 +162,13 @@
 
 
 <div class="container">
-  <div class="col-md-12" align="center">
-    <table>
-      <tr>
-        <td align="center">
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=swe" class="menu_link"><img src="assets/images//flags_iso/24/se.png" border="0" align="middle"></a>
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=eng" class="menu_link"><img src="assets/images/flags_iso/24/gb.png" border="0" align="middle"></a>
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images//flags_iso/24/fi.png" border="0" align="middle"></a>
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images//flags_iso/24/no.png" border="0" align="middle"></a>
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images//flags_iso/24/cz.png" border="0" align="middle"></a>
-          <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images//flags_iso/24/pl.png" border="0" align="middle"></a>
-        </td>
-      </tr>
-    </table>
+  <div class="tp-language-row" aria-label="Language selection">
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=swe" class="menu_link"><img src="assets/images/flags_iso/24/se.png" alt="Swedish"></a>
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=eng" class="menu_link"><img src="assets/images/flags_iso/24/gb.png" alt="English"></a>
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images/flags_iso/24/fi.png" alt="Finnish"></a>
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images/flags_iso/24/no.png" alt="Norwegian"></a>
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images/flags_iso/24/cz.png" alt="Czech"></a>
+    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images/flags_iso/24/pl.png" alt="Polish"></a>
   </div>
 </div>
 

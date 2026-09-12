@@ -9,12 +9,12 @@
         <?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
         <div class="row">
           <div class="col-sm-12">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs tp-simple-nav">
               <li role="presentation" <?php echo (isset($_GET['teams']) ? 'class="active"' : '') ?>><a href="?home=<?php echo $_GET['home']; ?>&layout=2&teams&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_LAG_PLURAL ?></a></li>
               <li role="presentation" <?php echo (isset($_GET['overview']) ? 'class="active"' : '') ?>><a href="?home=<?php echo $_GET['home']; ?>&layout=2&overview&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_KLASSER ?></a></li>
               <li role="presentation" class="<?php echo ((isset($_GET['games']) or isset($_GET['latestgames']) or isset($_GET['unplayedgames'])) ? 'dropdown tab-pane active' : 'dropdown') ?>">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?php echo S_MATCHER ?><span class="caret"></span></a>
-                <ul class="dropdown-menu">
+                <a class="dropdown-toggle" data-ui="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?php echo S_MATCHER ?><span class="caret"></span></a>
+                <ul hidden style="display: none" class="dropdown-menu">
                   <li role="presentation"><a href="?home=<?php echo $_GET['home']; ?>&layout=2&games&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGAMATCHER ?></a></li>
                   <li role="presentation"><a href="?home=<?php echo $_GET['home']; ?>&layout=2&unplayedgames&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_OSPELADEMATCHER ?></a></li>
                   <li role="presentation"><a href="?home=<?php echo $_GET['home']; ?>&layout=2&latestgames&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SENASTERESULTAT ?></a></li>

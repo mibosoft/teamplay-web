@@ -67,11 +67,11 @@
         <!-- #### NAV #### -->
         <?php echo ($baseInfo->bas->prot_typ == 3) ? '' : '<ul class="nav nav-tabs">' ?>
         <?php echo ($baseInfo->bas->prot_typ == 1) ? '' : '<!--' ?>
-        <li class="active"><a data-toggle="tab" id="nav_tab_1" href="#tab_1"><?php echo S_HANDELSER ?></a></li>
+        <li class="active"><a data-ui="tab" id="nav_tab_1" href="#tab_1"><?php echo S_HANDELSER ?></a></li>
         <?php echo ($baseInfo->bas->prot_typ == 1) ? '' : '-->' ?>
         <?php echo ($baseInfo->bas->prot_typ < 3) ? '' : '<!--' ?>
-        <li <?php echo ($baseInfo->bas->prot_typ == 1) ? '' : 'class="active"' ?>><a data-toggle="tab" id="nav_tab_2" href="#tab_2"><?php echo S_HEMMALAG ?></a></li>
-        <li><a data-toggle="tab" id="nav_tab_3" href="#tab_3"><?php echo S_BORTALAG ?></a></li>
+        <li <?php echo ($baseInfo->bas->prot_typ == 1) ? '' : 'class="active"' ?>><a data-ui="tab" id="nav_tab_2" href="#tab_2"><?php echo S_HEMMALAG ?></a></li>
+        <li><a data-ui="tab" id="nav_tab_3" href="#tab_3"><?php echo S_BORTALAG ?></a></li>
         <?php echo ($baseInfo->bas->prot_typ < 3) ? '' : '-->' ?>
         <?php echo ($baseInfo->bas->prot_typ == 3) ? '' : '</ul>' ?>
 
