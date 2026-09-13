@@ -1,6 +1,9 @@
   <tr>
     <td style="vertical-align:middle"><span style="display:inline-flex; align-items:center; gap:.4rem; white-space:nowrap;"><?php echo ($settings[0]->bool21 == "false" or empty($k->lkod)) ? '' : '<img src="assets/images/flags_iso/16/' . $k->lkod . '.png" alt="Country flag" style="display:block;"/> ' ?><a href="?team&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass ?>&name=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo ($k->reserv == "true") ? "*" : "" ?><?php echo (intval($k->tavl_bet) + intval($k->erlagt1) + intval($k->erlagt2) > 0 and $settings[0]->bool23 == "true") ? "<b>" : "" ?><?php echo $k->klubb ?><?php echo (intval($k->tavl_bet) + intval($k->erlagt1) + intval($k->erlagt2) > 0 and $settings[0]->bool23 == "true") ? "</b>" : "" ?></a></span></td>
-    <td style="vertical-align:middle"><?php echo empty($k->logo) ? '&nbsp;' : '<p align="center"><img src="' . $GLOBALS['baseUrl'] . $_GET['home'] . '/' . $k->logo . '" width="100" height="100"></p>' ?></td>
+    <td style="vertical-align:middle"><?php
+      $teamLogoUrl = safeAssetUrl($GLOBALS['baseUrl'], $_GET['home'] ?? '', $k->logo ?? '');
+      echo empty($k->logo) || $teamLogoUrl === '' ? '&nbsp;' : '<p align="center"><img src="' . htmlspecialchars($teamLogoUrl, ENT_QUOTES, 'UTF-8') . '" width="100" height="100"></p>';
+    ?></td>
     <td style="vertical-align:middle"><a href="?overviewclass&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klass ?></a></td>
     <?php echo ($settings[0]->value14 == "0") ? "<!--" : "" ?>
     <td style="vertical-align:middle"><a href="?overviewgroup&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass . '-' . $k->grp_nr?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo (empty($k->grp_nr) ? '' : $k->klass . '-' . $k->grp_nr ) ?></a></td>

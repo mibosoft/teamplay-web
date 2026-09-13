@@ -79,6 +79,30 @@ function isHttps()
     return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443;
 }
 
+function safeAssetUrl($baseUrl, $home, $filename)
+{
+    $value = trim((string) ($filename ?? ''));
+
+    if ($value === '') {
+        return '';
+    }
+
+    if (preg_match('/^file:\/\//i', $value) || preg_match('/^[A-Za-z]:[\\\/]/', $value) || preg_match('/^\\\\/', $value)) {
+        return '';
+    }
+
+    if (preg_match('/^https?:\/\//i', $value) || preg_match('/^\/\//', $value)) {
+        return $value;
+    }
+
+    $safeHome = is_string($home) ? trim($home) : '';
+    $safeHome = rtrim($safeHome, '/');
+    $base = rtrim((string) $baseUrl, '/');
+    $relative = $safeHome !== '' ? $safeHome . '/' . ltrim($value, '/') : ltrim($value, '/');
+
+    return $base . '/' . $relative;
+}
+
 /*
 function mergeXML(&$base, $add)
 {

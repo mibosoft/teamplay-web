@@ -12,6 +12,7 @@
   .homewide-text-section {
     padding-left: 1rem;
     padding-right: 1rem;
+    margin-top: 2.5rem;
   }
 
   .jumbotron {
@@ -65,7 +66,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("<?php echo $GLOBALS['baseUrl'] . $_GET['home'] . '/' . $settings[0]->pic_name_1 ?>") no-repeat center center;
+    <?php $heroUrl = safeAssetUrl($GLOBALS['baseUrl'], $_GET['home'] ?? '', $settings[0]->pic_name_1 ?? ''); ?>
+    background: <?php echo $heroUrl !== '' ? 'url("' . htmlspecialchars($heroUrl, ENT_QUOTES, 'UTF-8') . '")' : 'none'; ?> no-repeat center center;
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(5.5px);
@@ -165,18 +167,6 @@
 </div>
 <?php echo empty($settings[0]->pic_name_1) ? "-->" : "" ?>
 
-
-<div class="container">
-  <div class="tp-language-row" aria-label="Language selection">
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=swe" class="menu_link"><img src="assets/images/flags_iso/24/se.png" alt="Swedish"></a>
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=eng" class="menu_link"><img src="assets/images/flags_iso/24/gb.png" alt="English"></a>
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=fin" class="menu_link"><img src="assets/images/flags_iso/24/fi.png" alt="Finnish"></a>
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=nor" class="menu_link"><img src="assets/images/flags_iso/24/no.png" alt="Norwegian"></a>
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=cze" class="menu_link"><img src="assets/images/flags_iso/24/cz.png" alt="Czech"></a>
-    <a href="?layout=1&home=<?php echo $_GET['home']; ?>&lang=pol" class="menu_link"><img src="assets/images/flags_iso/24/pl.png" alt="Polish"></a>
-  </div>
-</div>
-
 <div id="moreinfo"></div>
 <div class="container homewide-text-section">
   <div class="row">
@@ -243,12 +233,18 @@ for ($i == 2; $i <= 16; $i++) {
   $adNamePointer = 'pic_name_' . strval($i);
   $adUrlPointer = 'pic_url_' . strval($i);
   if (!empty($settings[0]->{$adNamePointer})) {
-    if ($firstPic) {
-      echo '<div id="pic-group">';
-      $noPics = false;
-      $firstPic = false;
+    $adImageUrl = safeAssetUrl($GLOBALS['baseUrl'], $_GET['home'] ?? '', $settings[0]->{$adNamePointer});
+    if ($adImageUrl !== '') {
+      if ($firstPic) {
+        echo '<div id="pic-group">';
+        $noPics = false;
+        $firstPic = false;
+      }
+      $adTarget = trim((string) ($settings[0]->{$adUrlPointer} ?? ''));
+      $adTarget = preg_match('/^file:\/\//i', $adTarget) || preg_match('/^[A-Za-z]:[\\\/]/', $adTarget) || preg_match('/^\\\\/', $adTarget) ? '' : $adTarget;
+      $adHref = $adTarget === '' ? '#' : htmlspecialchars($adTarget, ENT_QUOTES, 'UTF-8');
+      echo '<a class="tp-picture-tile" href="' . $adHref . '" target="_blank"><img class="tp-picture" src="' . htmlspecialchars($adImageUrl, ENT_QUOTES, 'UTF-8') . '" alt="" border="0"></a>';
     }
-    echo '<a class="tp-picture-tile" href="' . $settings[0]->{$adUrlPointer} . '" target="_blank"><img class="tp-picture" src="' . $GLOBALS['baseUrl'] . $_GET['home'] . '/' . $settings[0]->{$adNamePointer} . '" alt="" border="0"></a>';
   }
 }
 if (!$noPics) {

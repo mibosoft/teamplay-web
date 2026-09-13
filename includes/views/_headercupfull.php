@@ -20,7 +20,7 @@
           </button>
 
           <a class="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-2 text-sm font-bold tracking-wide text-slate-800 shadow-sm ring-1 ring-slate-200 transition hover:bg-white" href="?home=<?php echo $_GET['home']; ?>&layout=1">
-            <span><?php echo empty($isHome) ? htmlspecialchars($title, ENT_QUOTES, 'UTF-8') : 'Teamplay'; ?></span>
+            <span><?php echo htmlspecialchars(!empty($title) ? $title : (empty($baseInfo->bas->namn) ? 'Teamplay' : $baseInfo->bas->namn), ENT_QUOTES, 'UTF-8'); ?></span>
             <span class="text-base" aria-hidden="true">🏠</span>
           </a>
         </div>

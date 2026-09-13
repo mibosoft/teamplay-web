@@ -5,35 +5,22 @@
   <title><?php echo formatTitle($title) ?></title>
 
   <base href="<?php
-    $requestHost = parse_url('http://' . ($_SERVER['HTTP_HOST'] ?? ''), PHP_URL_HOST);
-    $isLocalRequest = DEBUG || in_array($requestHost, array('localhost', '127.0.0.1', '0.0.0.0'), true);
     $applicationPath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
-    echo $isLocalRequest ? '' : htmlspecialchars(($applicationPath === '' ? '/' : $applicationPath . '/'), ENT_QUOTES, 'UTF-8');
+    echo htmlspecialchars(($applicationPath === '' ? '/' : $applicationPath . '/'), ENT_QUOTES, 'UTF-8');
   ?>" />
 
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tournament information and results" />
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://apis.google.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com https://www.gstatic.com https://*.gstatic.com https://cdn.tailwindcss.com https://unpkg.com">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://apis.google.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com https://www.gstatic.com https://*.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://fonts.googleapis.com https://fonts.gstatic.com">
 
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          boxShadow: {
-            soft: '0 12px 30px rgba(15, 23, 42, 0.12)'
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="stylesheet" href="assets/css/tailwind.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
 
   <?php echo $settings[0]->memo3 ?>
@@ -65,7 +52,8 @@
     }
 
     body.cup-with-wallpaper::before {
-      background: url("<?php echo htmlspecialchars($GLOBALS['baseUrl'] . ($_GET['home'] ?? '') . '/' . $settings[0]->pic_name_16, ENT_QUOTES, 'UTF-8') ?>") no-repeat center center;
+      <?php $wallpaperUrl = safeAssetUrl($GLOBALS['baseUrl'], $_GET['home'] ?? '', $settings[0]->pic_name_16 ?? ''); ?>
+      background: <?php echo $wallpaperUrl !== '' ? 'url("' . htmlspecialchars($wallpaperUrl, ENT_QUOTES, 'UTF-8') . '")' : 'none'; ?> no-repeat center center;
       background-size: cover;
       content: "";
       filter: blur(2px);
