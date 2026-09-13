@@ -52,6 +52,8 @@
     .navbar-nav a { display: block; border-radius: 9999px; padding: .55rem .75rem; color: #475569; font-size: .9rem; text-decoration: none; }
     .navbar-nav a:hover, .navbar-nav a:focus-visible { background: #fff; color: #0f172a; box-shadow: 0 4px 12px rgba(15,23,42,.08); }
     .navbar-right { margin-left: auto; }
+    #google_translate_element { display: none; }
+    #language-selector { max-width: 7.5rem; border: 1px solid var(--color-divider); border-radius: .5rem; background: rgba(255,255,255,.9); padding: .35rem 1.6rem .35rem .55rem; color: #475569; font-size: .75rem; }
 
     .carousel { position: relative; overflow: hidden; min-height: 30rem; background: #0f172a; }
     .carousel-inner { min-height: 30rem; }
@@ -60,6 +62,7 @@
     .carousel .item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .42; }
     .carousel .item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,.86), rgba(15,23,42,.22)); }
     .carousel-caption { position: relative; z-index: 1; display: flex; min-height: 30rem; width: min(100% - 2rem, 72rem); margin: 0 auto; flex-direction: column; justify-content: center; align-items: flex-start; color: #fff; }
+    .carousel-caption h1, .carousel-caption p, .carousel-caption a { color: #fff; }
     .carousel-caption h1 { max-width: 42rem; margin: 0; font-size: clamp(2.25rem, 6vw, 5rem); line-height: 1.05; letter-spacing: -.04em; }
     .carousel-caption p { max-width: 38rem; font-size: 1.15rem; line-height: 1.7; }
     .carousel-control { position: absolute; top: 50%; z-index: 2; color: #fff; font-size: 2rem; text-decoration: none; transform: translateY(-50%); opacity: .75; }
@@ -74,11 +77,11 @@
     section:nth-of-type(even) { background: rgba(255,255,255,.48); }
     section .container > .row > [class*="col-"] { max-width: 100%; }
     section .container > .row > .col-md-8 { max-width: 48rem; }
-    h1, h2, h3, h4 { color: var(--color-heading); letter-spacing: -.025em; }
-    h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
-    h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.4rem); }
-    h3 { font-size: 1.35rem; }
-    h4 { font-size: 1.05rem; }
+    body h1, body h2, body h3, body h4 { color: var(--color-heading); font-weight: 700; line-height: 1.2; letter-spacing: -.025em; }
+    body h1 { margin: 0 0 1.25rem; font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+    body h2 { margin: 2.25rem 0 .9rem; font-size: clamp(1.65rem, 2.7vw, 2.05rem); font-weight: 800; letter-spacing: 0; }
+    body h3 { margin: 1.75rem 0 .7rem; font-size: clamp(1.4rem, 2vw, 1.65rem); font-weight: 800; letter-spacing: 0; }
+    body h4 { margin: 1.35rem 0 .45rem; font-size: 1.1rem; font-weight: 800; letter-spacing: 0; }
     p, li { line-height: 1.75; }
     section p, section li { max-width: 70rem; }
     a { color: #2563eb; }
@@ -86,13 +89,25 @@
     .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(15,23,42,.14); }
     .btn-info, .btn-danger, .btn-success { background: #0f172a; color: #fff; }
     .intro-section .row { display: grid; gap: 2rem; grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr); }
-    .intro-section .col-md-4 { padding: 1.5rem; border: 1px solid var(--color-divider); border-radius: 1rem; background: var(--color-surface); box-shadow: var(--shadow-soft); }
+    .intro-section .col-md-4 { align-self: start; padding: 1.5rem; border: 1px solid var(--color-divider); border-radius: 1rem; background: var(--color-surface); box-shadow: var(--shadow-soft); text-align: center; }
     .intro-section .col-md-4 + .col-md-4 { margin-top: 1rem; }
-    .intro-section .col-md-4 p { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .intro-section .col-md-4 p { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+    section ul:not(.row), section ul:not(.row) ul { list-style: disc; padding-left: 1.5rem; }
+    .intro-section .demo-link { justify-content: center; margin-top: 1.5rem; }
+    .intro-section .demo-link a { position: relative; display: inline-block; line-height: 0; }
+    .intro-section .demo-link a::after { content: 'Demo'; position: absolute; inset: 0; display: grid; place-items: center; color: rgba(15,23,42,.86); font-size: 1.75rem; font-weight: 800; line-height: 1; text-shadow: 0 1px 2px rgba(255,255,255,.45); pointer-events: none; }
     .tp-content { border-top: 1px solid var(--color-divider); }
     .about-section .row, .benefits-section .row, .howto-section .row, .services-section .row, .price-section .row, .order-section .row, .contact-section .row { display: block; }
     .about-section .col-lg-12, .benefits-section .col-lg-12, .howto-section .col-lg-12, .services-section .col-lg-12, .price-section .col-lg-12, .order-section .col-lg-12, .contact-section .col-lg-12 { padding: 1.75rem; border: 1px solid var(--color-divider); border-radius: 1.25rem; background: var(--color-surface); box-shadow: var(--shadow-soft); }
-    .about-section ul, .benefits-section ul, .howto-section ol, .services-section ol, .price-section > .container > .row > .col-lg-12 > ul, .order-section ul { padding-left: 1.4rem; }
+    .about-section .col-lg-12, .benefits-section .col-lg-12, .howto-section .col-lg-12, .services-section .col-lg-12, .price-section .col-lg-12, .order-section .col-lg-12, .contact-section .col-lg-12 { width: calc(100% - 2rem); max-width: 64rem; margin: 0 auto; }
+    section .col-lg-12 > p, section .col-lg-12 > ul:not(.row), section .col-lg-12 > ol, section .col-lg-12 > table { max-width: 52rem; margin-left: auto; margin-right: auto; }
+    section .col-lg-12 > p, section .col-lg-12 li > p, .intro-section .col-md-8 > p { margin-top: 1.15rem; margin-bottom: 1.15rem; }
+    .about-section .col-lg-12 > h1, .about-section .col-lg-12 > h2, .benefits-section .col-lg-12 > h2, .howto-section .col-lg-12 > h1, .services-section .col-lg-12 > h2, .price-section .col-lg-12 > h1, .order-section .col-lg-12 > h1, .order-section .col-lg-12 > h2, .contact-section .col-lg-12 > h1 { max-width: 52rem; margin-left: auto; margin-right: auto; padding-bottom: .6rem; border-bottom: 1px solid var(--color-divider); }
+    .about-section .col-lg-12 h1, .about-section .col-lg-12 h2, .about-section .col-lg-12 h3, .about-section .col-lg-12 h4, .benefits-section .col-lg-12 h1, .benefits-section .col-lg-12 h2, .benefits-section .col-lg-12 h3, .benefits-section .col-lg-12 h4, .howto-section .col-lg-12 h1, .howto-section .col-lg-12 h2, .howto-section .col-lg-12 h3, .howto-section .col-lg-12 h4, .services-section .col-lg-12 h1, .services-section .col-lg-12 h2, .services-section .col-lg-12 h3, .services-section .col-lg-12 h4, .price-section .col-lg-12 h1, .price-section .col-lg-12 h2, .price-section .col-lg-12 h3, .price-section .col-lg-12 h4, .order-section .col-lg-12 h1, .order-section .col-lg-12 h2, .order-section .col-lg-12 h3, .order-section .col-lg-12 h4, .contact-section .col-lg-12 h1, .contact-section .col-lg-12 h2, .contact-section .col-lg-12 h3, .contact-section .col-lg-12 h4 { text-align: center; }
+    section .col-lg-12 > p, section .col-lg-12 > ul:not(.row), section .col-lg-12 > ol, section .col-lg-12 li > ul, section .col-lg-12 li > ol, .intro-section .col-md-8 > p, .intro-section .col-md-8 > ul { font-size: 1rem; line-height: 1.65; }
+    section .col-lg-12 > ul:not(.row), section .col-lg-12 > ol, section .col-lg-12 li > ul, section .col-lg-12 li > ol, .intro-section .col-md-8 > ul { margin: 1rem auto; padding-left: 1.5rem; text-align: left; }
+    section .col-lg-12 > ol, section .col-lg-12 li > ol { list-style: decimal; }
+    section .col-lg-12 li, .intro-section .col-md-8 li { margin-bottom: .5rem; }
     .row { margin: 0; }
     .row::after { display: none; }
     .pricing-table-1 { width: 100%; padding: 0; }
@@ -126,6 +141,15 @@
       .navbar-nav { flex-direction: column; }
       .navbar-right { margin-left: 0; }
       .intro-section .row { grid-template-columns: 1fr; }
+      .intro-section .container { width: calc(100% - 2rem); margin: 0 1rem; }
+      .carousel, .carousel-inner, .carousel .item { min-height: 22rem; }
+      .carousel-caption { min-height: 22rem; width: calc(100% - 3rem); }
+      .carousel-caption h1 { max-width: 22rem; font-size: clamp(1.8rem, 8vw, 2.8rem); }
+      .carousel-caption p { max-width: 28rem; font-size: 1rem; line-height: 1.5; }
+      .carousel-control { font-size: 1.5rem; }
+      .carousel-control.left { left: .5rem; }
+      .carousel-control.right { right: .5rem; }
+      .carousel-indicators { bottom: .75rem; }
     }
   </style>
 </head>
@@ -141,7 +165,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand page-scroll" href="#page-top"><b>Teamplay</b> <span aria-hidden="true">⌂</span></a>
+          <a class="navbar-brand page-scroll" href="#page-top"><b>Teamplay</b> <span aria-hidden="true">🏠</span></a>
         </div>
         <div id="site-navigation" class="navbar-collapse">
           <ul class="nav navbar-nav">
@@ -155,7 +179,15 @@
           </ul>
          <ul class="nav navbar-nav navbar-right">
            <li>
-             <span class="text-sm text-slate-500">Svenska</span>
+             <select id="language-selector" aria-label="Language selector" onchange="changeLanguage(this.value)">
+               <option value="sv">Svenska</option>
+               <option value="en">English</option>
+               <option value="fi">Suomi</option>
+               <option value="no">Norsk</option>
+               <option value="cs">Čeština</option>
+               <option value="pl">Polski</option>
+             </select>
+             <div id="google_translate_element"></div>
            </li>
          </ul>
         </div>
@@ -177,7 +209,9 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Arrangerar du cuper?</h1>
+              <br>
               <p><p>Använd <strong>Teamplay</strong>!</p></p>
+              <br>
               <p><a class="btn btn-info page-scroll" href="#about" role="button">Läs mer</a></p>
             </div>
           </div>
@@ -187,7 +221,9 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Komplett lösning</h1>
+              <br>
               <p>Allt från anmälan till resultathantering</p>
+              <br>
               <p><a class="btn btn-danger" href="index.php?layout=1" role="button">Se aktuella cuper</a></p>
             </div>
           </div>
@@ -197,7 +233,9 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Mobilanpassat</h1>
+              <br>
               <p>Fungerar på alla typer av enheter</p>
+              <br>
               <p><a class="btn btn-success" href="https://www.teamplay.nu/cup/?home=_demo/demo&layout=1" target="_blank" role="button">Se demo</a></p>
             </div>
           </div>
@@ -226,8 +264,7 @@ seriespel för lagsporter som t.ex. ishockey, innebandy, fotboll, handboll, bask
 Alla moment från anmälan till schemaläggning och resultathantering tas omhand.</p>
 
 <ul type="square">
-    <li>Helt webbaserat</li>
-    <li>Mobilanpassat - fungerar på alla typer av enheter</li>
+    <li>100% web-baserat och Mobilanpassat</li>
     <li>Finns på svenska, engelska, finska, norska, tjeckiska och polska</li>
     <li>Hanterar de flesta typer av lagidrotter</li>
     <li>Stöd för poängberäkning i Internationell beachhandboll</li>
@@ -237,17 +274,12 @@ Alla moment från anmälan till schemaläggning och resultathantering tas omhand
     <li>Inbyggt stöd för Fair Play</li>
     <li>Automatisk avstämning lagavgifter</li>
     <li>Pris baserat på antalet lag/deltagare</li>
-	<li>REST API för dig som vill skapa en egen presentation
+	  <li>REST API för dig som vill skapa en egen presentation
     <li>Support även kvällar och helger</li>
 </ul>
 
 <p>Teamplay har en integrerad cupsida. Alternativt så kan du fortsätta använda din befintliga cupsida och "bädda in"
 anmälningsformulär och resultatsidor från Teamplay.</p>
-
-<p>Teamplay kan även användas för ren deltagaranmälan till
-träningsläger, idrottsskola, eller annat valfritt evenemang.
-Även här finns möjligheten att stämma av inbetalningar
-automatiskt baserat på OCR-nummer.</p>
 
 <br>
 
@@ -258,11 +290,8 @@ automatiskt baserat på OCR-nummer.</p>
           <h2>Cuper</h2>
           <p><a class="btn btn-success" href="index.php?layout=1&amp;completedcups" role="button">Genomförda cuper</a>
           <a class="btn btn-danger" href="index.php?layout=1" role="button">Aktuella cuper</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Demo</h2>
-          <p><a href="https://www.teamplay.nu/cup/?home=_demo/demo&layout=1" target="_blank"><img
-		  src="resources/graphics/demo_small.png" border="0"></a></p>
+          <p class="demo-link"><a href="https://www.teamplay.nu/cup/?home=_demo/demo&layout=1" target="_blank"><img
+		  src="resources/graphics/demo_small.png" alt="Demo" border="0"></a></p>
         </div>
 
                 </div>
@@ -470,18 +499,18 @@ egendefinierade fält i anmälningsformuläret.</p>
 <p>Här beskrivs i korta drag hur du arbetar med Teamplay. För
 utförligare beskrivning av funktionerna, läs även <a class="page-scroll" href="#about">produktinformationen</a>.</p>
 
-<p><strong>1. Beställ cupen</strong></p>
+<h4>1. Beställ cupen</h4>
 
 <p>När du beställt och fått dina inloggningsuppgifter så kan
 du lägga in alla grundfakta om cupen såsom evenemangets namn,
 tidsperiod, arrangör och plats.</p>
 
-<p><strong>2. Skapa klasser</strong></p>
+<h4>2. Skapa klasser</h4>
 
 <p>Lägg till klasser samt ange eventuell anmälningsavgift och
 max antal deltagade lag. </p>
 
-<p><strong>3. Ange anmälningsinformation</strong></p>
+<h4>3. Ange anmälningsinformation</h4>
 
 <p>Ange introduktionstext för anmälan, sista anmälningsdatum
 och betalningsinformation. Möjlighet finns även att lägga in
@@ -489,7 +518,7 @@ egna fält i anmälningsformuläret. Det finns ett separat
 anmälningsformulär för intresseanmälan domare som är
 valfritt att använda.</p>
 
-<p><strong>4. Ta emot anmälningar</strong></p>
+<h4>4. Ta emot anmälningar</h4>
 
 <p>När lagen anmäler sig till cupen får de automatiskt även
 inloggningsuppgifter. Detta göra att de sedan kan logga in och
@@ -497,24 +526,24 @@ lägga in sina spelare. Dessa uppgifter kan du som arrangör
 sedan använda till att lägga in statistik och/eller ta ut olika
 listor.</p>
 
-<p><strong>5. Gör gruppindelning</strong></p>
+<h4>5. Gör gruppindelning</h4>
 
 <p>Då alla lag finns inlagda, gör gruppindelningen antingen
 manuellt eller med funktionen <em>Automatisk gruppindelning</em>.</p>
 
-<p><strong>6. Skapa spelschema</strong></p>
+<h4>6. Skapa spelschema</h4>
 
 <p>Skapa matcher och justera vid behov slutspelsträden. Lägg
 sedan schema antingen manuellt eller med den automatiska
 schemaläggaren som är ett mycket kraftfullt och tidsbesparande
 verktyg. </p>
 
-<p><strong>7. Tillsätt domare</strong></p>
+<h4>7. Tillsätt domare</h4>
 
 <p>Via domaregistret kan du tillsätta domare, ange ersättning
 och senare ta ut betalningsunderlag. </p>
 
-<p><strong>8. Under cupens genomförande</strong></p>
+<h4>8. Under cupens genomförande</h4>
 
 <p>Matchresultat anges ett eller flera åt gången. Möjlighet
 finns även att registrera matchhändelser. Serietabeller och
@@ -553,7 +582,7 @@ en Excel-fil.</p>
 
 <p>Mibosoft behöver svar på följande frågor för att kunna lägga schema:</p>
 
-<ol>
+<ul>
     <li>Vilka dagar/datum skall cupen spelas?</li>
     <li>Vilka planer finns att tillgå, vilka dagar och vilka
         tider?</li>
@@ -581,7 +610,7 @@ en Excel-fil.</p>
         schemaläggning kan påbörjas?</li>
     <li>När skall schemautkast vara klart för granskning samt
         när ska det publiceras officiellt?</li>
-</ol>
+</ul>
 
 <h4>Kostnad</h4>
 
@@ -632,8 +661,6 @@ en Excel-fil.</p>
                           <li>Samtliga funktioner ingår</li>
 						  <li><b><span>15 kr</b> för lag 201 och framåt.</li>
 						  <li><b><span>1000 kr</b> minimiavgift</li>
-						  <li>&nbsp;</li>
-						  <li>&nbsp;</li>
 						</ul>
 					</div>
                 </div>
@@ -650,26 +677,6 @@ en Excel-fil.</p>
                           <li>Samtliga funktioner ingår</li>
 						  <li><b><span>50 kr</b> för lag 201 och framåt.</li>
 						  <li><b><span>1000 kr</b> minimiavgift</li>
-						  <li>&nbsp;</li>
-						  <li>&nbsp;</li>
-						</ul>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="plan" data-effect="fadeInUp 600ms">
-                    <h3>Deltagaranmälan</h3>
-                    <p class="price">
-                        <strong><span>10 kr</span></strong>
-                        <small>per person</small>
-                    </p>
-                    <div>
-                        <ul>
-                          <li>Samtliga funktioner ingår</li>
-						  <li><b><span>5 kr</b> för person 201 och framåt.</li>
-						  <li><b><span>1000 kr</b> minimiavgift</li>
-						  <li>&nbsp;</li>
-						  <li>&nbsp;</li>
 						</ul>
                     </div>
                 </div>
@@ -685,9 +692,6 @@ en Excel-fil.</p>
                         <ul>
                           <li>Samtliga funktioner ingår</li>
 						  <li>Kontakta oss för prisuppgift</li>
-						  <li>&nbsp;</li>
-						  <li>&nbsp;</li>
-						  <li>&nbsp;</li>
 						</ul>
 					</div>
                 </div>
@@ -717,10 +721,8 @@ en Excel-fil.</p>
 <br>
 <p><a class="btn btn-success page-scroll" href="#order" role="button">Beställ nu</a></p>
 
-<br>
 <p>Mibosoft erbjuder förutom Teamplay även tjänsten att lägga upp spelprogrammet för er cup. Mer om det här:</p>
 <p><a class="btn btn-info page-scroll" href="#services" role="button">Tjänster</a></p>
-<br>
 <p>Har du idag ett befintligt program/system för att administrera cuper men funderar på att byta, <a class="page-scroll" href="#contact">kontakta oss</a> för prisuppgift!</p>
 
 			</div>
@@ -742,7 +744,7 @@ en Excel-fil.</p>
             <li>Namn på Cuparrangör/Förening</li>
             <li>Evenemangets namn</li>
             <li>Evenemangets datum</li>
-			<li>Typ (Cup Mini, Cup, Säsongsspel, Deltagaranmälan). Se <a class="page-scroll" href="#price">Priser</a> ovan!
+			<li>Typ (Cup Mini, Cup, Säsongsspel, Årsavtal). Se <a class="page-scroll" href="#price">Priser</a> ovan!
             <li>Namn, telefon och e-postadress kontaktperson<br>
                 (Till denna person kommer användaruppgifterna att skickas)<br>
                 <br></li>
@@ -777,20 +779,8 @@ en Excel-fil.</p>
         <td>Mibosoft</td>
     </tr>
     <tr>
-        <th>Innehavare:</th>
-        <td>Micael Borgefeldt</td>
-    </tr>
-    <tr>
-        <th>Telefon:</th>
-        <td>070-3353960</td>
-    </tr>
-    <tr>
         <th>E-mail:</th>
         <td><img src="resources/graphics/mail.png"></td>
-    </tr>
-    <tr>
-        <th>Postadress:</th>
-        <td>Svartbäcksgatan 125, 75334 Uppsala</td>
     </tr>
 </table>
 <br>
@@ -817,6 +807,21 @@ en Excel-fil.</p>
 </footer>
 
   <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'sv',
+        includedLanguages: 'sv,en,fi,no,cs,pl',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    function changeLanguage(language) {
+      var translator = document.querySelector('.goog-te-combo');
+      if (!translator) return;
+      translator.value = language;
+      translator.dispatchEvent(new Event('change'));
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       var menuButton = document.querySelector('.navbar-toggle');
       var menu = document.querySelector('#site-navigation');
@@ -877,6 +882,7 @@ en Excel-fil.</p>
       }
     });
   </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

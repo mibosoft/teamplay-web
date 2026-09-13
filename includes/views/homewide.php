@@ -241,7 +241,7 @@ for ($i == 2; $i <= 16; $i++) {
       $noPics = false;
       $firstPic = false;
     }
-    echo '<a href="' . $settings[0]->{$adUrlPointer} . '" target="_blank"><img src="' . $GLOBALS['baseUrl'] . $_GET['home'] . '/' . $settings[0]->{$adNamePointer} . '" border="0"></a>';
+    echo '<a class="tp-picture-tile" href="' . $settings[0]->{$adUrlPointer} . '" target="_blank"><img class="tp-picture" src="' . $GLOBALS['baseUrl'] . $_GET['home'] . '/' . $settings[0]->{$adNamePointer} . '" alt="" border="0"></a>';
   }
 }
 if (!$noPics) {

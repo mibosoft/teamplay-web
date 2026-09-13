@@ -2,7 +2,7 @@
 
 <div class="container">
         <div class="content">
-                <h2><?php echo S_SPELARSTATISTIK ?></h2>
+                <h2 class="text-2xl font-bold text-slate-800"><?php echo S_SPELARSTATISTIK ?></h2>
 
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" <?php echo ($_GET['sort'] == "points" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
@@ -12,14 +12,12 @@
                         <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "-->" ?>
                         <li role="presentation"><a href="?playerhighlights&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_HIGHLIGHTS ?></a></li>
                 </ul>
-                <br>
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" <?php echo ($_GET['scope'] == "all" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=all&sort=<?php echo $_GET['sort']; ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGA ?></a></li>
                         <?php foreach ($classes as $x) {
                                 echo '<li role="presentation" ' . ($x->grp_nr == $_GET['scope'] ? 'class="active"' : '') . '><a href="?playerstat&home=' . $_GET['home'] . '&scope=' . $x->grp_nr . '&sort=' . $_GET['sort'] . '&layout=' . $GLOBALS['layout'] . '&lang=' . $GLOBALS['lang'] . '">' . $x->grp_nr . '</a></li>';
                         } ?>
                 </ul>
-                <br>
 
                 <div class="table-responsive">
                         <table class="table table-condensed table-striped">

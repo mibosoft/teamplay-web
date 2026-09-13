@@ -1,4 +1,4 @@
-<?php echo $GLOBALS['layout'] == 3 ? "<strong>" : "<h4>" ?>
+<?php echo $GLOBALS['layout'] == 3 ? "<strong>" : "<h4 class='text-lg font-bold text-slate-800'>" ?>
 <?php echo $k->datum != "" ? dow(date("N", strtotime($k->datum))) : ""; ?> <?php echo $k->datum ?>
 <?php echo $GLOBALS['layout'] == 3 ? "</strong>" : "</h4>" ?>
 

@@ -2,9 +2,9 @@
 
 <div class="container">
 	<div class="content">
-		<h2><?php echo ($settings[0]->bool21 == "false" or empty($team[0]->lkod)) ? '' : '<img src="assets/images/flags_iso/32/' . $team[0]->lkod . '.png" style="vertical-align: text-top;"/> ' ?><?php echo $title ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo ($settings[0]->bool21 == "false" or empty($team[0]->lkod)) ? '' : '<img src="assets/images/flags_iso/32/' . $team[0]->lkod . '.png' . 'style="vertical-align: text-top;" /> ' ?><?php echo $title ?></h2>
 
-		<h3><?php echo S_OVERSIKT ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_OVERSIKT ?></h3>
 
 		<div class="table-responsive">
 			<table class="table table-condensed table-striped">
@@ -29,7 +29,7 @@
 		<hr>
 
 		<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
-		<h3><?php echo S_SPELARE ?>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_SPELARE ?>
 			<?php echo (empty($players) or $settings[0]->value4 == "0") ? "-->" : "" ?>
 			<?php echo $settings[0]->value6 == "1" ? "" : "<!--"; ?>
 			(<a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $team[0]->klass ?>&team=<?php echo urlencode($team[0]->klubb) ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo strtolower(S_STATISTIK) ?></a>)
@@ -57,7 +57,7 @@
 		<?php echo (empty($players) or $settings[0]->value4 == "0") ? "-->" : "" ?>
 
 		<?php echo empty($leaders) ? "<!--" : "" ?>
-		<h3><?php echo S_LEDARE ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_LEDARE ?></h3>
 		<div class="table-responsive">
 			<table class="table table-condensed table-striped">
 
@@ -74,7 +74,7 @@
 		</div>
 		<?php echo empty($leaders) ? "-->" : "" ?>
 
-		<h3><?php echo S_MATCHER ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_MATCHER ?></h3>
 		<?php renderGames($games) ?>
 
 	</div><!-- /.content -->

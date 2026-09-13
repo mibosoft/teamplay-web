@@ -6,7 +6,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<h2><?php echo $title ?></h2>
+			<h2 class="text-2xl font-bold text-slate-800"><?php echo $title ?></h2>
 		</div>
 		<div class="col-md-2 right">
 			<div class="tp-language-row" aria-label="Language selection">

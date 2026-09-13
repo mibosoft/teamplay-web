@@ -2,7 +2,7 @@
 
 <div class="container">
         <div class="content">
-                <h2><?php echo S_SPELARSTATISTIK ?></h2>
+                <h2 class="text-2xl font-bold text-slate-800"><?php echo S_SPELARSTATISTIK ?></h2>
 
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation"><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
@@ -21,7 +21,7 @@
                 </ul>
                 <br>
 
-                <h3><?php echo S_FLESTPOANG ?></h3>
+                <h3 class="text-xl font-bold text-slate-800"><?php echo S_FLESTPOANG ?></h3>
                 <div class="table-responsive">
                         <table class="table table-condensed table-striped">
                                 <thead>
@@ -39,7 +39,7 @@
                         </table>
                 </div>
 
-                <h3><?php echo S_FLESTMAL ?></h3>
+                <h3 class="text-xl font-bold text-slate-800"><?php echo S_FLESTMAL ?></h3>
                 <div class="table-responsive">
                         <table class="table table-condensed table-striped">
                                 <thead>
@@ -57,7 +57,7 @@
                         </table>
                 </div>
 
-                <h3><?php echo S_FLESTASSIST ?></h3>
+                <h3 class="text-xl font-bold text-slate-800"><?php echo S_FLESTASSIST ?></h3>
                 <div class="table-responsive">
                         <table class="table table-condensed table-striped">
                                 <thead>

@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h2><?php echo $classes[0]->grp_namn ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo $classes[0]->grp_namn ?></h2>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
 		<ul class="nav nav-pills" role="tablist">
@@ -30,8 +30,8 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<?php echo (empty($classes[0]->tree_a) or !empty($classes[0]->tree_b)) ? '' : '<h3>' . S_SLUTSPELSTRAD . '</h3>' ?>
-				<?php echo (empty($classes[0]->tree_a) or empty($classes[0]->tree_b)) ? '' : '<h3>' . S_A_SLUTSPEL . '</h3>' ?>
+				<?php echo (empty($classes[0]->tree_a) or !empty($classes[0]->tree_b)) ? '' : '<h3 class="text-xl font-bold text-slate-800">' . S_SLUTSPELSTRAD . '</h3>' ?>
+				<?php echo (empty($classes[0]->tree_a) or empty($classes[0]->tree_b)) ? '' : '<h3 class="text-xl font-bold text-slate-800">' . S_A_SLUTSPEL . '</h3>' ?>
 				<div class="tree_a" style="overflow-x: auto; overflow-y: hidden;"></div>
 				<script type="text/javascript">
 					<?php echo $classes[0]->tree_a ?>
@@ -41,7 +41,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<?php echo empty($classes[0]->tree_b) ? '' : '<h3>' . S_B_SLUTSPEL . '</h3>' ?>
+				<?php echo empty($classes[0]->tree_b) ? '' : '<h3 class="text-xl font-bold text-slate-800">' . S_B_SLUTSPEL . '</h3>' ?>
 				<div class="tree_b" style="overflow-x: auto; overflow-y: hidden;"></div>
 				<script type="text/javascript">
 					<?php echo $classes[0]->tree_b ?>
@@ -51,7 +51,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<?php echo empty($classes[0]->tree_c) ? '' : '<h3>' . S_C_SLUTSPEL . '</h3>' ?>
+				<?php echo empty($classes[0]->tree_c) ? '' : '<h3 class="text-xl font-bold text-slate-800">' . S_C_SLUTSPEL . '</h3>' ?>
 				<div class="tree_c" style="overflow-x: auto; overflow-y: hidden;"></div>
 				<script type="text/javascript">
 					<?php echo $classes[0]->tree_c ?>
@@ -61,7 +61,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<?php echo empty($classes[0]->tree_d) ? '' : '<h3>' . S_D_SLUTSPEL . '</h3>' ?>
+				<?php echo empty($classes[0]->tree_d) ? '' : '<h3 class="text-xl font-bold text-slate-800">' . S_D_SLUTSPEL . '</h3>' ?>
 				<div class="tree_d" style="overflow-x: auto; overflow-y: hidden;"></div>
 				<script type="text/javascript">
 					<?php echo $classes[0]->tree_d ?>
@@ -71,7 +71,7 @@
 		<?php echo ($GLOBALS['layout'] == 3 or $classes[0]->dolj == 'true') ? "-->" : "" ?>
 
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h3><?php echo S_MATCHER ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_MATCHER ?></h3>
 		<?php renderGames($games) ?>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 

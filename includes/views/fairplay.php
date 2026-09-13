@@ -3,11 +3,11 @@
 <div class="container">
   <div class="content">
 
-    <h2><?php echo S_FAIRPLAY ?></h2>
+    <h2 class="text-2xl font-bold text-slate-800"><?php echo S_FAIRPLAY ?></h2>
     <p><?php echo $baseInfo->bas->fplay ?></p>
 
     <?php echo empty($baseInfo->bas->fplay) ? "<!--" : "" ?>
-    <H3><?php echo S_TABELL ?></H3>
+    <h3 class="text-xl font-bold text-slate-800"><?php echo S_TABELL ?></h3>
     <?php echo empty($baseInfo->bas->fplay) ? "-->" : "" ?>
 
     <ul class="nav nav-pills" role="tablist">

@@ -5,9 +5,9 @@
 
 <div class="container">
     <div class="content">
-        <h2><?php echo $title ?></h2>
+        <h2 class="text-2xl font-bold text-slate-800"><?php echo $title ?></h2>
 
-        <h4>
+        <h4 class="text-lg font-bold text-slate-800">
             <a href="?team&home=<?php echo $_GET['home']; ?>&scope=<?php echo $games[0]->grp_nr ?>&name=<?php echo urlencode($games[0]->hemma) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $games[0]->hemma ?></a> -
             <a href="?team&home=<?php echo $_GET['home']; ?>&scope=<?php echo $games[0]->grp_nr ?>&name=<?php echo urlencode($games[0]->borta) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $games[0]->borta ?></a> :
             <?php echo $games[0]->dolj == 'true' ? S_DOLT : $games[0]->m_hem . "-" . $games[0]->m_bor ?>
@@ -44,7 +44,7 @@
         </table>
 
         <?php echo empty($games[0]->rapport) ? '<!--' : '' ?>
-        <h4><?php echo S_KOMMENTAR ?></h4>
+        <h4 class="text-lg font-bold text-slate-800"><?php echo S_KOMMENTAR ?></h4>
         <p><?php echo $games[0]->rapport ?></p>
         <?php echo empty($games[0]->rapport) ? '-->' : '' ?>
 

@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="content">
-    <h2><?php echo S_NYHETER ?></h2>
+    <h2 class="text-2xl font-bold text-slate-800"><?php echo S_NYHETER ?></h2>
 
     <?php
     if (is_array($news)) {
@@ -10,7 +10,7 @@
         echo '<p><a name="' . $x->datumtid . '"></a>';
         echo '<hr>';
         echo '<p><small>' . str_replace('T', ' ', $x->datumtid) . '</small></p>';
-        echo '<h3>' . $x->rubrik . '</h3>';
+        echo '<h3 class="text-xl font-bold text-slate-800">' . $x->rubrik . '</h3>';
         echo '<p>' . $x->sammanf . '</p>';
         echo '<p>' . $x->mer_info . '</p>';
       }

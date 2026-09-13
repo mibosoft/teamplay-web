@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="content">
-    <h2><?php echo S_OVERSIKTSKARTA ?></h2>
+    <h2 class="text-2xl font-bold text-slate-800"><?php echo S_OVERSIKTSKARTA ?></h2>
 
     <div class="row">
       <div class="col-md-12">
@@ -177,7 +177,7 @@
           title: '<?php echo $baseInfo->bas->namn ?>',
           icon: "assets/images/start.png",
           map: map,
-          infotext: '<h3>' + '<?php echo $baseInfo->bas->namn ?>' + '</h3>' + '<?php echo S_ADRESS ?>' + ': ' + '<?php echo $baseInfo->bas->adress ?>' + ' ' + '<?php echo $baseInfo->bas->plats ?>' + '<br>GPS: ' + '<?php echo $baseInfo->bas->longlat ?>'
+          infotext: '<h3 class="text-xl font-bold text-slate-800">' + '<?php echo $baseInfo->bas->namn ?>' + '</h3>' + '<?php echo S_ADRESS ?>' + ': ' + '<?php echo $baseInfo->bas->adress ?>' + ' ' + '<?php echo $baseInfo->bas->plats ?>' + '<br>GPS: ' + '<?php echo $baseInfo->bas->longlat ?>'
         });
         marker.addListener('click', function() {
           infowindow.setContent(this.infotext);
@@ -210,7 +210,7 @@
             icon: image,
             title: mapLocation[0],
             zIndex: mapLocation[3],
-            infotext: '<h3>' + mapLocation[0] + '</h3>' + mapLocation[6] + '<br><br>' + '<?php echo S_ADRESS ?>' + ': ' + mapLocation[4] + ' ' + mapLocation[5] + '<br>GPS: ' + mapLocation[1] + ',' + mapLocation[2]
+            infotext: '<h3 class="text-xl font-bold text-slate-800">' + mapLocation[0] + '</h3>' + mapLocation[6] + '<br><br>' + '<?php echo S_ADRESS ?>' + ': ' + mapLocation[4] + ' ' + mapLocation[5] + '<br>GPS: ' + mapLocation[1] + ',' + mapLocation[2]
           });
           marker.addListener('click', function() {
             infowindow.setContent(this.infotext);

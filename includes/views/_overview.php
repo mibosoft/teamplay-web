@@ -1,6 +1,6 @@
 <?php
 if ($settings[0]->value14 == "1" and count($k->grupp) > 0) {
-  echo '<div class="mb-6 flex items-center justify-between gap-3">';
+  echo '<div class="mt-2 mb-6 flex items-center justify-between gap-3">';
   echo '<h3 class="m-0 text-xl font-bold text-slate-800"><a class="text-slate-800 hover:text-sky-700" href="?overviewclass&home=' . $_GET['home'] . '&scope=' . $k->grp_nr . '&layout=' . $GLOBALS['layout'] . '&lang=' . $GLOBALS['lang'] . '">' . $k->grp_nr . ' - ' . $k->grp_namn . '</a></h3>';
   echo '</div>';
   echo '<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">';

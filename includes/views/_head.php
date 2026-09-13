@@ -108,6 +108,18 @@
       box-shadow: var(--shadow-soft);
     }
 
+    .content > h2 {
+      text-align: left;
+    }
+
+    .content h3 {
+      margin-top: 2rem;
+    }
+
+    table.table.table-condensed.table-striped th {
+      text-align: left;
+    }
+
     .tp-footer {
       background: var(--color-bg-primary);
       color: rgba(255,255,255,0.92);
@@ -122,6 +134,25 @@
       border-radius: 9999px;
       font-weight: 600;
       transition: all 0.2s ease;
+    }
+
+    .tp-btn[class*="bg-slate-900"],
+    .btn-info,
+    .btn-primary,
+    .btn-success,
+    .btn-danger,
+    .btn-default {
+      background-color: var(--color-bg-primary) !important;
+      border-color: var(--color-bg-primary) !important;
+    }
+
+    .tp-btn[class*="bg-slate-900"]:hover,
+    .btn-info:hover,
+    .btn-primary:hover,
+    .btn-success:hover,
+    .btn-danger:hover,
+    .btn-default:hover {
+      filter: brightness(0.9);
     }
 
     .tp-btn:hover {

@@ -111,9 +111,12 @@ main {
   backdrop-filter: blur(10px);
 }
 
-.content > h2,
-.content > h3 {
+.content > h2 {
   margin-top: 0;
+}
+
+.content > h3 {
+  margin-top: 2rem;
   color: #0f172a;
   font-weight: 800;
   letter-spacing: -0.02em;

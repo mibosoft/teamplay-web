@@ -1,7 +1,7 @@
 <?php render($GLOBALS['layout'] == 2 ? '_headernomenu' : '_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
 <div class="container">
-  <?php echo empty($pageTitle) ? '' : '<h2>' . $pageTitle . '</h2>' ?>
+  <?php echo empty($pageTitle) ? '' : '<h2 class="text-2xl font-bold text-slate-800">' . $pageTitle . '</h2>' ?>
 
   <div class="content">
     <iframe width="100%" height="<?php echo $height ?>" frameborder="0" onload="scroll(0,0);" src="<?php echo $url ?>"></iframe>

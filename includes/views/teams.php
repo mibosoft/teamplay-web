@@ -13,10 +13,11 @@
         }
       }
       ?>
-      <p class="pull-right"><?php echo S_ANTAL ?>: <span class="badge"><?php echo $count ?></span>
-      </p>
     </ul>
-    <br>
+    <div class="mt-3 flex w-full items-center justify-end gap-2 text-sm font-medium text-slate-600">
+      <span><?php echo S_ANTAL ?>:</span>
+      <span class="inline-flex min-w-8 items-center justify-center rounded-full bg-slate-900 px-2 py-1 text-xs font-bold text-white"><?php echo $count ?></span>
+    </div>
 
     <?php echo $settings[0]->bool4 == "true" ? "" : "<!--" ?>
     <div class="row">

@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h2><?php echo $classes[0]->grp_namn ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo $classes[0]->grp_namn ?></h2>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
 		<ul class="nav nav-pills" role="tablist">
@@ -27,7 +27,7 @@
 		</ul>
 
 		<?php echo ($GLOBALS['layout'] == 3 or $showstandings) ? "<!--" : "" ?>
-		<h3><?php echo S_TABELL ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_TABELL ?></h3>
 		<?php echo ($GLOBALS['layout'] == 3 or $showstandings) ? "-->" : "" ?>
 		<?php echo ($showstandings) ? "<!--" : "" ?>
 		<table class="table table-condensed">
@@ -50,7 +50,7 @@
 		<?php echo ($showstandings) ? "-->" : "" ?>
 
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h3><?php echo S_MATCHER ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_MATCHER ?></h3>
 		<?php renderGames($games) ?>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
