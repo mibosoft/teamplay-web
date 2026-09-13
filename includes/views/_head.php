@@ -4,7 +4,12 @@
 <head>
   <title><?php echo formatTitle($title) ?></title>
 
-  <base href="<?php $requestHost = parse_url('http://' . ($_SERVER['HTTP_HOST'] ?? ''), PHP_URL_HOST); echo (DEBUG || in_array($requestHost, array('localhost', '127.0.0.1', '0.0.0.0'), true)) ? '' : 'https://teamplay.nu/cup/' ?>" />
+  <base href="<?php
+    $requestHost = parse_url('http://' . ($_SERVER['HTTP_HOST'] ?? ''), PHP_URL_HOST);
+    $isLocalRequest = DEBUG || in_array($requestHost, array('localhost', '127.0.0.1', '0.0.0.0'), true);
+    $applicationPath = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/');
+    echo $isLocalRequest ? '' : htmlspecialchars(($applicationPath === '' ? '/' : $applicationPath . '/'), ENT_QUOTES, 'UTF-8');
+  ?>" />
 
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
