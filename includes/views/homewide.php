@@ -217,7 +217,7 @@
         echo '</div>';
       }
       if (count($news) > $i) {
-        echo '<p><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
+        echo '<p style="margin-top: 1.5rem;"><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
       }
     }
     ?>
