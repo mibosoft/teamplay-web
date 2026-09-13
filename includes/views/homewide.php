@@ -9,6 +9,11 @@
     scroll-margin-top: 90px;
   }
 
+  .homewide-text-section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .jumbotron {
     position: relative;
     width: 100vw;
@@ -173,7 +178,7 @@
 </div>
 
 <div id="moreinfo"></div>
-<div class="container">
+<div class="container homewide-text-section">
   <div class="row">
     <div class="<?php echo $baseInfo->bas->sidokol == "" ? "col-md-12" : "col-md-10" ?>">
       <?php echo $baseInfo->bas->info == "" ? "<!--" : "" ?>
@@ -191,14 +196,16 @@
 
     <?php echo $baseInfo->bas->sidokol == "" ? "<!--" : "" ?>
     <div class="col-md-2">
-      <p><?php echo $baseInfo->bas->sidokol ?></p>
+      <aside class="tp-card p-4">
+        <p><?php echo $baseInfo->bas->sidokol ?></p>
+      </aside>
     </div>
     <?php echo $baseInfo->bas->sidokol == "" ? "-->" : "" ?>
   </div> <!-- /basinfo-row -->
 </div> <!-- /basinfo-container -->
 
 <?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "<!--" : "" ?>
-<div class="container">
+<div class="container homewide-text-section">
   <div class="row">
     <?php $i = 0;
     if (is_array($news)) {
