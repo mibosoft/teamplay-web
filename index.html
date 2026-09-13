@@ -1,79 +1,149 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html>
-  <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NLT2CVHTGE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Teamplay är ett verktyg för schemaläggning av cuper och seriespel för lagsporter som t.ex. ishockey, innebandy, fotboll, handboll, basket och padel.">
+  <meta name="keywords" content="cupprogram,cupverktyg,cupsystem,schemaläggning,lottning,lagsporter,matchplanering,idrottscuper,cupadministration">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <title>Teamplay - Cupsystem</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          boxShadow: {
+            soft: '0 20px 45px rgba(15, 23, 42, 0.12)'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --color-text-main: #1f2937;
+      --color-heading: #0f172a;
+      --color-muted: #64748b;
+      --color-divider: rgba(148, 163, 184, 0.24);
+      --color-surface: rgba(255, 255, 255, 0.84);
+      --shadow-soft: 0 20px 45px rgba(15, 23, 42, 0.12);
+    }
 
-      gtag('config', 'G-NLT2CVHTGE');
-    </script>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    html { scroll-behavior: smooth; }
 
-    <meta name="description" content="Teamplay är ett verktyg för schemaläggning av cuper och seriespel för lagsporter som  t.ex. ishockey, innebandy, fotboll, handboll, basket och padel." />
-    <meta name="keywords" content="cupprogram,cupverktyg,cupsystem,schemaläggning,lottning,lagsporter,matchplanering,idrottscuper,cupadministration" />
+    body {
+      margin: 0;
+      color: var(--color-text-main);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 42rem),
+        linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
 
-    <link rel="icon" href="resources/assets/images/favicon.ico">
+    .container { width: min(100% - 2rem, 72rem); margin: 0 auto; }
+    .navbar { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.86); border-bottom: 1px solid var(--color-divider); backdrop-filter: blur(12px); }
+    .navbar .container { display: flex; min-height: 4rem; align-items: center; justify-content: space-between; gap: 1rem; }
+    .navbar-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .navbar-brand { color: var(--color-heading); font-weight: 800; letter-spacing: .02em; text-decoration: none; }
+    .navbar-toggle { display: none; border: 1px solid var(--color-divider); border-radius: 9999px; background: #fff; padding: .55rem .7rem; cursor: pointer; }
+    .navbar-toggle .icon-bar { display: block; width: 1.2rem; height: 2px; margin: 3px 0; background: #334155; }
+    .navbar-collapse { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 1rem; }
+    .navbar-nav { display: flex; flex-wrap: wrap; gap: .25rem; margin: 0; padding: 0; list-style: none; }
+    .navbar-nav a { display: block; border-radius: 9999px; padding: .55rem .75rem; color: #475569; font-size: .9rem; text-decoration: none; }
+    .navbar-nav a:hover, .navbar-nav a:focus-visible { background: #fff; color: #0f172a; box-shadow: 0 4px 12px rgba(15,23,42,.08); }
+    .navbar-right { margin-left: auto; }
 
-    <title>Teamplay - Cupsystem</title>
+    .carousel { position: relative; overflow: hidden; min-height: 30rem; background: #0f172a; }
+    .carousel-inner { min-height: 30rem; }
+    .carousel .item { display: none; min-height: 30rem; position: relative; }
+    .carousel .item.active { display: block; }
+    .carousel .item img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .42; }
+    .carousel .item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,.86), rgba(15,23,42,.22)); }
+    .carousel-caption { position: relative; z-index: 1; display: flex; min-height: 30rem; width: min(100% - 2rem, 72rem); margin: 0 auto; flex-direction: column; justify-content: center; align-items: flex-start; color: #fff; }
+    .carousel-caption h1 { max-width: 42rem; margin: 0; font-size: clamp(2.25rem, 6vw, 5rem); line-height: 1.05; letter-spacing: -.04em; }
+    .carousel-caption p { max-width: 38rem; font-size: 1.15rem; line-height: 1.7; }
+    .carousel-control { position: absolute; top: 50%; z-index: 2; color: #fff; font-size: 2rem; text-decoration: none; transform: translateY(-50%); opacity: .75; }
+    .carousel-control:hover { opacity: 1; }
+    .carousel-control.left { left: 1.25rem; }
+    .carousel-control.right { right: 1.25rem; }
+    .carousel-indicators { position: absolute; bottom: 1.5rem; left: 50%; z-index: 2; display: flex; gap: .5rem; margin: 0; padding: 0; list-style: none; transform: translateX(-50%); }
+    .carousel-indicators li { width: .55rem; height: .55rem; border: 1px solid #fff; border-radius: 9999px; cursor: pointer; }
+    .carousel-indicators li.active { background: #fff; }
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    section { padding: clamp(4rem, 8vw, 7rem) 0; }
+    section:nth-of-type(even) { background: rgba(255,255,255,.48); }
+    section .container > .row > [class*="col-"] { max-width: 100%; }
+    section .container > .row > .col-md-8 { max-width: 48rem; }
+    h1, h2, h3, h4 { color: var(--color-heading); letter-spacing: -.025em; }
+    h1 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    h2 { margin-top: 0; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    h3 { font-size: 1.35rem; }
+    h4 { font-size: 1.05rem; }
+    p, li { line-height: 1.75; }
+    section p, section li { max-width: 70rem; }
+    a { color: #2563eb; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 9999px; padding: .7rem 1.1rem; font-weight: 700; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(15,23,42,.14); }
+    .btn-info, .btn-danger, .btn-success { background: #0f172a; color: #fff; }
+    .intro-section .row { display: grid; gap: 2rem; grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr); }
+    .intro-section .col-md-4 { padding: 1.5rem; border: 1px solid var(--color-divider); border-radius: 1rem; background: var(--color-surface); box-shadow: var(--shadow-soft); }
+    .intro-section .col-md-4 + .col-md-4 { margin-top: 1rem; }
+    .intro-section .col-md-4 p { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .tp-content { border-top: 1px solid var(--color-divider); }
+    .about-section .row, .benefits-section .row, .howto-section .row, .services-section .row, .price-section .row, .order-section .row, .contact-section .row { display: block; }
+    .about-section .col-lg-12, .benefits-section .col-lg-12, .howto-section .col-lg-12, .services-section .col-lg-12, .price-section .col-lg-12, .order-section .col-lg-12, .contact-section .col-lg-12 { padding: 1.75rem; border: 1px solid var(--color-divider); border-radius: 1.25rem; background: var(--color-surface); box-shadow: var(--shadow-soft); }
+    .about-section ul, .benefits-section ul, .howto-section ol, .services-section ol, .price-section > .container > .row > .col-lg-12 > ul, .order-section ul { padding-left: 1.4rem; }
+    .row { margin: 0; }
+    .row::after { display: none; }
+    .pricing-table-1 { width: 100%; padding: 0; }
+    .pricing-table-1 > .container { width: 100%; padding: 0; }
+    .pricing-table-1 > .container > .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 1rem; }
+    .plan { height: 100%; padding: 1.25rem; border: 1px solid var(--color-divider); border-radius: 1rem; background: #fff; box-shadow: 0 10px 24px rgba(15,23,42,.08); }
+    .plan h3 { margin-top: 0; }
+    .plan .price { color: #0f172a; }
+    .plan .price strong { display: block; font-size: 2rem; }
+    .plan .price small { color: var(--color-muted); }
+    .plan ul { padding-left: 1rem; }
+    table { border-collapse: collapse; }
+    th, td { padding: .55rem 1rem .55rem 0; text-align: left; vertical-align: top; }
+    footer { padding: 2rem 0; color: #64748b; }
+    .img-responsive { max-width: 100%; height: auto; }
+    .modal { display: none; position: fixed; inset: 0; z-index: 80; padding: 2rem; background: rgba(15,23,42,.78); cursor: pointer; }
+    .modal.is-visible { display: grid; place-items: center; }
+    .modal-dialog { width: min(100%, 56rem); }
+    .modal-content { padding: 1rem; border-radius: 1rem; background: #fff; cursor: default; }
+    .modal-body img { display: block; max-height: 80vh; margin: 0 auto; object-fit: contain; }
+    .about-section .row > .col-lg-12 > .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .about-section .row > .col-lg-12 > .row li { list-style: none; }
 
-    <!-- Custom styles for this template -->
-    <link href="resources/assets/css/base.css" rel="stylesheet">
-    <link href="resources/assets/css/carousel.css" rel="stylesheet">
-    <link href="resources/assets/css/scrolling-nav.css" rel="stylesheet">
-    <link href="resources/assets/mobirise/css/style.css" rel="stylesheet" type="text/css">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--   <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="resources/assets/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="resources/assets/js/offcanvas.js"></script>
-
-    <!-- Scrolling Nav JavaScript -->
-    <script src="resources/assets/js/jquery.easing.min.js"></script>
-    <script src="resources/assets/js/scrolling-nav.js"></script>
-
-    <script src="resources/assets/js/photo-gallery.js"></script>
+    @media (max-width: 800px) {
+      .navbar .container, .navbar-header, .navbar-collapse { align-items: stretch; }
+      .navbar .container { flex-direction: column; padding: .75rem 0; }
+      .navbar-header { width: 100%; }
+      .navbar-toggle { display: block; }
+      .navbar-collapse { display: none; width: 100%; flex-direction: column; }
+      .navbar-collapse.is-open { display: flex; }
+      .navbar-nav { flex-direction: column; }
+      .navbar-right { margin-left: 0; }
+      .intro-section .row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
-<body>
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+    <nav class="navbar" role="navigation" aria-label="Huvudnavigation">
       <div class="container">
         <div class="navbar-header page-scroll">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <button type="button" class="navbar-toggle" aria-controls="site-navigation" aria-expanded="false">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand page-scroll" href="#page-top"><b>Teamplay</b> <span class="glyphicon glyphicon-home"></a>
+          <a class="navbar-brand page-scroll" href="#page-top"><b>Teamplay</b> <span aria-hidden="true">⌂</span></a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div id="site-navigation" class="navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a class="page-scroll"href="#about">Om Teamplay</a></li>
             <li><a class="page-scroll" href="#benefits">Fördelar</a></li>
@@ -85,14 +155,10 @@
           </ul>
          <ul class="nav navbar-nav navbar-right">
            <li>
-             <div id="google_translate_element"></div><script type="text/javascript">
-               function googleTranslateElementInit() {
-               new google.translate.TranslateElement({pageLanguage: 'sv', includedLanguages: 'en,fi,no', autoDisplay: false}, 'google_translate_element');
-               }
-               </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+             <span class="text-sm text-slate-500">Svenska</span>
            </li>
          </ul>
-        </div><!-- /.nav-collapse -->
+        </div>
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 
@@ -122,7 +188,7 @@
             <div class="carousel-caption">
               <h1>Komplett lösning</h1>
               <p>Allt från anmälan till resultathantering</p>
-              <p><a class="btn btn-danger" href="cup/?layout=1" role="button">Se aktuella cuper</a></p>
+              <p><a class="btn btn-danger" href="index.php?layout=1" role="button">Se aktuella cuper</a></p>
             </div>
           </div>
         </div>
@@ -190,8 +256,8 @@ automatiskt baserat på OCR-nummer.</p>
 
 <div class="col-md-4">
           <h2>Cuper</h2>
-          <p><a class="btn btn-success" href="cup/?layout=1&completedcups" role="button">Genomförda cuper</a>
-          <a class="btn btn-danger" href="cup/?layout=1" role="button">Aktuella cuper</a></p>
+          <p><a class="btn btn-success" href="index.php?layout=1&amp;completedcups" role="button">Genomförda cuper</a>
+          <a class="btn btn-danger" href="index.php?layout=1" role="button">Aktuella cuper</a></p>
         </div>
         <div class="col-md-4">
           <h2>Demo</h2>
@@ -750,6 +816,67 @@ en Excel-fil.</p>
   </div>
 </footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var menuButton = document.querySelector('.navbar-toggle');
+      var menu = document.querySelector('#site-navigation');
+      var slides = Array.prototype.slice.call(document.querySelectorAll('#myCarousel .item'));
+      var indicators = Array.prototype.slice.call(document.querySelectorAll('#myCarousel .carousel-indicators li'));
+      var currentSlide = 0;
+
+      if (menuButton && menu) {
+        menuButton.addEventListener('click', function () {
+          var isOpen = menu.classList.toggle('is-open');
+          menuButton.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+
+      function showSlide(nextSlide) {
+        currentSlide = (nextSlide + slides.length) % slides.length;
+        slides.forEach(function (slide, index) {
+          slide.classList.toggle('active', index === currentSlide);
+        });
+        indicators.forEach(function (indicator, index) {
+          indicator.classList.toggle('active', index === currentSlide);
+        });
+      }
+
+      document.querySelectorAll('#myCarousel [data-slide-to]').forEach(function (indicator) {
+        indicator.addEventListener('click', function () {
+          showSlide(Number(indicator.getAttribute('data-slide-to')));
+        });
+      });
+      document.querySelector('#myCarousel .left').addEventListener('click', function (event) {
+        event.preventDefault();
+        showSlide(currentSlide - 1);
+      });
+      document.querySelector('#myCarousel .right').addEventListener('click', function (event) {
+        event.preventDefault();
+        showSlide(currentSlide + 1);
+      });
+      window.setInterval(function () { showSlide(currentSlide + 1); }, 7000);
+
+      document.querySelectorAll('img[src^="resources/"]').forEach(function (image) {
+        image.src = 'https://www.teamplay.nu/' + image.getAttribute('src');
+      });
+
+      var modal = document.querySelector('#myModal');
+      var modalBody = modal && modal.querySelector('.modal-body');
+      document.querySelectorAll('.about-section img').forEach(function (image) {
+        if (!modal || !modalBody || image.closest('#myModal')) return;
+        image.addEventListener('click', function () {
+          modalBody.innerHTML = '';
+          var enlargedImage = image.cloneNode();
+          enlargedImage.className = 'img-responsive';
+          modalBody.appendChild(enlargedImage);
+          modal.classList.add('is-visible');
+        });
+      });
+      if (modal) {
+        modal.addEventListener('click', function () { modal.classList.remove('is-visible'); });
+      }
+    });
+  </script>
 </body>
 
 </html>
