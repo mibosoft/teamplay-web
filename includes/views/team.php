@@ -1,5 +1,21 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+	@media (max-width: 640px) {
+		.content .team-people-table {
+			min-width: 0 !important;
+			table-layout: auto;
+			width: 100%;
+		}
+
+		.team-people-table td,
+		.team-people-table th {
+			overflow-wrap: anywhere;
+			white-space: normal;
+		}
+	}
+</style>
+
 <div class="container">
 	<div class="content">
 		<h2 class="text-2xl font-bold text-slate-800"><?php echo ($settings[0]->bool21 == "false" or empty($team[0]->lkod)) ? '' : '<img src="assets/images/flags_iso/32/' . $team[0]->lkod . '.png' . 'style="vertical-align: text-top;" /> ' ?><?php echo $title ?></h2>
@@ -37,7 +53,7 @@
 			<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
 		</h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped">
+			<table class="table table-condensed table-striped team-people-table">
 				<thead>
 					<tr>
 						<?php echo $settings[0]->bool2 == "true" ? "<!--" : "" ?>
@@ -59,7 +75,7 @@
 		<?php echo empty($leaders) ? "<!--" : "" ?>
 		<h3 class="text-xl font-bold text-slate-800"><?php echo S_LEDARE ?></h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped">
+			<table class="table table-condensed table-striped team-people-table">
 
 				<thead>
 					<tr>

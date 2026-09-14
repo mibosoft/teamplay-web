@@ -1,5 +1,20 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+	@media (max-width: 767px) {
+		.standings-table {
+			min-width: 100%;
+			width: max-content;
+		}
+
+		.standings-table th,
+		.standings-table td {
+			white-space: nowrap;
+			width: auto !important;
+		}
+	}
+</style>
+
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
@@ -30,22 +45,24 @@
 		<h3 class="text-xl font-bold text-slate-800"><?php echo S_TABELL ?></h3>
 		<?php echo ($GLOBALS['layout'] == 3 or $showstandings) ? "-->" : "" ?>
 		<?php echo ($showstandings) ? "<!--" : "" ?>
-		<table class="table table-condensed">
-			<thead>
-				<tr>
-					<th style="width: 20%"></th>
-					<th style="width: 5%"><?php echo S_OMG_S ?></th>
-					<th style="width: 5%"><?php echo S_VI ?></th>
-					<th style="width: 5%"><?php echo S_OA ?><?php echo $baseInfo->bas->visa_oav == 'true' ? ' (' . S_FLV . ')' : '' ?></th>
-					<th style="width: 5%"><?php echo S_FO ?></th>
-					<th style="width: 15%"><?php echo S_MAL_S ?></th>
-					<th style="width: 5%"><?php echo S_PO ?></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php render($standings, array('view' => '_standings', 'baseInfo' => $baseInfo)) ?>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-condensed standings-table">
+				<thead>
+					<tr>
+						<th class="text-left" style="width: 20%"></th>
+						<th class="text-left" style="width: 5%"><?php echo S_OMG_S ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_VI ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_OA ?><?php echo $baseInfo->bas->visa_oav == 'true' ? ' (' . S_FLV . ')' : '' ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_FO ?></th>
+						<th class="text-left" style="width: 15%"><?php echo S_MAL_S ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_PO ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php render($standings, array('view' => '_standings', 'baseInfo' => $baseInfo)) ?>
+				</tbody>
+			</table>
+		</div>
 
 		<?php echo ($showstandings) ? "-->" : "" ?>
 

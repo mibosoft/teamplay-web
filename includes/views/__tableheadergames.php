@@ -2,8 +2,8 @@
 <?php echo $k->datum != "" ? dow(date("N", strtotime($k->datum))) : ""; ?> <?php echo $k->datum ?>
 <?php echo $GLOBALS['layout'] == 3 ? "</strong>" : "</h4>" ?>
 
-<div class="table-responsive">
-    <table class="table table-condensed table-striped">
+<div class="table-responsive game-table-responsive">
+    <table class="table table-condensed table-striped game-table">
         <thead>
             <tr>
                 <th style="width: 4%"><?php echo S_NR ?></th>

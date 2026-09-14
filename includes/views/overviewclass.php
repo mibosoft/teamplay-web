@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h2><?php echo $classes[0]->grp_namn ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo $classes[0]->grp_namn ?></h2>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
 		<ul class="nav nav-pills" role="tablist">

@@ -2,6 +2,81 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css">
 <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
+<style>
+	#cupdir_wrapper {
+		overflow: auto;
+	}
+
+	#cupdir_wrapper .dataTables_length {
+		align-items: center;
+		display: flex;
+		float: left;
+		margin-bottom: 12px;
+		min-height: 34px;
+	}
+
+	#cupdir_wrapper .dataTables_length label {
+		color: #1e293b;
+		font-weight: 600;
+	}
+
+	#cupdir_wrapper .dataTables_length select {
+		background: #ffffff;
+		border: 1px solid #94a3b8;
+		border-radius: 4px;
+		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+		box-sizing: border-box;
+		color: #0f172a;
+		font-size: 16px;
+		height: 38px;
+		margin: 0 4px;
+		padding: 6px 28px 6px 10px;
+	}
+
+	#cupdir_wrapper .dataTables_length select:focus {
+		border-color: #0f766e;
+		box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+		outline: none;
+	}
+
+	#cupdir_wrapper .dataTables_filter {
+		align-items: center;
+		display: flex;
+		float: right;
+		justify-content: flex-end;
+		margin-bottom: 12px;
+		min-height: 34px;
+	}
+
+	#cupdir_wrapper .dataTables_filter label {
+		align-items: center;
+		color: #1e293b;
+		display: flex;
+		gap: 8px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	#cupdir_wrapper .dataTables_filter input[type="search"] {
+		background: #ffffff;
+		border: 1px solid #94a3b8;
+		border-radius: 4px;
+		box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+		box-sizing: border-box;
+		color: #0f172a;
+		font-size: 16px;
+		height: 38px;
+		margin-left: 0;
+		padding: 6px 10px;
+		width: 220px;
+	}
+
+	#cupdir_wrapper .dataTables_filter input[type="search"]:focus {
+		border-color: #0f766e;
+		box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
+		outline: none;
+	}
+</style>
 
 <div class="container">
 	<div class="row">

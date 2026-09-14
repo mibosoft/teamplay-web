@@ -336,7 +336,39 @@ textarea.form-control {
   }
 
   .content .table {
-    min-width: 38rem;
+    min-width: 0;
+    table-layout: auto;
+    width: 100%;
+  }
+
+  .content .table th,
+  .content .table td {
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
+  }
+
+  .content .game-table {
+    min-width: 0;
+    table-layout: auto;
+    width: 100%;
+  }
+
+  .content .game-table th,
+  .content .game-table td {
+    overflow-wrap: normal;
+    word-break: normal;
+    white-space: normal;
+  }
+
+  .content .game-table th:nth-last-child(2),
+  .content .game-table td:nth-last-child(2) {
+    overflow-wrap: break-word;
+    width: 20%;
+  }
+
+  .content .game-table-responsive {
+    overflow-x: auto;
   }
 }
 

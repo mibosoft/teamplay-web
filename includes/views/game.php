@@ -2,6 +2,20 @@
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="assets/css/timeline.css" />
+<style>
+    @media (max-width: 640px) {
+        .content .game-details-table {
+            min-width: 0 !important;
+            table-layout: auto;
+            width: 100%;
+        }
+
+        .game-details-table td {
+            overflow-wrap: anywhere;
+            white-space: normal;
+        }
+    }
+</style>
 
 <div class="container">
     <div class="content">
@@ -17,7 +31,7 @@
         </h4>
 
         <br><br>
-        <table class="table table-condensed">
+        <table class="table table-condensed game-details-table">
             <tr>
                 <td><strong><?php echo S_MATCHNR ?>:</strong></td>
                 <td><?php echo $games[0]->matchnr ?> <?php echo empty($games[0]->anm) ? '' : "(" . $games[0]->anm . ")" ?></td>
