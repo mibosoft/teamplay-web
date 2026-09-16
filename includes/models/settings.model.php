@@ -57,15 +57,11 @@ class Settings
 
 // Path & String Settings ('string' fields)
 // -----------------------------------------------------------------------------
-// $string6   -> Hyperlink hover color
-// $string12  -> General font color
 // $string13  -> Header/Top image font color
-// $string14  -> Unvisited hyperlink color
-// $string16  -> Visited hyperlink color
 // $string18  -> Font family
 // $string20  -> Font size
-// $string24  -> Tables background color
-// $string26  -> Bottom/Footer background color
+// $string24  -> Card background color
+// $string26  -> Table container, button, and bottom/footer background color
 
 // Image File Names & Asset Mapping ('pic_name' / 'pic_url' fields in PAR)
 // -----------------------------------------------------------------------------

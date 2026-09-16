@@ -19,13 +19,14 @@
  * DATA & API SOURCE CONSTRAINTS:
  * - Backend API (`MyAPI`) returns XML-derived JSON payloads from local XML files.
  * - Expect string-serialized values for booleans ("true"/"false") and numbers.
- * - Map cryptic XML keys using `TournamentSettingsDTO` (e.g., `string18` -> font, `string12` -> text color).
+ * - Map cryptic XML keys using `TournamentSettingsDTO` (e.g., `string18` -> font).
  * 
  * FOSS LAYOUT & THEMING DIRECTIVES:
  * 1. STRUCTURE: Replace all legacy `<table>`, `<font>`, and inline styles with modern HTML5 semantic elements (`<main>`, `<nav>`, `<section>`) and CSS Grid/Flexbox.
  * 2. DYNAMIC THEMING: Bind colors and fonts dynamically via standard CSS Custom Properties initialized from `TournamentSettingsDTO`:
- *    - `--color-bg-primary`: Mapped from `string26` (Footer/Bottom background)
- *    - `--color-text-main`: Mapped from `string12` (General text color)
+ *    - `--color-card`: Mapped from `string24` (Card background)
+ *    - `--color-container`: Mapped from `string26` (Table container and Footer/Bottom background)
+ *    - Surface text colors: Derived automatically from their background colors
  *    - `--font-family-base`: Mapped from `string18` (Font family)
  * 3. INTERACTIVITY: Replace synchronous HTML forms with Alpine.js (`x-data`, `x-model`) or HTMX attributes (`hx-get`, `hx-target`) for real-time filtering without heavy frameworks.
  * 

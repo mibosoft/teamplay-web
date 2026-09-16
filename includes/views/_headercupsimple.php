@@ -1,6 +1,6 @@
 <?php include "_head.php"; ?>
 
-<body class="cup-with-wallpaper">
+<body class="<?php echo empty($isHome) ? 'cup-with-wallpaper' : 'homewide' ?>">
   <?php include_once("includes/analyticstracking.php") ?>
 
   <div class="container">

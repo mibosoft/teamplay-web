@@ -20,14 +20,14 @@ main {
 }
 
 .tp-shell {
-  background: rgba(255,255,255,0.8);
+  background: var(--color-container);
   border: 1px solid rgba(148,163,184,0.2);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
   backdrop-filter: blur(10px);
 }
 
 .tp-card {
-  background: rgba(255,255,255,0.9);
+  background: var(--color-card);
   border: 1px solid rgba(148,163,184,0.18);
   border-radius: 1rem;
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
@@ -104,7 +104,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding: clamp(1.25rem, 3vw, 2.5rem);
-  background: rgba(255,255,255,0.82);
+  background: var(--color-container);
   border: 1px solid rgba(148,163,184,0.2);
   border-radius: 1.5rem;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
@@ -230,7 +230,7 @@ main {
   overflow-x: auto;
   border: 1px solid rgba(148,163,184,0.2);
   border-radius: 1rem;
-  background: rgba(255,255,255,0.72);
+  background: var(--color-container);
 }
 
 .table {
@@ -243,7 +243,7 @@ main {
 .table > thead > tr > th {
   padding: .9rem .75rem;
   border-bottom: 1px solid rgba(148,163,184,0.3);
-  background: #f8fafc;
+  background: var(--color-table);
   color: #475569;
   font-size: .72rem;
   text-transform: uppercase;
@@ -255,15 +255,6 @@ main {
   padding: .85rem .75rem;
   border-top: 1px solid rgba(226,232,240,.8);
   vertical-align: middle;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd) {
-  background: rgba(248,250,252,.72);
-}
-
-.table-hover > tbody > tr:hover,
-.table-striped > tbody > tr:hover {
-  background: #eff6ff;
 }
 
 .alert {

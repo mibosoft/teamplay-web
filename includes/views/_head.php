@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Tournament information and results" />
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://apis.google.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com https://www.gstatic.com https://*.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://fonts.googleapis.com https://fonts.gstatic.com">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://teamplay.nu https://teamplaycup.se https://cdn.datatables.net https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://apis.google.com https://www.googletagmanager.com https://ajax.googleapis.com https://cdn.jsdelivr.net https://code.jquery.com https://www.gstatic.com https://*.gstatic.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.gstatic.com https://*.gstatic.com">
 
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -25,10 +25,48 @@
 
   <?php echo $settings[0]->memo3 ?>
 
+  <?php
+    $containerColor = trim((string)($settings[0]->string26 ?? ''));
+    if (preg_match('/^[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/', $containerColor)) {
+      $containerColor = '#' . $containerColor;
+    }
+    $cardColor = trim((string)($settings[0]->string24 ?? ''));
+    if (preg_match('/^[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/', $cardColor)) {
+      $cardColor = '#' . $cardColor;
+    }
+    $transparentContainers = filter_var($settings[0]->bool12 ?? false, FILTER_VALIDATE_BOOLEAN);
+    $containerBackground = $transparentContainers ? 'transparent' : ($containerColor !== '' ? $containerColor : '#ffffff');
+    $cardBackground = $cardColor !== '' ? $cardColor : '#ffffff';
+    $footerBackground = $containerColor !== '' ? $containerColor : '#ffffff';
+    $buttonBackground = $containerColor !== '' ? $containerColor : '#0f172a';
+    $getContrastTextColor = static function ($background, $fallback = '#1f2937') {
+      if (!preg_match('/^#?([0-9a-fA-F]{6})/', $background, $colorMatch)) {
+        return $fallback;
+      }
+      $hex = $colorMatch[1];
+      $red = hexdec(substr($hex, 0, 2));
+      $green = hexdec(substr($hex, 2, 2));
+      $blue = hexdec(substr($hex, 4, 2));
+      return (299 * $red + 587 * $green + 114 * $blue) >= 150000 ? '#0f172a' : '#ffffff';
+    };
+    $containerTextColor = $transparentContainers ? '#1f2937' : $getContrastTextColor($containerBackground);
+    $cardTextColor = $getContrastTextColor($cardBackground);
+    $footerTextColor = $getContrastTextColor($footerBackground);
+    $buttonTextColor = $getContrastTextColor($buttonBackground, '#ffffff');
+  ?>
+
   <style>
     :root {
-      --color-bg-primary: <?php echo htmlspecialchars((!empty($settings[0]->string26) ? $settings[0]->string26 : '#0f172a'), ENT_QUOTES, 'UTF-8'); ?>;
-      --color-text-main: <?php echo htmlspecialchars((!empty($settings[0]->string12) ? $settings[0]->string12 : '#1f2937'), ENT_QUOTES, 'UTF-8'); ?>;
+      --color-container: <?php echo htmlspecialchars($containerBackground, ENT_QUOTES, 'UTF-8'); ?>;
+      --color-card: <?php echo htmlspecialchars($cardBackground, ENT_QUOTES, 'UTF-8'); ?>;
+      --color-footer: <?php echo htmlspecialchars($footerBackground, ENT_QUOTES, 'UTF-8'); ?>;
+      --color-table: #fff;
+      --color-accent: <?php echo htmlspecialchars($buttonBackground, ENT_QUOTES, 'UTF-8'); ?>;
+      --color-accent-text: <?php echo $buttonTextColor; ?>;
+      --color-container-text: <?php echo $containerTextColor; ?>;
+      --color-card-text: <?php echo $cardTextColor; ?>;
+      --color-footer-text: <?php echo $footerTextColor; ?>;
+      --color-text-default: #1f2937;
       --font-family-base: <?php echo htmlspecialchars((!empty($settings[0]->string18) ? $settings[0]->string18 : 'Inter, "Segoe UI", sans-serif'), ENT_QUOTES, 'UTF-8'); ?>;
       --color-surface: rgba(255,255,255,0.88);
       --color-surface-strong: rgba(255,255,255,0.96);
@@ -42,8 +80,34 @@
 
     body {
       font-family: var(--font-family-base);
-      color: var(--color-text-main);
+      color: var(--color-text-default);
       background: linear-gradient(180deg, rgba(255,255,255,0.74), rgba(241,245,249,0.9));
+    }
+
+    a {
+      transition: opacity 0.18s ease, filter 0.18s ease;
+    }
+
+    a,
+    a:visited {
+      color: var(--color-text-default) !important;
+    }
+
+    a:not(.btn):not(.tp-btn):hover {
+      opacity: 0.84;
+    }
+
+    .homewide .homewide-text-section,
+    .homewide .homewide-text-section p,
+    .homewide .homewide-text-section h1,
+    .homewide .homewide-text-section h2,
+    .homewide .homewide-text-section h3,
+    .homewide .homewide-text-section h4 {
+      color: var(--color-text-default) !important;
+    }
+
+    .homewide .jumbotron .container p {
+      color: inherit !important;
     }
 
     body.cup-with-wallpaper {
@@ -66,7 +130,7 @@
     }
 
     .tp-shell {
-      background: rgba(255,255,255,0.75);
+      background: var(--color-container);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(148,163,184,0.22);
@@ -77,10 +141,39 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.85) !important;
       border-bottom: 1px solid var(--color-divider);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+    }
+
+    .tp-nav a,
+    .tp-nav button {
+      color: #334155 !important;
+    }
+
+    .tp-nav a:hover,
+    .tp-nav button:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+
+    .tp-nav .dropdown-menu,
+    .tp-mobile-nav .dropdown-menu {
+      background-color: #fff !important;
+      background-image: none !important;
+      color: #334155 !important;
+    }
+
+    .tp-nav .dropdown-menu a,
+    .tp-mobile-nav .dropdown-menu a {
+      color: #334155 !important;
+    }
+
+    .tp-nav .dropdown-menu a:hover,
+    .tp-mobile-nav .dropdown-menu a:hover {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
     }
 
     .tp-nav a,
@@ -95,10 +188,74 @@
     }
 
     .tp-card {
-      background: rgba(255,255,255,0.9);
+      background: var(--color-card);
+      color: var(--color-card-text);
       border: 1px solid rgba(148,163,184,0.18);
       border-radius: 1rem;
       box-shadow: var(--shadow-soft);
+    }
+
+    .tp-shell,
+    .content {
+      color: var(--color-container-text);
+    }
+
+    .tp-shell a,
+    .tp-shell a:visited,
+    .content a,
+    .content a:visited {
+      color: var(--color-container-text) !important;
+    }
+
+    .tp-shell a:hover,
+    .content a:hover {
+      color: var(--color-container-text) !important;
+      filter: brightness(0.75);
+    }
+
+    .tp-shell :where(p, h1, h2, h3, h4, h5, h6, li, label),
+    .content :where(p, h1, h2, h3, h4, h5, h6, li, label) {
+      color: var(--color-container-text) !important;
+    }
+
+    .tp-card :where(p, h1, h2, h3, h4, h5, h6, li, label) {
+      color: var(--color-card-text) !important;
+    }
+
+    .tp-card a,
+    .tp-card a:visited {
+      color: var(--color-card-text) !important;
+    }
+
+    .tp-card a:hover {
+      color: var(--color-card-text) !important;
+      filter: brightness(0.75);
+    }
+
+    .content .nav.nav-pills > li > a,
+    .content .nav.nav-pills > li.active > a,
+    .tp-simple-nav > li > a,
+    .tp-simple-nav > li.active > a {
+      color: #1f2937 !important;
+    }
+
+    .content .nav.nav-pills > li > a:hover,
+    .content .nav.nav-pills > li.active > a:hover,
+    .tp-simple-nav > li > a:hover,
+    .tp-simple-nav > li.active > a:hover {
+      color: #1f2937 !important;
+      background-color: #fff !important;
+      box-shadow: 0 4px 12px rgba(15,23,42,.1);
+      filter: none;
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .content .nav.nav-pills > li.active > a,
+    .tp-simple-nav > li.active > a {
+      background-color: #fff !important;
+      box-shadow: 0 4px 12px rgba(15,23,42,.1);
+      opacity: 1;
     }
 
     .content > h2 {
@@ -113,14 +270,54 @@
       text-align: left;
     }
 
+    table.table {
+      background-color: var(--color-table) !important;
+    }
+
+    table.table > thead > tr > th,
+    table.table > tbody > tr > td {
+      color: #1f2937 !important;
+    }
+
+    table.table > tbody > tr > td a,
+    table.table > tbody > tr > td a:visited {
+      color: #1f2937 !important;
+    }
+
+    table.table > tbody > tr > td a:hover {
+      color: #1f2937 !important;
+      filter: none;
+      opacity: 0.62;
+      text-decoration: underline;
+    }
+
+    table.table > tbody > tr,
+    table.table-striped > tbody > tr:nth-child(odd),
+    table.zebra > tbody > tr:nth-child(even),
+    table.table > tbody > tr.selectedTableRow {
+      background-color: var(--color-table) !important;
+    }
+
+    table.table > tbody > tr:hover,
+    table.table-striped > tbody > tr:hover,
+    table.zebra > tbody > tr:hover {
+      background-color: #ccff66 !important;
+    }
+
     .tp-footer {
-      background: var(--color-bg-primary);
-      color: rgba(255,255,255,0.92);
+      background: var(--color-footer);
+      color: var(--color-footer-text);
       border-top: 1px solid rgba(255,255,255,0.12);
     }
 
     .tp-footer a {
-      color: rgba(255,255,255,0.9);
+      color: var(--color-footer-text) !important;
+    }
+
+    .tp-status-pending,
+    .tp-status-completed,
+    .tp-status-not-started {
+      color: #1f2937 !important;
     }
 
     .tp-btn {
@@ -135,8 +332,9 @@
     .btn-success,
     .btn-danger,
     .btn-default {
-      background-color: var(--color-bg-primary) !important;
-      border-color: var(--color-bg-primary) !important;
+      background-color: var(--color-accent) !important;
+      border-color: var(--color-accent) !important;
+      color: var(--color-accent-text) !important;
     }
 
     .tp-btn[class*="bg-slate-900"]:hover,
@@ -150,6 +348,13 @@
 
     .tp-btn:hover {
       transform: translateY(-1px);
+    }
+
+    .homewide .jumbotron .btn,
+    .homewide .jumbotron .btn:visited {
+      background-color: var(--color-accent) !important;
+      border-color: var(--color-accent) !important;
+      color: var(--color-accent-text) !important;
     }
 
     .tp-status {
@@ -248,10 +453,10 @@
     }
 
     .btn {
-      background: #0f172a;
+      background: var(--color-accent);
       border: 0;
       border-radius: 9999px;
-      color: #fff;
+      color: var(--color-accent-text);
       cursor: pointer;
       display: inline-block;
       font-weight: 600;
