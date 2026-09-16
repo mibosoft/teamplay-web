@@ -76,6 +76,60 @@
 		box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
 		outline: none;
 	}
+
+	#cupdir_wrapper .dataTables_paginate {
+		align-items: center;
+		clear: both;
+		display: flex;
+		float: none;
+		flex-wrap: wrap;
+		gap: 6px;
+		justify-content: flex-end;
+		padding-top: 12px;
+	}
+
+	#cupdir_wrapper .dataTables_paginate .paginate_button {
+		align-items: center;
+		background: #0f172a !important;
+		border: 1px solid #0f172a !important;
+		border-radius: 4px;
+		box-sizing: border-box;
+		color: #ffffff !important;
+		display: inline-flex;
+		font-weight: 600;
+		line-height: 1.25;
+		min-height: 36px;
+		padding: 8px 12px;
+		text-decoration: none !important;
+	}
+
+	#cupdir_wrapper .dataTables_paginate .paginate_button:hover {
+		background: #0f172a !important;
+		border-color: #0f172a !important;
+		color: #ffffff !important;
+		filter: brightness(0.9);
+	}
+
+	#cupdir_wrapper .dataTables_paginate .paginate_button.current {
+		background: #0f172a !important;
+		border-color: #0f172a !important;
+		box-shadow: inset 0 0 0 2px #ffffff;
+		color: #ffffff !important;
+	}
+
+	#cupdir_wrapper .dataTables_paginate .paginate_button.disabled,
+	#cupdir_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+		background: #f8fafc !important;
+		border-color: #e2e8f0 !important;
+		color: #94a3b8 !important;
+		cursor: default;
+	}
+
+	@media (max-width: 767px) {
+		#cupdir_wrapper .dataTables_paginate {
+			justify-content: flex-start;
+		}
+	}
 </style>
 
 <div class="container">
