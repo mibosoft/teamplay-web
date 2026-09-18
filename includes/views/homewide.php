@@ -15,6 +15,99 @@
     margin-top: 2.5rem;
   }
 
+  .homewide-news {
+    margin-top: 3rem;
+  }
+
+  .homewide-news-heading {
+    align-items: end;
+    border-bottom: 1px solid var(--color-divider);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: .85rem;
+  }
+
+  .homewide-news-heading h2 {
+    font-size: clamp(1.5rem, 3vw, 2.15rem);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .homewide-news-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  }
+
+  .homewide-news-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-divider);
+    border-radius: .75rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    min-height: 13rem;
+    padding: 1.35rem;
+    transition: box-shadow .2s ease, transform .2s ease;
+  }
+
+  .homewide-news-card:hover {
+    box-shadow: 0 24px 50px rgba(15, 23, 42, .16);
+    transform: translateY(-3px);
+  }
+
+  .homewide-news-card time {
+    color: var(--color-text-default);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    opacity: .66;
+    text-transform: uppercase;
+  }
+
+  .homewide-news-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin: .65rem 0 .8rem;
+  }
+
+  .homewide-news-card-summary {
+    flex: 1;
+    margin: 0;
+  }
+
+  .homewide-news-card-link {
+    align-items: center;
+    display: inline-flex;
+    font-weight: 700;
+    gap: .35rem;
+    margin-top: 1.25rem;
+    text-decoration: none;
+  }
+
+  .homewide-news-card-link::after {
+    content: "\2192";
+    font-size: 1.1em;
+    transition: transform .2s ease;
+  }
+
+  .homewide-news-card-link:hover::after {
+    transform: translateX(3px);
+  }
+
+  .homewide-news-all {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 575px) {
+    .homewide-news-heading {
+      align-items: start;
+      flex-direction: column;
+      gap: .35rem;
+    }
+  }
+
   .jumbotron {
     position: relative;
     width: 100vw;
@@ -47,6 +140,20 @@
     font-size: clamp(1.35rem, 3vw, 2.25rem);
     font-weight: 600;
     text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+
+  .jumbotron .homewide-countdown-badge {
+    background: rgba(255, 255, 255, .92);
+    border: 2px solid currentColor;
+    border-radius: 999px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+    color: #222;
+    display: inline-block;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 800;
+    line-height: 1;
+    padding: .75rem 1.25rem;
+    text-shadow: none;
   }
 
   .jumbotron .tp-hero-actions {
@@ -137,7 +244,7 @@
   <div class="container">
     <p><?php echo $settings[0]->memo1 ?></p>
     <h3>
-      <?php echo (date("Y-m-d") <= $baseInfo->bas->start_dat) ? '<span class="label label-default">' . howManyDays(date("Y-m-d"), $baseInfo->bas->start_dat) . "</span> " . S_DAGARKVAR : "" ?>
+      <?php echo (date("Y-m-d") <= $baseInfo->bas->start_dat) ? '<span class="homewide-countdown-badge">' . howManyDays(date("Y-m-d"), $baseInfo->bas->start_dat) . " " . S_DAGARKVAR . "</span>" : "" ?>
     </h3>
     <br>
     <div class="tp-hero-actions">
@@ -194,34 +301,38 @@
   </div> <!-- /basinfo-row -->
 </div> <!-- /basinfo-container -->
 
-<?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "<!--" : "" ?>
-<div class="container homewide-text-section">
-  <div class="row">
+<?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0 or empty($news)) ? "<!--" : "" ?>
+<section class="container homewide-text-section homewide-news" aria-labelledby="homewide-news-title">
+  <div class="homewide-news-heading">
+    <h2 id="homewide-news-title"><?php echo S_NYHETER ?></h2>
+  </div>
+  <div class="homewide-news-grid">
     <?php $i = 0;
     if (is_array($news)) {
-      echo '<hr>';
       foreach ($news as $x) {
         if ($i >= $settings[0]->value24) {
           continue;
         }
         $i++;
-        echo '<div class="col-xs-6 col-lg-4' . ($i % 2 == 0 ? '">' : ' ">');
-        echo '<h2>' . $x->rubrik . '</h2>';
-        echo '<p><small>' . str_replace('T', ' ', $x->datumtid) . '</small></p>';
-        echo $x->sammanf;
-        echo empty($x->mer_info) ? '' : '<p><a href="?news&home=' . $_GET['home'] . '#' . $x->datumtid . '"> ' . S_LASMER . '</a></p>';
-        echo '<hr>';
-        echo '</div>';
+        $newsAnchor = htmlspecialchars((string) $x->datumtid, ENT_QUOTES, 'UTF-8');
+        $newsTitle = htmlspecialchars((string) $x->rubrik, ENT_QUOTES, 'UTF-8');
+        $newsDate = htmlspecialchars(str_replace('T', ' ', (string) $x->datumtid), ENT_QUOTES, 'UTF-8');
+        echo '<article class="homewide-news-card" id="' . $newsAnchor . '">';
+        echo '<time datetime="' . $newsAnchor . '">' . $newsDate . '</time>';
+        echo '<h3>' . $newsTitle . '</h3>';
+        echo '<div class="homewide-news-card-summary">' . $x->sammanf . '</div>';
+        echo empty($x->mer_info) ? '' : '<a class="homewide-news-card-link" href="?news&home=' . rawurlencode($_GET['home']) . '#' . rawurlencode((string) $x->datumtid) . '">' . S_LASMER . '</a>';
+        echo '</article>';
       }
       if (count($news) > $i) {
-        echo '<p style="margin-top: 1.5rem;"><a class="btn btn-info" href="?news&home=' . $_GET['home'] . '" role="button">' . S_ALLANYHETER . '</a></p><br>';
+        echo '<p class="homewide-news-all"><a class="btn btn-info" href="?news&home=' . rawurlencode($_GET['home']) . '" role="button">' . S_ALLANYHETER . '</a></p>';
       }
     }
     ?>
   </div>
-</div>
+</section>
 
-<?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0) ? "-->" : "" ?>
+<?php echo ($baseInfo->bas->info == "" or $settings[0]->value24 == 0 or empty($news)) ? "-->" : "" ?>
 
 <br>
 <script type='text/javascript' src='assets/js/randompicture.js'></script>
