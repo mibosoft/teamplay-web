@@ -23,7 +23,6 @@ class Settings
 // $bool6     -> Show overview map
 // $bool7     -> Show "Referee Expression of Interest" link
 // $bool8     -> Show "History" menu
-// $bool11    -> Crop overflow header images
 // $bool12    -> Transparent background/bottom
 // $bool13    -> Allow teams to submit match results
 // $bool14    -> Allow teams to edit match details

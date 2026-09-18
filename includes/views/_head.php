@@ -23,8 +23,6 @@
   <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x/dist/cdn.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"></script>
 
-  <?php echo $settings[0]->memo3 ?>
-
   <?php
     $containerColor = trim((string)($settings[0]->string26 ?? ''));
     if (preg_match('/^[0-9a-fA-F]{6}([0-9a-fA-F]{2})?$/', $containerColor)) {
