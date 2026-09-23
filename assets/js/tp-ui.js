@@ -1,4 +1,16 @@
 (function () {
+  document.querySelectorAll('.content table:not(.game-table)').forEach(function (table) {
+    var headers = Array.from(table.querySelectorAll('thead th')).map(function (header) {
+      return header.textContent.trim();
+    });
+
+    table.querySelectorAll('tbody tr').forEach(function (row) {
+      row.querySelectorAll('td').forEach(function (cell, index) {
+        cell.setAttribute('data-label', headers[index] || '');
+      });
+    });
+  });
+
   document.querySelectorAll('[data-ui="dropdown"]').forEach(function (trigger) {
     var menu = trigger.nextElementSibling;
     if (menu) {

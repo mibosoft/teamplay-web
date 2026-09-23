@@ -26,10 +26,10 @@
                         <table class="table table-condensed table-striped">
                                 <thead>
                                         <tr>
-                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th><?php echo S_SPELARE ?></th>
                                                 <th><?php echo S_LAG ?></th>
                                                 <th><?php echo S_KLASS ?></th>
+                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th title="<?php echo S_POANGPOINTS ?>"><?php echo S_POANG ?></th>
                                         </tr>
                                 </thead>
@@ -44,10 +44,10 @@
                         <table class="table table-condensed table-striped">
                                 <thead>
                                         <tr>
-                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th><?php echo S_SPELARE ?></th>
                                                 <th><?php echo S_LAG ?></th>
                                                 <th><?php echo S_KLASS ?></th>
+                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th title="<?php echo S_MAL ?>"><?php echo S_MAL ?></th>
                                         </tr>
                                 </thead>
@@ -62,10 +62,10 @@
                         <table class="table table-condensed table-striped">
                                 <thead>
                                         <tr>
-                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th><?php echo S_SPELARE ?></th>
                                                 <th><?php echo S_LAG ?></th>
                                                 <th><?php echo S_KLASS ?></th>
+                                                <th><?php echo S_MATCHNR ?></th>
                                                 <th title="<?php echo S_ASSIST ?>"><?php echo S_ASSIST ?></th>
                                         </tr>
                                 </thead>

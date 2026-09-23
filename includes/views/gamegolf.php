@@ -17,7 +17,7 @@
         </h4>
 
         <br><br>
-        <table class="table table-condensed">
+        <table class="table table-condensed game-details-table">
             <tr>
                 <td><strong><?php echo S_MATCHNR ?>:</strong></td>
                 <td><?php echo $games[0]->matchnr ?> <?php echo empty($games[0]->anm) ? '' : "(" . $games[0]->anm . ")" ?></td>

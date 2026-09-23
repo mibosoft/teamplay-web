@@ -1,20 +1,5 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
-<style>
-	@media (max-width: 767px) {
-		.standings-table {
-			min-width: 100%;
-			width: max-content;
-		}
-
-		.standings-table th,
-		.standings-table td {
-			white-space: nowrap;
-			width: auto !important;
-		}
-	}
-</style>
-
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>

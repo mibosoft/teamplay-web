@@ -7,7 +7,7 @@
     <div class="row row-offcanvas row-offcanvas-right">
       <div class="col-xs-12 col-sm-9">
         <?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-        <div class="row">
+        <div class="row tp-simple-nav-row">
           <div class="col-sm-12">
             <ul class="nav nav-tabs tp-simple-nav">
               <li role="presentation" <?php echo (isset($_GET['teams']) ? 'class="active"' : '') ?>><a href="?home=<?php echo $_GET['home']; ?>&layout=2&teams&scope=all&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_LAG_PLURAL ?></a></li>

@@ -134,22 +134,20 @@
                                 <th><?php echo S_NR ?></th>
                                 <th><?php echo S_SPELARE ?></th>
                                 <th><?php echo S_M_K ?></th>
-                                <th><?php echo $baseInfo->bas->st_mip == 'true' ? S_MIP : '' ?></th>
+                                <?php if ($baseInfo->bas->st_mip == 'true') : ?><th><?php echo S_MIP ?></th><?php endif; ?>
                                 <th><?php echo S_G ?></th>
-                                <th><?php echo $baseInfo->bas->st_ass == 'true' ? S_A : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_ass == 'true' ? S_PTS : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_utv == 'true' ? S_PIM : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_mal == 'true' ? S_GF : '' ?></th>
-                                <th><?php echo ($baseInfo->bas->st_mal == 'true' or $baseInfo->bas->st_mip == 'true') ? S_GA : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_skott_t == 'true' ? S_S : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_skott_m == 'true' ? S_SOG : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_tekn == 'true' ? S_FW : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_tekn == 'true' ? S_FL : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_brytn == 'true' ? S_BRYTN : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_gulkort == 'true' ? S_GULAKORT : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_rodkort == 'true' ? S_RODAKORT : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_straffs == 'true' ? S_PS : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_straffm == 'true' ? S_PSG : '' ?></th>
+                                <?php if ($baseInfo->bas->st_ass == 'true') : ?><th><?php echo S_A ?></th><th><?php echo S_PTS ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_utv == 'true') : ?><th><?php echo S_PIM ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_mal == 'true') : ?><th><?php echo S_GF ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_mal == 'true' or $baseInfo->bas->st_mip == 'true') : ?><th><?php echo S_GA ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_skott_t == 'true') : ?><th><?php echo S_S ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_skott_m == 'true') : ?><th><?php echo S_SOG ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_tekn == 'true') : ?><th><?php echo S_FW ?></th><th><?php echo S_FL ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_brytn == 'true') : ?><th><?php echo S_BRYTN ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_gulkort == 'true') : ?><th><?php echo S_GULAKORT ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_rodkort == 'true') : ?><th><?php echo S_RODAKORT ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_straffs == 'true') : ?><th><?php echo S_PS ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_straffm == 'true') : ?><th><?php echo S_PSG ?></th><?php endif; ?>
                             </tr>
                         </thead>
                         <tbody>
@@ -187,22 +185,20 @@
                                 <th><?php echo S_NR ?></th>
                                 <th><?php echo S_SPELARE ?></th>
                                 <th><?php echo S_M_K ?></th>
-                                <th><?php echo $baseInfo->bas->st_mip == 'true' ? S_MIP : '' ?></th>
+                                <?php if ($baseInfo->bas->st_mip == 'true') : ?><th><?php echo S_MIP ?></th><?php endif; ?>
                                 <th><?php echo S_G ?></th>
-                                <th><?php echo $baseInfo->bas->st_ass == 'true' ? S_A : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_ass == 'true' ? S_PTS : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_utv == 'true' ? S_PIM : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_mal == 'true' ? S_GF : '' ?></th>
-                                <th><?php echo ($baseInfo->bas->st_mal == 'true' or $baseInfo->bas->st_mip == 'true') ? S_GA : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_skott_t == 'true' ? S_S : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_skott_m == 'true' ? S_SOG : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_tekn == 'true' ? S_FW : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_tekn == 'true' ? S_FL : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_brytn == 'true' ? S_BRYTN : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_gulkort == 'true' ? S_GULAKORT : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_rodkort == 'true' ? S_RODAKORT : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_straffs == 'true' ? S_PS : '' ?></th>
-                                <th><?php echo $baseInfo->bas->st_straffm == 'true' ? S_PSG : '' ?></th>
+                                <?php if ($baseInfo->bas->st_ass == 'true') : ?><th><?php echo S_A ?></th><th><?php echo S_PTS ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_utv == 'true') : ?><th><?php echo S_PIM ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_mal == 'true') : ?><th><?php echo S_GF ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_mal == 'true' or $baseInfo->bas->st_mip == 'true') : ?><th><?php echo S_GA ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_skott_t == 'true') : ?><th><?php echo S_S ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_skott_m == 'true') : ?><th><?php echo S_SOG ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_tekn == 'true') : ?><th><?php echo S_FW ?></th><th><?php echo S_FL ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_brytn == 'true') : ?><th><?php echo S_BRYTN ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_gulkort == 'true') : ?><th><?php echo S_GULAKORT ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_rodkort == 'true') : ?><th><?php echo S_RODAKORT ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_straffs == 'true') : ?><th><?php echo S_PS ?></th><?php endif; ?>
+                                <?php if ($baseInfo->bas->st_straffm == 'true') : ?><th><?php echo S_PSG ?></th><?php endif; ?>
                             </tr>
                         </thead>
                         <tbody>
