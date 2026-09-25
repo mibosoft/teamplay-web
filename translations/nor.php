@@ -191,6 +191,7 @@ define ("S_HAR","her");
 define ("S_MEDDENEMAIL","med den e-post adressen og passordet du nylig oppga.");
 define ("S_INLOGGNSIDA","Innloggingsside");
 define ("S_SISTREDANM","Siste dato til å redigere påmeldingsdata");
+define ("S_DATUM","Dato");
 define ("S_STARTDATUM","Start dato");
 define ("S_OPPNAEGETFONSTER","Åpne i et nytt vindu");
 define ("S_SPELPLATSER","Spillesteder");

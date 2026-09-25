@@ -191,6 +191,7 @@ define ("S_HAR","täällä");
 define ("S_MEDDENEMAIL","sähköpostiosoitteella ja salasanalla, jonka juuri syötit.");
 define ("S_INLOGGNSIDA","Sisäänkirjoittautumissivu");
 define ("S_SISTREDANM","Joukkueiden viimeinen päivä, jolloin tietojen muutos mahdollista");
+define ("S_DATUM","Päivä");
 define ("S_STARTDATUM","Aloituspäivä");
 define ("S_OPPNAEGETFONSTER","Avaa uudessa ikkunassa");
 define ("S_SPELPLATSER","Pelipaikat");

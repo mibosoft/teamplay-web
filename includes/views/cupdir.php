@@ -7,6 +7,31 @@
 		overflow: auto;
 	}
 
+	#cupdir_wrapper #cupdir thead th {
+		background-image: none !important;
+		cursor: pointer;
+		text-align: left;
+	}
+
+	#cupdir_wrapper #cupdir thead th::after {
+		color: #64748b;
+		content: "\2195";
+		display: inline-block;
+		line-height: 1;
+		margin-left: 8px;
+		vertical-align: middle;
+	}
+
+	#cupdir_wrapper #cupdir thead th[data-sort-direction="asc"]::after {
+		color: #0f766e;
+		content: "\2191";
+	}
+
+	#cupdir_wrapper #cupdir thead th[data-sort-direction="desc"]::after {
+		color: #0f766e;
+		content: "\2193";
+	}
+
 	#cupdir_wrapper .dataTables_length {
 		align-items: center;
 		display: flex;
@@ -167,19 +192,31 @@
 
 	<script>
 		$(document).ready(function() {
-			$('#cupdir').dataTable({
+			var cupdirTable = $('#cupdir').DataTable({
 				lengthMenu: [
 					[15, 25, 50, -1],
 					[15, 25, 50, "All"]
 				],
 				pageLength: 15,
+				ordering: true,
 				order: [
-					[2, "<?php echo isset($_GET['completedcups']) ? 'desc' : 'asc'; ?>"]
+					[1, "<?php echo isset($_GET['completedcups']) ? 'desc' : 'asc'; ?>"]
 				],
 				language: {
 					"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Swedish.json"
 				}
 			});
+
+			function updateSortIndicators() {
+				var currentOrder = cupdirTable.order();
+				$('#cupdir thead th').removeAttr('data-sort-direction');
+				$.each(currentOrder, function(index, sort) {
+					$('#cupdir thead th').eq(sort[0]).attr('data-sort-direction', sort[1]);
+				});
+			}
+
+			cupdirTable.on('order.dt', updateSortIndicators);
+			updateSortIndicators();
 		});
 	</script>
 </div>

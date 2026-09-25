@@ -191,6 +191,7 @@ define ("S_HAR","här");
 define ("S_MEDDENEMAIL","med den e-postadress och det lösenord som ni nyss angav.");
 define ("S_INLOGGNSIDA","Inloggningssida");
 define ("S_SISTREDANM","Sista dag att redigera sina anmälningsuppgifter");
+define ("S_DATUM","Datum");
 define ("S_STARTDATUM","Startdatum");
 define ("S_OPPNAEGETFONSTER","Öppna i eget fönster");
 define ("S_SPELPLATSER","Spelplatser");
