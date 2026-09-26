@@ -14,6 +14,16 @@
             overflow-wrap: anywhere;
             white-space: normal;
         }
+
+        #tab_1 .timeline-event .content-left,
+        #tab_1 .timeline-event .content-right {
+            font-size: 0.9rem;
+        }
+
+        #tab_1 .timeline-event p {
+            line-height: 18px;
+            min-height: 18px;
+        }
     }
 </style>
 

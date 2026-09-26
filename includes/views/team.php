@@ -13,6 +13,37 @@
 			overflow-wrap: anywhere;
 			white-space: normal;
 		}
+
+		#players-table thead {
+			display: none;
+		}
+
+		#players-table tbody tr {
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+		}
+
+		#players-table tbody td {
+			display: block;
+			min-width: 0;
+			padding: .55rem 0;
+			border: 0;
+			text-align: left;
+		}
+
+		#players-table tbody td::before {
+			display: none;
+		}
+
+		#players-table tbody td:nth-child(1) {
+			flex: 0 0 auto;
+		}
+
+		#players-table tbody td:nth-child(2) {
+			flex: 1 1 auto;
+			overflow-wrap: anywhere;
+		}
 	}
 </style>
 
@@ -53,7 +84,7 @@
 			<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
 		</h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped team-people-table">
+			<table id="players-table" class="table table-condensed table-striped team-people-table">
 				<thead>
 					<tr>
 						<?php echo $settings[0]->bool2 == "true" ? "<!--" : "" ?>
