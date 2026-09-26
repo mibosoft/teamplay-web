@@ -151,6 +151,65 @@
 	}
 
 	@media (max-width: 767px) {
+		#cupdir_wrapper {
+			overflow-x: hidden;
+		}
+
+		#cupdir_wrapper #cupdir {
+			display: table;
+			min-width: 0;
+			table-layout: fixed;
+		}
+
+		#cupdir_wrapper #cupdir thead {
+			display: none;
+		}
+
+		#cupdir_wrapper #cupdir tbody {
+			display: table-row-group;
+		}
+
+		#cupdir_wrapper #cupdir tbody tr {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+			padding: 10px 0;
+			border: 0;
+			border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+		}
+
+		#cupdir_wrapper #cupdir tbody td {
+			display: block;
+			padding: 0;
+			border: 0;
+			text-align: left;
+			word-break: break-word;
+		}
+
+		#cupdir_wrapper #cupdir tbody td::before {
+			display: none;
+		}
+
+		#cupdir_wrapper #cupdir tbody td:first-child {
+			flex: 1 1 auto;
+			font-weight: 700;
+		}
+
+		#cupdir_wrapper #cupdir tbody td:nth-child(2) {
+			flex: 0 0 auto;
+			font-weight: 400;
+			text-align: right;
+			white-space: nowrap;
+		}
+
+		#cupdir_wrapper #cupdir tbody td:nth-child(n + 3) {
+			display: none;
+		}
+
 		#cupdir_wrapper .dataTables_paginate {
 			justify-content: flex-start;
 		}
