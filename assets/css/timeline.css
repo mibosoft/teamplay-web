@@ -9,24 +9,25 @@
 #conference-timeline:after {
   position: absolute;
   left: 50%;
-  display: table;
-  font-size: 13px;
-  font-family: "FontAwesome";
-  background: #ccc;
-  padding: 5px 15px;
+  display: block;
   transform: translateX(-50%);
-  max-width: 5%;
-  width: 100%;
-  border-radius: 15%;
-  text-align: center;
 }
 #conference-timeline:before {
-  content: "\f00c";
-  top: 0;
+  content: "";
+  top: -10px;
+  width: 7px;
+  height: 13px;
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  transform: translateX(-50%) rotate(45deg);
 }
 #conference-timeline:after {
-  content: "\f062";
+  content: "";
   bottom: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: #ccc;
 }
 #conference-timeline .conference-center-line {
   position: absolute;
@@ -57,7 +58,10 @@
   padding: 10px 10px;
 }
 .timeline-event p {
-  margin: 0 0 0 60px;
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  margin: 0;
   padding: 0;
   line-height: 20px;
   min-height: 20px;
@@ -65,9 +69,15 @@
 }
 .timeline-event p span.event-number {
   top: 4px;
-  position: absolute;
+  position: static;
+  flex: 0 0 auto;
   font-weight: 700;
-  left: -60px;
+}
+.timeline-event p .event-description {
+  min-width: 0;
+}
+.timeline-event .event-number .label {
+  font-size: .75rem;
 }
 .timeline-event .content-left {
   top: 1px;
@@ -83,19 +93,26 @@
 .timeline-event .content-right:before{
   position: absolute;
   top: 5px;
-  font-size: 23px;
-  font-family: "FontAwesome";
-  color: #e6e6e6;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
 }
 .timeline-event .content-left:before {
-  content: "\f0da";
-  top: 5px;
-  right: -8px;
+  content: "";
+  top: 3px;
+  right: -3px;
+  width: 6px;
+  height: 11px;
+  border: 0;
+  border-right: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+  transform: rotate(45deg);
 }
 .timeline-event .content-right:before {
-  content: "\f0d9";
-  top: 5px;
+  content: "";
   left: -8px;
+  border-right: 8px solid #e6e6e6;
 }
 .timeline-event .meta-time {
   position: absolute;

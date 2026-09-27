@@ -14,17 +14,20 @@
 			white-space: normal;
 		}
 
-		#players-table thead {
+		#players-table thead,
+		#leaders-table thead {
 			display: none;
 		}
 
-		#players-table tbody tr {
+		#players-table tbody tr,
+		#leaders-table tbody tr {
 			display: flex;
 			align-items: center;
 			gap: .75rem;
 		}
 
-		#players-table tbody td {
+		#players-table tbody td,
+		#leaders-table tbody td {
 			display: block;
 			min-width: 0;
 			padding: .55rem 0;
@@ -32,15 +35,18 @@
 			text-align: left;
 		}
 
-		#players-table tbody td::before {
+		#players-table tbody td::before,
+		#leaders-table tbody td::before {
 			display: none;
 		}
 
-		#players-table tbody td:nth-child(1) {
+		#players-table tbody td:nth-child(1),
+		#leaders-table tbody td:nth-child(1) {
 			flex: 0 0 auto;
 		}
 
-		#players-table tbody td:nth-child(2) {
+		#players-table tbody td:nth-child(2),
+		#leaders-table tbody td:nth-child(2) {
 			flex: 1 1 auto;
 			overflow-wrap: anywhere;
 		}
@@ -69,7 +75,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php render($team, array('view' => '_teams', 'settings' => $settings)) ?>
+					<?php render($team, array('view' => '_teams', 'settings' => $settings, 'showTeamDetails' => true)) ?>
 				</tbody>
 			</table>
 		</div>
@@ -106,7 +112,7 @@
 		<?php echo empty($leaders) ? "<!--" : "" ?>
 		<h3 class="text-xl font-bold text-slate-800"><?php echo S_LEDARE ?></h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped team-people-table">
+			<table id="leaders-table" class="table table-condensed table-striped team-people-table">
 
 				<thead>
 					<tr>

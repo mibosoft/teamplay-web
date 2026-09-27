@@ -302,6 +302,12 @@
       background-color: #ccff66 !important;
     }
 
+    table.table > tbody > tr:hover > td,
+    table.table-striped > tbody > tr:hover > td,
+    table.zebra > tbody > tr:hover > td {
+      background-color: #ccff66 !important;
+    }
+
     @media (hover: none) and (pointer: coarse) {
       table.table > tbody > tr:hover,
       table.table-striped > tbody > tr:hover,
@@ -309,6 +315,15 @@
       table.table > tbody > tr:active,
       table.table-striped > tbody > tr:active,
       table.zebra > tbody > tr:active {
+        background-color: var(--color-table) !important;
+      }
+
+      table.table > tbody > tr:hover > td,
+      table.table-striped > tbody > tr:hover > td,
+      table.zebra > tbody > tr:hover > td,
+      table.table > tbody > tr:active > td,
+      table.table-striped > tbody > tr:active > td,
+      table.zebra > tbody > tr:active > td {
         background-color: var(--color-table) !important;
       }
 
@@ -443,6 +458,12 @@
       border-color: #cbd5e1;
       background: #f8fafc;
       color: #475569;
+    }
+
+    .tp-status-penalty {
+      border-color: #fecaca;
+      background: #fef2f2;
+      color: #b91c1c;
     }
 
     .row {

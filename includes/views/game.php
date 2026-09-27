@@ -1,7 +1,7 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="assets/css/timeline.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/timeline.css?v=7" />
 <style>
     @media (max-width: 640px) {
         .content .game-details-table {
@@ -21,8 +21,20 @@
         }
 
         #tab_1 .timeline-event p {
+            display: block;
+            margin-left: 0;
             line-height: 18px;
             min-height: 18px;
+        }
+
+        #tab_1 .timeline-event p .event-number {
+            position: static;
+            display: block;
+            margin-bottom: .25rem;
+        }
+
+        #tab_1 .timeline-event p .event-description {
+            display: block;
         }
     }
 </style>

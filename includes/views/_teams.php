@@ -5,7 +5,14 @@
       echo empty($k->logo) || $teamLogoUrl === '' ? '&nbsp;' : '<p align="center"><img src="' . htmlspecialchars($teamLogoUrl, ENT_QUOTES, 'UTF-8') . '" width="100" height="100"></p>';
     ?></td>
     <td style="vertical-align:middle"><a href="?overviewclass&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klass ?></a></td>
-    <?php echo ($settings[0]->value14 == "0") ? "<!--" : "" ?>
+    <?php if (empty($showTeamDetails) && $settings[0]->value14 == "0") echo "<!--" ?>
     <td style="vertical-align:middle"><a href="?overviewgroup&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->klass . '-' . $k->grp_nr?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo (empty($k->grp_nr) ? '' : $k->klass . '-' . $k->grp_nr ) ?></a></td>
-    <?php echo ($settings[0]->value14 == "0") ? "-->" : "" ?>
+    <?php if (empty($showTeamDetails) && $settings[0]->value14 == "0") echo "-->" ?>
+    <?php if (!empty($showTeamDetails)): ?>
+      <?php echo $settings[0]->bool15 == "true" ? "<!--" : "" ?>
+      <td style="vertical-align:middle"><?php echo htmlspecialchars((string)($k->drakt ?? ''), ENT_QUOTES, 'UTF-8') ?></td>
+      <?php echo $settings[0]->bool15 == "true" ? "-->" : "" ?>
+      <?php $teamWebsite = trim((string)($k->url ?? '')); ?>
+      <td style="vertical-align:middle; text-align:right"><?php if ($teamWebsite !== ''): ?><a href="<?php echo htmlspecialchars($teamWebsite, ENT_QUOTES, 'UTF-8') ?>" target="_blank" rel="noopener noreferrer"><?php echo htmlspecialchars($teamWebsite, ENT_QUOTES, 'UTF-8') ?></a><?php endif; ?></td>
+    <?php endif; ?>
   </tr>
