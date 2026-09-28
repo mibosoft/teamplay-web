@@ -442,6 +442,10 @@
       vertical-align: middle;
     }
 
+    .game-period {
+      font-size: .78rem;
+    }
+
     .tp-status-pending {
       border-color: #fed7aa;
       background: #fff7ed;

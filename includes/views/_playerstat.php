@@ -1,12 +1,18 @@
   <tr>
-      <td><?php echo $k->spelare ?></td>
+        <td data-mobile-name="<?php echo htmlspecialchars($k->spelare, ENT_QUOTES, 'UTF-8'); ?>">
+          <span class="playerstat-mobile-name"><?php echo $k->spelare ?></span>
+          <span class="playerstat-mobile-meta">
+            <span><?php echo htmlspecialchars($k->grp_nr, ENT_QUOTES, 'UTF-8'); ?></span>
+            <span><?php echo htmlspecialchars($k->klubb, ENT_QUOTES, 'UTF-8'); ?></span>
+          </span>
+        </td>
       <td><a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $k->grp_nr ?>&sort=<?php echo $_GET['sort']; ?>&team=<?php echo urlencode($k->klubb) ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo $k->klubb ?></a></td>
       <td><?php echo $k->grp_nr ?></td>
       <td><?php echo $k->ant_mtch ?></td>
       <td><?php echo (($_GET['sort'] == "goals" or  $baseInfo->bas->st_ass == 'false') ? "<b>" . $k->mal . "</b>" : $k->mal) ?></td>
       <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "<!--" ?>
       <td><?php echo (($_GET['sort'] == "assists") ? "<b>" . $k->ass . "</b>" : $k->ass) ?></td>
-      <td><?php echo (($_GET['sort'] == "points") ? "<b>" .  ($k->mal + $k->ass) . "</b>" :  $k->mal + $k->ass) ?></td>
+      <td data-mobile-points="<?php echo ($_GET['sort'] == "goals" ? $k->mal : ($_GET['sort'] == "assists" ? $k->ass : '(' . $k->mal . '+' . $k->ass . ') ' . ($k->mal + $k->ass))) ?>"><?php echo (($_GET['sort'] == "points") ? "<b>" .  ($k->mal + $k->ass) . "</b>" :  ($_GET['sort'] == "goals" ? $k->mal : ($_GET['sort'] == "assists" ? $k->ass : $k->mal + $k->ass))) ?></td>
       <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "-->" ?>
       <td><i><?php echo number_format((intval($k->mal) + intval($k->ass)) / intval($k->ant_mtch), 2) ?></i></td>
       <?php echo ($baseInfo->bas->st_utv == 'true') ? "" : "<!--" ?>
