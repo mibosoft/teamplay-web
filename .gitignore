@@ -1,0 +1,64 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+/assets/output.css
+/assets/output.css.map
+/dist/
+
+# Environment & Configuration
+.env
+.env.local
+.env.*.local
+.env.production.local
+
+# IDE & Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+.Thumbs.db
+
+# Logs & Temporary Files
+*.log
+logs/
+*.tmp
+*.cache
+.cache/
+php_errors.log
+
+# PHP-specific
+/vendor/
+composer.lock
+.php_cs.cache
+.phpunit.result.cache
+
+# Compiled CSS/SCSS maps (if applicable)
+*.css.map
+*.scss.map
+
+# Temp directories
+tmp/
+temp/
+.tmp/
+
+# Local development
+.history/
+*.bak
+*.backup
+
+# Node-specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
