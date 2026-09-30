@@ -4,6 +4,7 @@
   "description": "Teamplay is a tool that handles tournaments for team sports such as. ice hockey, floorball, football, handball, basketball and paddle. All steps from registration to scheduling and results management are taken care of.",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/tailwind.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
