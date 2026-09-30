@@ -87,7 +87,8 @@
     }
 
     a,
-    a:visited {
+    a:not(.btn):not(.tp-btn),
+    a:not(.btn):not(.tp-btn):visited {
       color: var(--color-text-default) !important;
     }
 
@@ -557,6 +558,7 @@
       .col-sm-12 { width: 100%; }
 
       .col-xs-6 { width: 50%; }
+      .game-period-mobile { display: none; }
     }
 
     @media (max-width: 767px) {
