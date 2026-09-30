@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="content">
-		<h2><?php echo S_REGLER ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo S_REGLER ?></h2>
 		<p><?php echo $baseInfo->bas->regler ?></p>
 	</div><!-- /.content -->
 </div>

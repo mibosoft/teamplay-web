@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="content">
-		<h2><?php echo S_DOMARE ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo S_DOMARE ?></h2>
 
 		<div class="table-responsive">
 			<table class="table table-condensed table-striped">

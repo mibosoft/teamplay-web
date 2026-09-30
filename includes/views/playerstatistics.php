@@ -1,8 +1,102 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+.playerstat-mobile-meta {
+        display: none;
+}
+
+@media (max-width: 640px) {
+        #playerstat-table {
+                display: block;
+                width: 100%;
+        }
+
+        #playerstat-table thead {
+                display: none;
+        }
+
+        #playerstat-table tbody {
+                display: flex;
+                flex-direction: column;
+                gap: .75rem;
+        }
+
+        #playerstat-table tbody tr {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                gap: .5rem !important;
+                padding: .75rem !important;
+                border: 1px solid rgba(148,163,184,.22) !important;
+                border-radius: .9rem !important;
+                background: var(--color-container) !important;
+                box-shadow: 0 6px 16px rgba(15,23,42,.05) !important;
+        }
+
+        #playerstat-table tbody td {
+                display: none !important;
+                border: 0 !important;
+                border-bottom: 0 !important;
+                padding: 0 !important;
+        }
+
+        #playerstat-table tbody td[data-mobile-name],
+        #playerstat-table tbody td[data-mobile-points] {
+                display: block !important;
+        }
+
+        #playerstat-table tbody td[data-mobile-name] {
+                flex: 1 1 auto;
+                display: flex !important;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: .15rem;
+                font-weight: 400;
+                white-space: normal;
+                overflow: hidden;
+                min-width: 0;
+        }
+
+        #playerstat-table tbody td[data-mobile-name] .playerstat-mobile-name {
+                max-width: 100%;
+                font-weight: 700;
+                color: #111827;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+        }
+
+        #playerstat-table tbody td[data-mobile-name] .playerstat-mobile-meta {
+                display: flex;
+                gap: .35rem;
+                font-weight: 400;
+                color: #4b5563;
+                font-size: .875rem;
+                white-space: nowrap;
+        }
+
+        #playerstat-table tbody td[data-mobile-points] {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                text-align: right;
+                font-weight: 700;
+                font-size: 0 !important;
+                color: transparent !important;
+        }
+
+        #playerstat-table tbody td[data-mobile-points]::before {
+                content: attr(data-mobile-points);
+                display: inline-block;
+                font-size: 1rem;
+                color: #111827;
+        }
+}
+</style>
+
 <div class="container">
         <div class="content">
-                <h2><?php echo S_SPELARSTATISTIK ?></h2>
+                <h2 class="text-2xl font-bold text-slate-800"><?php echo S_SPELARSTATISTIK ?></h2>
 
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" <?php echo ($_GET['sort'] == "points" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&team=<?php echo $_GET['team'] ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_POANG ?></a></li>
@@ -12,17 +106,15 @@
                         <?php echo ($baseInfo->bas->st_ass == 'true') ? "" : "-->" ?>
                         <li role="presentation"><a href="?playerhighlights&home=<?php echo $_GET['home'] ?>&scope=<?php echo $_GET['scope'] ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_HIGHLIGHTS ?></a></li>
                 </ul>
-                <br>
                 <ul class="nav nav-pills" role="tablist">
                         <li role="presentation" <?php echo ($_GET['scope'] == "all" ? 'class="active"' : '') ?>><a href="?playerstat&home=<?php echo $_GET['home'] ?>&scope=all&sort=<?php echo $_GET['sort']; ?>&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGA ?></a></li>
                         <?php foreach ($classes as $x) {
                                 echo '<li role="presentation" ' . ($x->grp_nr == $_GET['scope'] ? 'class="active"' : '') . '><a href="?playerstat&home=' . $_GET['home'] . '&scope=' . $x->grp_nr . '&sort=' . $_GET['sort'] . '&layout=' . $GLOBALS['layout'] . '&lang=' . $GLOBALS['lang'] . '">' . $x->grp_nr . '</a></li>';
                         } ?>
                 </ul>
-                <br>
 
                 <div class="table-responsive">
-                        <table class="table table-condensed table-striped">
+                        <table id="playerstat-table" class="table table-condensed table-striped">
                                 <thead>
                                         <tr>
                                                 <th><?php echo S_SPELARE ?></th>

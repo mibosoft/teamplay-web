@@ -191,6 +191,7 @@ define ("S_HAR","Zde");
 define ("S_MEDDENEMAIL","pomocí emailové adresy a hesla jste práv&#283; vstoupili");
 define ("S_INLOGGNSIDA","P&#345;ihlašovací stránka");
 define ("S_SISTREDANM","Poslední den pro úpravu registra&#269;ních údaj&#367;");
+define ("S_DATUM","Datum");
 define ("S_STARTDATUM","Datum za&#269;átku");
 define ("S_OPPNAEGETFONSTER","Otev&#345;ít v novém okn&#283;");
 define ("S_SPELPLATSER","Haly");

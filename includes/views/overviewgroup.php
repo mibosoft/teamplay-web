@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h2><?php echo $classes[0]->grp_namn ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo $classes[0]->grp_namn ?></h2>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
 		<ul class="nav nav-pills" role="tablist">
@@ -27,30 +27,32 @@
 		</ul>
 
 		<?php echo ($GLOBALS['layout'] == 3 or $showstandings) ? "<!--" : "" ?>
-		<h3><?php echo S_TABELL ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_TABELL ?></h3>
 		<?php echo ($GLOBALS['layout'] == 3 or $showstandings) ? "-->" : "" ?>
 		<?php echo ($showstandings) ? "<!--" : "" ?>
-		<table class="table table-condensed">
-			<thead>
-				<tr>
-					<th style="width: 20%"></th>
-					<th style="width: 5%"><?php echo S_OMG_S ?></th>
-					<th style="width: 5%"><?php echo S_VI ?></th>
-					<th style="width: 5%"><?php echo S_OA ?><?php echo $baseInfo->bas->visa_oav == 'true' ? ' (' . S_FLV . ')' : '' ?></th>
-					<th style="width: 5%"><?php echo S_FO ?></th>
-					<th style="width: 15%"><?php echo S_MAL_S ?></th>
-					<th style="width: 5%"><?php echo S_PO ?></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php render($standings, array('view' => '_standings', 'baseInfo' => $baseInfo)) ?>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-condensed standings-table">
+				<thead>
+					<tr>
+						<th class="text-left" style="width: 20%"></th>
+						<th class="text-left" style="width: 5%"><?php echo S_OMG_S ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_VI ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_OA ?><?php echo $baseInfo->bas->visa_oav == 'true' ? ' (' . S_FLV . ')' : '' ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_FO ?></th>
+						<th class="text-left" style="width: 15%"><?php echo S_MAL_S ?></th>
+						<th class="text-left" style="width: 5%"><?php echo S_PO ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php render($standings, array('view' => '_standings', 'baseInfo' => $baseInfo)) ?>
+				</tbody>
+			</table>
+		</div>
 
 		<?php echo ($showstandings) ? "-->" : "" ?>
 
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h3><?php echo S_MATCHER ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_MATCHER ?></h3>
 		<?php renderGames($games) ?>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 

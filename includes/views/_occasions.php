@@ -3,8 +3,9 @@
       <?php $hasAssist = (empty($k->spelare_a1) ? false : true) ?>
       <?php $hasAssist2 = (empty($k->spelare_a2) ? false : true) ?>
       <?php $isPenalty = (empty($k->utv) ? false : true) ?>
-      <p><?php echo $k->spelare ?> <?php echo $hasAssist ? '(' . $k->spelare_a1 . ($hasAssist2 ? ', ' . $k->spelare_a2 : '') . ')' : '' ?> <?php echo (empty($k->kod) ? '' : '(' . $k->kod . ')') ?>
-        <span class="event-number"><?php echo ($isPenalty ? '<big><span class="label label-primary">' . $k->utv . '</span></big>' : '<big><span class="label label-danger">' . $k->h . '-' . $k->b . '</span></big>') ?></span>
+      <p>
+        <span class="event-number"><?php echo ($isPenalty ? '<big><span class="tp-status tp-status-penalty">' . $k->utv . '</span></big>' : '<big><span class="tp-status ' . getGameStatus($games[0]->status) . '">' . $k->h . '-' . $k->b . '</span></big>') ?></span>
+        <span class="event-description"><?php echo $k->spelare ?> <?php echo $hasAssist ? '(' . $k->spelare_a1 . ($hasAssist2 ? ', ' . $k->spelare_a2 : '') . ')' : '' ?> <?php echo (empty($k->kod) ? '' : '(' . $k->kod . ')') ?></span>
       </p>
     </div>
     <div class="meta-time">

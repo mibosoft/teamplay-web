@@ -1,5 +1,54 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+  @media (max-width: 767px) {
+    #teams-directory-table thead,
+    #teams-directory-table tbody td::before {
+      display: none;
+    }
+
+    #teams-directory-table tbody td:nth-child(2),
+    #teams-directory-table tbody td:nth-child(4) {
+      display: none;
+    }
+
+    #teams-directory-table tbody td {
+      border-bottom: 0;
+    }
+
+    #teams-directory-table tbody tr {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    #teams-directory-table tbody td:first-child {
+      display: block;
+      flex: 1 1 auto;
+      min-width: 0;
+      text-align: left;
+    }
+
+    #teams-directory-table tbody td:first-child span {
+      display: flex !important;
+      min-width: 0;
+      white-space: normal !important;
+    }
+
+    #teams-directory-table tbody td:first-child a {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    #teams-directory-table tbody td:nth-child(3) {
+      display: block;
+      flex: 0 0 auto;
+      text-align: right;
+      white-space: nowrap;
+    }
+  }
+</style>
+
 <div class="container">
   <div class="content">
     <h2><?php echo S_LAG_PLURAL ?></h2>
@@ -13,10 +62,11 @@
         }
       }
       ?>
-      <p class="pull-right"><?php echo S_ANTAL ?>: <span class="badge"><?php echo $count ?></span>
-      </p>
     </ul>
-    <br>
+    <div class="mt-3 flex w-full items-center justify-end gap-2 text-sm font-medium text-slate-600">
+      <span><?php echo S_ANTAL ?>:</span>
+      <span class="inline-flex min-w-8 items-center justify-center rounded-full bg-slate-900 px-2 py-1 text-xs font-bold text-white"><?php echo $count ?></span>
+    </div>
 
     <?php echo $settings[0]->bool4 == "true" ? "" : "<!--" ?>
     <div class="row">
@@ -115,7 +165,7 @@
     <?php echo $settings[0]->bool4 == "true" ? "" : "-->" ?>
 
     <div class="table-responsive">
-      <table class="table table-condensed table-striped">
+      <table id="teams-directory-table" class="table table-condensed table-striped">
 
         <thead>
           <tr>
@@ -125,10 +175,6 @@
             <?php echo ($settings[0]->value14 == "0") ? "<!--" : "" ?>
 						<th><?php echo S_GRUPP ?></th>
             <?php echo ($settings[0]->value14 == "0") ? "-->" : "" ?>
-            <?php echo $settings[0]->bool15 == "true" ? "<!--" : "" ?>
-            <th><?php echo S_DRAKTFARG ?></th>
-            <?php echo $settings[0]->bool15 == "true" ? "-->" : "" ?>
-            <th style="text-align: right"><?php echo S_HEMSIDA ?></th>
           </tr>
         </thead>
         <tbody>

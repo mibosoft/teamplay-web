@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
-		<h2><?php echo $classes[0]->grp_namn ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo $classes[0]->grp_namn ?></h2>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>
 
 		<ul class="nav nav-pills" role="tablist">
@@ -28,8 +28,10 @@
 
 		<?php echo $GLOBALS['layout'] == 3 ? "<!--" : "" ?>
 		<?php echo $hideNavpills ? "-->" : "" ?>
-		<p class="pull-right"><?php echo S_ANTAL ?>: <span class="badge"><?php echo $count ?></span>
-		</p>
+		<div class="mt-3 flex w-full items-center justify-end gap-2 text-sm font-medium text-slate-600">
+			<span><?php echo S_ANTAL ?>:</span>
+			<span class="inline-flex min-w-8 items-center justify-center rounded-full bg-slate-900 px-2 py-1 text-xs font-bold text-white"><?php echo $count ?></span>
+		</div>
 		<br>
 		<?php renderGames($games) ?>
 		<?php echo $GLOBALS['layout'] == 3 ? "-->" : "" ?>

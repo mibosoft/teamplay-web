@@ -191,6 +191,7 @@ define ("S_HAR","Tutaj");
 define ("S_MEDDENEMAIL","z podanym przed chwil&#261; adresem e-mail i has&#322;em.");
 define ("S_INLOGGNSIDA","Strona logowania");
 define ("S_SISTREDANM","Ostatni dzie&#324; do edycji daty rejestracji");
+define ("S_DATUM","Data");
 define ("S_STARTDATUM","Data rozpocz&#281;cia");
 define ("S_OPPNAEGETFONSTER","Otwórz w osobnym oknie");
 define ("S_SPELPLATSER","Hale");

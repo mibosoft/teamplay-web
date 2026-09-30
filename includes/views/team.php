@@ -1,10 +1,63 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+	@media (max-width: 640px) {
+		.content .team-people-table {
+			min-width: 0 !important;
+			table-layout: auto;
+			width: 100%;
+		}
+
+		.team-people-table td,
+		.team-people-table th {
+			overflow-wrap: anywhere;
+			white-space: normal;
+		}
+
+		#players-table thead,
+		#leaders-table thead {
+			display: none;
+		}
+
+		#players-table tbody tr,
+		#leaders-table tbody tr {
+			display: flex;
+			align-items: center;
+			gap: .75rem;
+		}
+
+		#players-table tbody td,
+		#leaders-table tbody td {
+			display: block;
+			min-width: 0;
+			padding: .55rem 0;
+			border: 0;
+			text-align: left;
+		}
+
+		#players-table tbody td::before,
+		#leaders-table tbody td::before {
+			display: none;
+		}
+
+		#players-table tbody td:nth-child(1),
+		#leaders-table tbody td:nth-child(1) {
+			flex: 0 0 auto;
+		}
+
+		#players-table tbody td:nth-child(2),
+		#leaders-table tbody td:nth-child(2) {
+			flex: 1 1 auto;
+			overflow-wrap: anywhere;
+		}
+	}
+</style>
+
 <div class="container">
 	<div class="content">
-		<h2><?php echo ($settings[0]->bool21 == "false" or empty($team[0]->lkod)) ? '' : '<img src="assets/images/flags_iso/32/' . $team[0]->lkod . '.png" style="vertical-align: text-top;"/> ' ?><?php echo $title ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo ($settings[0]->bool21 == "false" or empty($team[0]->lkod)) ? '' : '<img src="assets/images/flags_iso/32/' . $team[0]->lkod . '.png' . 'style="vertical-align: text-top;" /> ' ?><?php echo $title ?></h2>
 
-		<h3><?php echo S_OVERSIKT ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_OVERSIKT ?></h3>
 
 		<div class="table-responsive">
 			<table class="table table-condensed table-striped">
@@ -22,14 +75,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php render($team, array('view' => '_teams', 'settings' => $settings)) ?>
+					<?php render($team, array('view' => '_teams', 'settings' => $settings, 'showTeamDetails' => true)) ?>
 				</tbody>
 			</table>
 		</div>
 		<hr>
 
 		<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
-		<h3><?php echo S_SPELARE ?>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_SPELARE ?>
 			<?php echo (empty($players) or $settings[0]->value4 == "0") ? "-->" : "" ?>
 			<?php echo $settings[0]->value6 == "1" ? "" : "<!--"; ?>
 			(<a href="?playerstat&home=<?php echo $_GET['home']; ?>&scope=<?php echo $team[0]->klass ?>&team=<?php echo urlencode($team[0]->klubb) ?>&sort=points&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo strtolower(S_STATISTIK) ?></a>)
@@ -37,7 +90,7 @@
 			<?php echo (empty($players) or $settings[0]->value4 == "0") ? "<!--" : "" ?>
 		</h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped">
+			<table id="players-table" class="table table-condensed table-striped team-people-table">
 				<thead>
 					<tr>
 						<?php echo $settings[0]->bool2 == "true" ? "<!--" : "" ?>
@@ -57,9 +110,9 @@
 		<?php echo (empty($players) or $settings[0]->value4 == "0") ? "-->" : "" ?>
 
 		<?php echo empty($leaders) ? "<!--" : "" ?>
-		<h3><?php echo S_LEDARE ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_LEDARE ?></h3>
 		<div class="table-responsive">
-			<table class="table table-condensed table-striped">
+			<table id="leaders-table" class="table table-condensed table-striped team-people-table">
 
 				<thead>
 					<tr>
@@ -74,7 +127,7 @@
 		</div>
 		<?php echo empty($leaders) ? "-->" : "" ?>
 
-		<h3><?php echo S_MATCHER ?></h3>
+		<h3 class="text-xl font-bold text-slate-800"><?php echo S_MATCHER ?></h3>
 		<?php renderGames($games) ?>
 
 	</div><!-- /.content -->

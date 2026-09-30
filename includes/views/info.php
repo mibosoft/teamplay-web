@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="content">
-    <h2><?php echo S_INFORMATION ?></h2>
+    <h2 class="text-2xl font-bold text-slate-800"><?php echo S_INFORMATION ?></h2>
     <?php echo $baseInfo->bas->info == "" ? "" : "<!--" ?>
     <div class="alert alert-success" role="alert">
       <?php echo S_CUPSIDAINFO ?> <a href="<?php echo $baseInfo->bas->url ?>" target="_blank"><?php echo S_OFFCUPSIDA ?></a>.

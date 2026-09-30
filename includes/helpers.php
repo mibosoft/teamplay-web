@@ -79,6 +79,30 @@ function isHttps()
     return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443;
 }
 
+function safeAssetUrl($baseUrl, $home, $filename)
+{
+    $value = trim((string) ($filename ?? ''));
+
+    if ($value === '') {
+        return '';
+    }
+
+    if (preg_match('/^file:\/\//i', $value) || preg_match('/^[A-Za-z]:[\\\/]/', $value) || preg_match('/^\\\\/', $value)) {
+        return '';
+    }
+
+    if (preg_match('/^https?:\/\//i', $value) || preg_match('/^\/\//', $value)) {
+        return $value;
+    }
+
+    $safeHome = is_string($home) ? trim($home) : '';
+    $safeHome = rtrim($safeHome, '/');
+    $base = rtrim((string) $baseUrl, '/');
+    $relative = $safeHome !== '' ? $safeHome . '/' . ltrim($value, '/') : ltrim($value, '/');
+
+    return $base . '/' . $relative;
+}
+
 /*
 function mergeXML(&$base, $add)
 {
@@ -165,13 +189,13 @@ function getGameStatus($status)
 {
     switch ($status) {
         case 1:
-            return "label label-warning";
+            return "tp-status tp-status-pending";
             break;
         case 2:
-            return "label label-lightgreen";
+            return "tp-status tp-status-completed";
             break;
         default:
-            return "label label-gray";
+            return "tp-status tp-status-not-started";
             break;
     }
 }

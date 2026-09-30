@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="content">
-        <h2><?php echo S_ANMALAN ?></h2>
+        <h2 class="text-2xl font-bold text-slate-800"><?php echo S_ANMALAN ?></h2>
         <p><?php echo $baseInfo->bas->anmalan ?></p>
         <br>
         <p><?php echo S_SISTAANMALNINGSDAG ?> : <strong><?php echo $baseInfo->bas->sista_anm ?></strong></p>

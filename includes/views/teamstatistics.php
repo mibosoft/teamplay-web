@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="content">
 
-		<h2><?php echo S_ANTALLAGPERKLASS ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo S_ANTALLAGPERKLASS ?></h2>
 		<div class="row text-left">
 			<div id="columnchart-container" class="col-md-12"></div>
 		</div>
@@ -78,7 +78,7 @@
 		</script>
 
 		<?php echo $settings[0]->value7 == "1" ? "" : "<!--"; ?>
-		<h2><?php echo S_LAGSTATISTIK ?></h2>
+		<h2 class="text-2xl font-bold text-slate-800"><?php echo S_LAGSTATISTIK ?></h2>
 
 		<ul class="nav nav-pills" role="tablist">
 			<li role="presentation" <?php echo ($_GET['scope'] == "all" ? 'class="active"' : '') ?>><a href="?teamstat&home=<?php echo $_GET['home'] ?>&scope=all&layout=<?php echo $GLOBALS['layout']; ?>&lang=<?php echo $GLOBALS['lang']; ?>"><?php echo S_SAMTLIGA ?></a></li>

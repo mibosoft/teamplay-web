@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="content">
-        <h2><?php echo S_KLASSER ?> / <?php echo S_GRUPPER ?></h2>
+        <h2 class="text-2xl font-bold text-slate-800"><?php echo S_KLASSER ?> / <?php echo S_GRUPPER ?></h2>
 
         <?php render($classes, array('view' => '_overview', 'settings' => $settings)) ?>
 

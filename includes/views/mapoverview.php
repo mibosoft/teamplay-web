@@ -1,30 +1,38 @@
 <?php render('_headercup', array('title' => $baseInfo->bas->namn, 'settings' => $settings, 'menuItems' => $menuItems)) ?>
 
+<style>
+  .map-filter-icon {
+    display: inline-block;
+    margin-right: .25rem;
+    vertical-align: middle;
+  }
+</style>
+
 <div class="container">
   <div class="content">
-    <h2><?php echo S_OVERSIKTSKARTA ?></h2>
+    <h2 class="text-2xl font-bold text-slate-800"><?php echo S_OVERSIKTSKARTA ?></h2>
 
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-default btn-sm active" data-toggle="button" aria-pressed="true" id="btn-show-arenas" type="button">
-          <img width="16" height="19" src="assets/images/arena.png"> <?php echo S_SPELPLATSER ?>
+        <button class="btn btn-default btn-sm active" data-ui="button" aria-pressed="true" id="btn-show-arenas" type="button">
+          <img class="map-filter-icon" width="16" height="19" src="assets/images/arena.png"> <?php echo S_SPELPLATSER ?>
         </button>
 
         <?php echo empty($foodplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-food" type="button">
-          <img width="16" height="19" src="assets/images/food.png"> <?php echo S_MATSTALLEN ?>
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-food" type="button">
+          <img class="map-filter-icon" width="16" height="19" src="assets/images/food.png"> <?php echo S_MATSTALLEN ?>
         </button>
         <?php echo empty($foodplaces) ? "-->" : "" ?>
 
         <?php echo empty($lodgingplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-lodging" type="button">
-          <img width="16" height="19" src="assets/images/lodging.png"> <?php echo S_BOENDE ?>
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-lodging" type="button">
+          <img class="map-filter-icon" width="16" height="19" src="assets/images/lodging.png"> <?php echo S_BOENDE ?>
         </button>
         <?php echo empty($lodgingplaces) ? "-->" : "" ?>
 
         <?php echo empty($otherplaces) ? "<!--" : "" ?>
-        <button class="btn btn-default btn-sm" data-toggle="button" id="btn-show-other" type="button">
-          <img width="16" height="19" src="assets/images/other.png"> <?php echo S_OVRIGT ?>
+        <button class="btn btn-default btn-sm" data-ui="button" id="btn-show-other" type="button">
+          <img class="map-filter-icon" width="16" height="19" src="assets/images/other.png"> <?php echo S_OVRIGT ?>
         </button>
         <?php echo empty($otherplaces) ? "-->" : "" ?>
       </div>
@@ -177,7 +185,7 @@
           title: '<?php echo $baseInfo->bas->namn ?>',
           icon: "assets/images/start.png",
           map: map,
-          infotext: '<h3>' + '<?php echo $baseInfo->bas->namn ?>' + '</h3>' + '<?php echo S_ADRESS ?>' + ': ' + '<?php echo $baseInfo->bas->adress ?>' + ' ' + '<?php echo $baseInfo->bas->plats ?>' + '<br>GPS: ' + '<?php echo $baseInfo->bas->longlat ?>'
+          infotext: '<h3 class="text-xl font-bold text-slate-800">' + '<?php echo $baseInfo->bas->namn ?>' + '</h3>' + '<?php echo S_ADRESS ?>' + ': ' + '<?php echo $baseInfo->bas->adress ?>' + ' ' + '<?php echo $baseInfo->bas->plats ?>' + '<br>GPS: ' + '<?php echo $baseInfo->bas->longlat ?>'
         });
         marker.addListener('click', function() {
           infowindow.setContent(this.infotext);
@@ -210,7 +218,7 @@
             icon: image,
             title: mapLocation[0],
             zIndex: mapLocation[3],
-            infotext: '<h3>' + mapLocation[0] + '</h3>' + mapLocation[6] + '<br><br>' + '<?php echo S_ADRESS ?>' + ': ' + mapLocation[4] + ' ' + mapLocation[5] + '<br>GPS: ' + mapLocation[1] + ',' + mapLocation[2]
+            infotext: '<h3 class="text-xl font-bold text-slate-800">' + mapLocation[0] + '</h3>' + mapLocation[6] + '<br><br>' + '<?php echo S_ADRESS ?>' + ': ' + mapLocation[4] + ' ' + mapLocation[5] + '<br>GPS: ' + mapLocation[1] + ',' + mapLocation[2]
           });
           marker.addListener('click', function() {
             infowindow.setContent(this.infotext);

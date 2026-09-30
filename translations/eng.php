@@ -191,6 +191,7 @@ define ("S_HAR","here");
 define ("S_MEDDENEMAIL","with the email address and password you just entered.");
 define ("S_INLOGGNSIDA","Login page");
 define ("S_SISTREDANM","Last date to edit registration data");
+define ("S_DATUM","Date");
 define ("S_STARTDATUM","Start date");
 define ("S_OPPNAEGETFONSTER","Open in a separate window");
 define ("S_SPELPLATSER","Arenas");

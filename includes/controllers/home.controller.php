@@ -16,11 +16,7 @@ class HomeController
 					$teams = Teams::getTeams($folder, "all", "");
 
 					if ($GLOBALS['layout'] == 1) {
-						if ($settings[0]->value3 == 0) {
-							$layoutfile = "home";
-						} else {
-							$layoutfile = "homewide";
-						}
+						$layoutfile = "homewide";
 						$classes = Classes::getClasses($folder, "");
 						$news = News::getNews($folder);
 						render($layoutfile, array(
