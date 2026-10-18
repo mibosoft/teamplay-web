@@ -199,15 +199,15 @@
       color: var(--color-container-text);
     }
 
-    .tp-shell a,
-    .tp-shell a:visited,
-    .content a,
-    .content a:visited {
+    .tp-shell a:not(.btn):not(.tp-btn),
+    .tp-shell a:not(.btn):not(.tp-btn):visited,
+    .content a:not(.btn):not(.tp-btn),
+    .content a:not(.btn):not(.tp-btn):visited {
       color: var(--color-container-text) !important;
     }
 
-    .tp-shell a:hover,
-    .content a:hover {
+    .tp-shell a:not(.btn):not(.tp-btn):hover,
+    .content a:not(.btn):not(.tp-btn):hover {
       color: var(--color-container-text) !important;
       filter: brightness(0.75);
     }
@@ -221,12 +221,12 @@
       color: var(--color-card-text) !important;
     }
 
-    .tp-card a,
-    .tp-card a:visited {
+    .tp-card a:not(.btn):not(.tp-btn),
+    .tp-card a:not(.btn):not(.tp-btn):visited {
       color: var(--color-card-text) !important;
     }
 
-    .tp-card a:hover {
+    .tp-card a:not(.btn):not(.tp-btn):hover {
       color: var(--color-card-text) !important;
       filter: brightness(0.75);
     }
