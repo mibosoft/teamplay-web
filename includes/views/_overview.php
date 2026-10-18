@@ -29,7 +29,7 @@ if ($settings[0]->value14 == "1" and count($k->grupp) > 0) {
   }
   echo '</div>';
 } else {
-  echo '<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">';
+  echo '<br><div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">';
   echo '<article class="tp-card p-4">';
   echo '<h4 class="m-0 text-base font-bold text-slate-800"><a class="hover:text-sky-700" href="?overviewclass&home=' . $_GET['home'] . '&scope=' . $k->grp_nr . '&layout=' . $GLOBALS['layout'] . '">' . $k->grp_nr . ' - ' . $k->grp_namn . '</a></h4>';
   echo '</article>';
